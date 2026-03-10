@@ -1,6 +1,17 @@
+.our-buttons {
+    background-color: #D9D9D9;
+    color: black;
+}
 .menu-buttons {
     border: 2px solid black;
     border-radius: 0;
+}
+#first-menu-button {
+    padding-left: 10px;
+}
+
+#last-menu-button {
+    padding-right: 5%;
 }
 .promo-buttons {
     padding-top: 5px;
