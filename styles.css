@@ -2,3 +2,15 @@
     border: 2px solid black;
     border-radius: 0;
 }
+.promo-buttons {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.top-logo {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.main-paddings {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
