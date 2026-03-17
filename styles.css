@@ -2,24 +2,42 @@
     background-color: #D9D9D9;
     color: black;
 }
+.top-bar-sizes {
+    min-width: 50px;
+}
 .menu-buttons {
     border: 2px solid black;
     border-radius: 0;
 }
-#first-menu-button {
-    padding-left: 10px;
+
+#search-area {
+    min-width: 50%;
 }
 
-#last-menu-button {
-    padding-right: 5%;
-}
 .promo-buttons {
     padding-top: 5px;
     padding-bottom: 5px;
 }
+.min-width-promo {
+    min-width: 150px;
+}
+
+.max-sizes-zlavy {
+    max-width: 90%;
+}
 .top-logo {
     padding-top: 5px;
     padding-bottom: 5px;
+    aspect-ratio: 4/3;
+    max-width: 150px;
+    content: url("./resources/NoraLogo.svg");
+}
+
+@media (min-resolution: 3dppx) {
+    .top-logo {
+        /* content: url("./resources/NoraLogo.svg"); */
+        max-width: 80px;
+    }
 }
 
 .heading {
