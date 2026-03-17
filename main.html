@@ -13,24 +13,24 @@
     <!--Top bar Stranky-->
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-2 top-logo">
-                <img src="./resources/NoraLogo.png" width="157" height="114">
+            <div class="col-auto">
+                <div class="top-logo"></div>
             </div>
-            <div class="col-6">
-                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
+            <div class="col">
+                <input id="search-area" class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
             </div>
-            <div class="col-1">
-                <button class="btn btn-outline-success our-buttons w-100" type="submit">
+            <div class="col-auto">
+                <button class="btn btn-outline-success our-buttons w-100 top-bar-sizes" type="submit">
                     <img src="./resources/search.svg" height="40">
                 </button>
             </div>
-            <div class="col-1">
-                <button type="button" class="btn btn-secondary our-buttons w-100">
+            <div class="col-auto">
+                <button type="button" class="btn btn-secondary our-buttons w-100 top-bar-sizes">
                     <img src="./resources/profile.svg" height="40">
                 </button>
             </div>
-            <div class="col-1">
-                <button type="button" class="btn btn-secondary our-buttons w-100">
+            <div class="col-auto">
+                <button type="button" class="btn btn-secondary our-buttons w-100 top-bar-sizes">
                     <img src="./resources/ShopCart.svg" height="40">
                 </button>
             </div>    
@@ -42,7 +42,7 @@
         <div class="row g-0">
             <div class="col">
                 <div class="d-grid menu-button-left" role="group" aria-label="Basic example">
-                <button id="first-menu-button" type="button" class="btn btn-secondary menu-buttons our-buttons">Hry</button>
+                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Hry</button>
                 </div>
             </div>
             <div class="col">
@@ -62,7 +62,7 @@
             </div>
             <div class="col">
                 <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
-                <button id="last-menu-button" type="button" class="btn btn-secondary menu-buttons our-buttons">O Nás</button>
+                <button type="button" class="btn btn-secondary menu-buttons our-buttons">O Nás</button>
                 </div>
             </div>    
         </div>
@@ -70,9 +70,9 @@
 
     <!-- Velka zlava -->
     <div class="container text-center main-paddings">
-            <div class="row">
-                <div class="col">
-                    <img src="./resources/MegaVypredaj.jpg" width="1000" height="300"/>
+            <div class="row mh-50">
+                <div class="col mw-50">
+                    <img src="./resources/MegaVypredaj.jpg" height="300" class="w-90 max-sizes-zlavy"/>
                 </div>
               
             </div>
@@ -136,13 +136,11 @@
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
-                        <img src="./resources/ArrowBack.png"/>
-                        <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+                        <img src="./resources/ArrowBack.svg"/>
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
-                        <img src="./resources/ArrowForward.png"/>
-                        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+                        <img src="./resources/ArrowForward.svg"/>
                         <span class="visually-hidden">Next</span>
                     </button>
                     </div>
@@ -206,12 +204,12 @@
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
-                        <img src="./resources/ArrowBack.png"/>
+                        <img src="./resources/ArrowBack.svg"/>
                         <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
-                        <img src="./resources/ArrowForward.png"/>
+                        <img src="./resources/ArrowForward.svg"/>
                         <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -222,38 +220,38 @@
     </div>
     <!-- Promo  -->
     <div class="container">
-    <h3 class="heading">Promo</h3>
-            <div class="row align-items-center">
-                <div class="col">
-                    <img src="./resources/Promo.jpg" width="700" height="300">
+        <h3 class="heading">Promo</h3>
+        <div class="row align-items-center">
+            <div class="col">
+                <img src="./resources/Promo.jpg" height="200" class="w-90">
+            </div>
+            <div class="col">
+                <div class="row promo-buttons">
+                    <div class="col">
+                        <button type="button" class="btn btn-secondary our-buttons w-100 min-width-promo">Ybox</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-secondary our-buttons w-100 min-width-promo">PlayState</button>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="row promo-buttons">
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary our-buttons w-100">Ybox</button>
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary our-buttons w-100">PlayState</button>
-                        </div>
+                <div class="row promo-buttons">
+                    <div class="col">
+                        <button type="button" class="btn btn-secondary our-buttons w-100 min-width-promo">PC</button>
                     </div>
-                    <div class="row promo-buttons">
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary our-buttons w-100">PC</button>
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary our-buttons w-100">Nontend</button>
-                        </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-secondary our-buttons w-100 min-width-promo">Nontend</button>
                     </div>
-                    <div class="row promo-buttons">
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary our-buttons w-100">Steak Deck</button>
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-secondary our-buttons w-100">GameGirl</button>
-                        </div>
+                </div>
+                <div class="row promo-buttons">
+                    <div class="col">
+                        <button type="button" class="btn btn-secondary our-buttons w-100 min-width-promo">Steak Deck</button>
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-secondary our-buttons w-100 min-width-promo">GameGirl</button>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
     
     <!-- Paticka -->
