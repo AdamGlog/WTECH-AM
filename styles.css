@@ -32,6 +32,21 @@
 }
 
 
+.buttonProduct1:hover {
+    background-color: limegreen;
+}
+
+.buttonProduct0 {
+    background-color: lime;
+}
+
+.buttonProduct2:hover {
+    background-color: DodgerBlue;
+}
+
+.buttonProduct2 {
+    background-color: DodgerBlue;
+}
 
 .paticka {
     background-color:#e0e0e0;
