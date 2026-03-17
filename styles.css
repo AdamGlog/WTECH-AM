@@ -110,3 +110,83 @@
 .menu-button-right{
     padding-right: 10%;
 }
+
+.card-image {
+    height: 350px;
+    width: 255px;
+    margin: 0 auto;
+}
+
+.btn-qty {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-qty-prev {
+  background-color: #cb533e;
+}
+
+.btn-qty-next {
+  background-color: #14b369;
+}
+
+.kosik-qty {
+  width: 35px;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.btn-qty-prev:hover {
+    background-color: #b8341d;
+}
+
+.btn-qty-next:hover {
+  background-color: #079251;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ccc;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .85rem;
+}
+
+.step-circle.active {
+  background: #38b328;
+}
+
+.step-label {
+  font-size: .85rem;
+  color: #aaa;
+}
+
+.step-label.active {
+  color: #38b328;
+  font-weight: 600;
+}
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: #ccc;
+  min-width: 40px;
+}
