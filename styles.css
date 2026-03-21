@@ -50,12 +50,10 @@
     padding-bottom: 5px;
     aspect-ratio: 4/3;
     max-width: 150px;
-    content: url("./resources/NoraLogo.svg");
 }
 
 @media (min-resolution: 3dppx) {
     .top-logo {
-        /* content: url("./resources/NoraLogo.svg"); */
         max-width: 80px;
     }
 }
