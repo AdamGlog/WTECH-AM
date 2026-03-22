@@ -190,3 +190,15 @@
   background: #ccc;
   min-width: 40px;
 }
+
+.right-banner {
+    float: right;
+}
+
+.step-line.active {
+    background-color: #23b06e;
+}
+
+.step-circle.active {
+    background-color: #23b06e;
+}
