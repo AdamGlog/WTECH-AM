@@ -202,3 +202,21 @@
 .step-circle.active {
     background-color: #23b06e;
 }
+
+.btn-check + .btn {
+    background-color: #c16262;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-check:checked + .btn {
+    background-color: #0cc25b;
+    color: #fff;
+    border: none;
+}
+
+.btn-check + .btn:hover {
+    background-color: #6b7767;
+    color: #ffffff;
+    border: none;
+}
