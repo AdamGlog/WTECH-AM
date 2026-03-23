@@ -225,3 +225,7 @@
     max-width: 400px;
     margin: 0 auto;
 }
+
+.nadpis-shipping {
+    font-weight: bold;
+}
