@@ -220,3 +220,8 @@
     color: #ffffff;
     border: none;
 }
+
+.zaruka-text {
+    max-width: 400px;
+    margin: 0 auto;
+}
