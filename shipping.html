@@ -67,90 +67,84 @@
             </div>    
         </div>
     </div>
-
-    <!--Orientacne cisla-->
-    <div class="container mt-4">
-        <h3>Obsah Košíka:</h3>
-        <div class="border rounded p-3 bg-light">
-            <div class="d-flex align-items-center gap-3 mb-4">
-                <div class="d-flex align-items-center gap-2">
-                <span class="step-circle active">1</span>
-                <span class="step-label active">Košík</span>
-                </div>
-                <div class="step-line"></div>
-                <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle">2</span>
-                    <span class="step-label">Doprava a platba</span>
-                </div>
-                <div class="step-line"></div>
-                <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle">3</span>
-                    <span class="step-label">Dodacie údaje</span>
-                </div>
-                <div class="step-line"></div>
-                <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle">4</span>
-                    <span class="step-label">Sumár</span>
-                </div>
+    
+    <!--Telo stránky-->
+    <div class="container my-4">
+        <div class="container text-center">
+            <h2>Možnosti dopravy</h2>                
+        </div>
+        <br>
+        <!--Doručenie kuriérom-->
+        <div class="row justify-content-around align-items-center">
+            <div class="col">
+                <img src="./resources/kurier.jpg" 
+                            class="d-block w-75 mx-auto" 
+                            style="max-width: 450px;"
+                            alt="kurier">
             </div>
-            <!-- Položka -->
-            <div class="d-flex align-items-center border rounded bg-white p-2 mb-2">
-                <img src="./resources/wichterHrncek.png" height="50" class="me-3">
-                <span class="me-2"><strong>Hrnček The Wichter</strong> - Popis produktu</span>
-                <span class="ms-auto me-3">Počet ks.</span>
-                <button class="btn btn-danger btn-sm me-2">✕</button>
-                <button class="btn-qty btn-qty-prev">
-                <img src="./resources/arrow_back.png" height="20">
-                </button>
-                <span class="kosik-qty">5</span>
-                <button class="btn-qty btn-qty-next">
-                <img src="./resources/arrow_forward.png" height="20"></button>
-                <span class="ms-3 fw-bold">49,95 €</span>
+            <div class="col-md-6">
+                <p class="text-start mb-0 zaruka-text">
+                <span class="highlight title">Rýchla doprava až pred vaše dvere</span><br>
+                Ak preferujete rýchlosť a maximálne pohodlie, odporúčame doručenie kuriérom. 
+                Vaša objednávka bude doručená priamo k vašim dverám - domov alebo do práce, 
+                bez nutnosti kamkoľvek chodiť. Kuriér vás bude vopred kontaktovať, aby ste 
+                si mohli dohodnúť presný čas doručenia, ktorý vám najviac vyhovuje. Tento 
+                spôsob dopravy je ideálny pre tých, ktorí chcú mať svoj tovar čo najskôr 
+                a bez zbytočných komplikácií.
+                https://shipcenter.pl/blog/praca-kuriera-na-czym-polega-czy-warto-i-ile-zarabia-kurier/
+                </p>
             </div>
+        </div>
+        <br>
+        <br>
 
-            <!-- Položka -->
-            <div class="d-flex align-items-center border rounded bg-white p-2 mb-2">
-                <img src="./resources/trickoWichter.png" height="50" class="me-3">
-                <span class="me-2"><strong>Tričko The Wichter</strong> - Popis produktu</span>
-                <span class="ms-auto me-3">Počet ks.</span>
-                <button class="btn btn-danger btn-sm me-2">✕</button>
-                <button class="btn-qty btn-qty-prev">
-                <img src="./resources/arrow_back.png" height="20">
-                </button>
-                <span class="kosik-qty">3</span>
-                <button class="btn-qty btn-qty-next">
-                <img src="./resources/arrow_forward.png" height="20"></button>
-                <span class="ms-3 fw-bold">59,97 €</span>
+        <!--Doručenie na poštu-->
+        <div class="row justify-content-around align-items-center">
+            <div class="col-md-6">
+                <p class="text-start mb-0 zaruka-text">
+                <span class="highlight title">Expresné vyzdvihnutie na pošte</span><br>
+                Ponúkame spoľahlivé doručenie prostredníctvom pošty, ktoré je ideálne pre 
+                zákazníkov, ktorí hľadajú overené a cenovo dostupné riešenie. Každú objednávku 
+                starostlivo balíme tak, aby bola počas prepravy maximálne chránená pred poškodením. 
+                Balík si môžete nechať doručiť priamo na vašu adresu alebo na vybranú pobočku, kde 
+                si ho vyzdvihnete v čase, ktorý vám vyhovuje. O priebehu doručenia vás budeme priebežne 
+                informovať, aby ste mali vždy prehľad o stave vašej zásielky.
+                https://zahori.sk/93603/pobocka-posty-v-max-e-konci-posta-skalica-1-predlzi-otvaracie-hodiny/
+            </p>
             </div>
-
-            <!-- Položka -->
-            <div class="d-flex align-items-center border rounded bg-white p-2 mb-2">
-                <img src="./resources/PS7.jpg" height="50" class="me-3">
-                <span class="me-2"><strong>Play State 7</strong> - Popis produktu</span>
-                <span class="ms-auto me-3">Počet ks.</span>
-                <button class="btn btn-danger btn-sm me-2">✕</button>
-                <button class="btn-qty btn-qty-prev">
-                <img src="./resources/arrow_back.png" height="20">
-                </button>
-                <span class="kosik-qty">1</span>
-                <button class="btn-qty btn-qty-next">
-                <img src="./resources/arrow_forward.png" height="20"></button>
-                <span class="ms-3 fw-bold">499,99 €</span>
+            <div class="col">
+                <img src="./resources/posta.jpg" 
+                            class="d-block w-75 mx-auto" 
+                            style="max-width: 450px;"
+                            alt="posta">
             </div>
+        </div>
+        <br>
+        <br>
 
-            <div class="d-flex justify-content-between fw-bold fs-5">
-                <span>Spolu</span>
-                <span>634,91 €</span>
+        <!--Doručenie na predajňu-->
+        <div class="row justify-content-around align-items-center">
+            <div class="col">
+                <img src="./resources/balikNaPredajni.jpg" 
+                            class="d-block w-75 mx-auto" 
+                            style="max-width: 450px;"
+                            alt="balik na predajni">
             </div>
-
-            <!-- Pokračovať -->
-            <div class="d-flex justify-content-end mt-2">
-                <button class="btn btn-secondary">Pokračovať</button>
+            <div class="col-md-6">
+                <p class="text-start mb-0 zaruka-text">
+                <span class="highlight title">Okamžité vyzdvihnutie u nás na predajni</span><br>
+                Pre zákazníkov, ktorí preferujú osobný prístup, ponúkame možnosť vyzdvihnutia 
+                objednávky priamo na našej predajni. Po pripravení vás budeme informovať, aby 
+                ste si ju mohli prísť vyzdvihnúť bez zbytočného čakania. Výhodou osobného odberu 
+                je nielen úspora času na doručenie, ale aj možnosť poradiť sa s naším personálom 
+                alebo si produkt prezrieť ešte pred prevzatím. Tento spôsob je ideálny pre tých, 
+                ktorí chcú mať nad celým procesom plnú kontrolu.
+                https://www.alza.sk/alza-garantuje-dorucenie-darcekov-do-vianoc-2024
+                </p>
             </div>
-
         </div>
     </div>
-    
+
     <!-- Paticka -->
     <div class="container">
         <hr class="border-dark border-2 opacity-100 my-0 mt-3"/>
@@ -188,7 +182,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- JS z Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

@@ -190,3 +190,42 @@
   background: #ccc;
   min-width: 40px;
 }
+
+.right-banner {
+    float: right;
+}
+
+.step-line.active {
+    background-color: #23b06e;
+}
+
+.step-circle.active {
+    background-color: #23b06e;
+}
+
+.btn-check + .btn {
+    background-color: #c16262;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-check:checked + .btn {
+    background-color: #0cc25b;
+    color: #fff;
+    border: none;
+}
+
+.btn-check + .btn:hover {
+    background-color: #6b7767;
+    color: #ffffff;
+    border: none;
+}
+
+.zaruka-text {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.highlight {
+    font-weight: bold;
+}
