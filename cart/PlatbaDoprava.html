@@ -6,31 +6,31 @@
         <title>Nora</title>
         <!-- CSS z Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link href="./styles.css" rel="stylesheet">
+        <link href="../styles.css" rel="stylesheet">
     </head>
   <body>
     <!--Top bar Stranky-->
     <div class="container">
         <div class="row align-items-center">
             <div class="col-auto">
-                <img src="./resources/NoraLogo.svg" class="top-logo">
+                <img src="../resources/NoraLogo.svg" class="top-logo">
             </div>
             <div class="col">
                 <input id="search-area" class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
             </div>
             <div class="col-auto">
                 <button class="btn btn-outline-success our-buttons w-100 top-bar-sizes" type="submit">
-                    <img src="./resources/search.svg" height="40">
+                    <img src="../resources/search.svg" height="40">
                 </button>
             </div>
             <div class="col-auto">
                 <button type="button" class="btn btn-secondary our-buttons w-100 top-bar-sizes">
-                    <img src="./resources/profile.svg" height="40">
+                    <img src="../resources/profile.svg" height="40">
                 </button>
             </div>
             <div class="col-auto">
                 <button type="button" class="btn btn-secondary our-buttons w-100 top-bar-sizes">
-                    <img src="./resources/ShopCart.svg" height="40">
+                    <img src="../resources/ShopCart.svg" height="40">
                 </button>
             </div>    
         </div>
@@ -69,7 +69,7 @@
 
     <div class="container">
         <div class="row mt-4">
-        <h3>Dodacie údaje:</h3>
+        <h3>Doprava a platba:</h3>
         <div class="border rounded p-3 bg-light">
             <div class="d-flex align-items-center gap-3 mb-4">
                 <div class="d-flex align-items-center gap-2">
@@ -80,11 +80,11 @@
                 <div class="d-flex align-items-center gap-2">
                     <span class="step-circle active">2</span>
                     <span class="step-label active">Doprava a platba</span>
-                </div> 
-                <div class="step-line active"></div>
+                </div>
+                <div class="step-line"></div>
                 <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle active">3</span>
-                    <span class="step-label active">Dodacie údaje</span>
+                    <span class="step-circle">3</span>
+                    <span class="step-label">Dodacie údaje</span>
                 </div>
                 <div class="step-line"></div>
                 <div class="d-flex align-items-center gap-2">
@@ -92,48 +92,37 @@
                     <span class="step-label">Sumár</span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-5">
-                    <div class="mb-3">
-                        <label for="meno" class="form-label">Meno</label>
-                        <input type="text" class="form-control" id="meno">
-                    </div>
-                    <div class="mb-3">
-                        <label for="priezvisko" class="form-label">Priezvisko</label>
-                        <input type="text" class="form-control" id="priezvisko">
-                    </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <h4>Výber dopravy:</h4>
+                </div> 
+                <div class="btn-group-vertical w-75 p-3" role="group">
+                <input type="radio" class="btn-check" name="doprava" id="doprava1" autocomplete="off" checked>
+                <label class="btn btn-secondary" for="doprava1">Kuriér</label>
+
+                <input type="radio" class="btn-check" name="doprava" id="doprava2" autocomplete="off">
+                <label class="btn btn-secondary" for="doprava2">Pošta</label>
+
+                <input type="radio" class="btn-check" name="doprava" id="doprava3" autocomplete="off">
+                <label class="btn btn-secondary" for="doprava3">Predajňa</label>
+            </div>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <h4>Výber platby:</h4>
+                </div> 
+                <div class="btn-group-vertical w-75 p-3" role="group" aria-label="Vertical radio toggle button group">
+                <input type="radio" class="btn-check" name="platba" id="platba1" autocomplete="off" checked>
+                <label class="btn " for="platba1">Karta online</label>
+
+                <input type="radio" class="btn-check" name="platba" id="platba2" autocomplete="off">
+                <label class="btn " for="platba2">Bankový prevod</label>
+
+                <input type="radio" class="btn-check" name="platba" id="platba3" autocomplete="off">
+                <label class="btn " for="platba3">Na mieste</label>
                 </div>
-                <div class="col-5">
-                    <div class="mb-3">
-                        <label for="ulica" class="form-label">Ulica</label>
-                        <input type="text" class="form-control" id="meno">
-                    </div>
-                    <div class="mb-3">
-                        <label for="mesto" class="form-label">Mesto</label>
-                        <input type="text" class="form-control" id="priezvisko">
-                    </div>
-                    <div class = "mb-3">
-                            <label for="krajina" class="form-label">Krajina</label>
-                            <select class="form-select" aria-label="Default select example">
-                            <option selected>Výber krajiny</option>
-                            <option value="1">Slovensko</option>
-                            <option value="2">Česko</option>
-                            <option value="3">Poľsko</option>
-                            </select>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="mb-3">
-                        <label for="cislo-domu" class="form-label">Číslo domu</label>
-                        <input type="text" class="form-control" id="meno">
-                    </div>
-                    <div class="mb-3">
-                        <label for="psc" class="form-label">PSČ</label>
-                        <input type="text" class="form-control" id="priezvisko">
-                    </div>
-                    <div class="mb-3 mt-5"><button class="btn btn-secondary  w-100">Vyplniť info z profilu</button></div>
-                    
-                </div>
+
             </div>
             <div class="d-flex justify-content-between mt-2">
                 <button class="btn btn-secondary">Späť</button>
@@ -142,7 +131,7 @@
         </div>
     </div>
 
-    <!-- Paticka -->
+     <!-- Paticka -->
     <div class="container">
         <hr class="border-dark border-2 opacity-100 my-0 mt-3"/>
         <div class="paticka">
