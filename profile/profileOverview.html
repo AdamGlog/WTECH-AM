@@ -11,26 +11,26 @@
   <body>
     <!--Top bar Stranky-->
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center g-1">
             <div class="col-auto">
                 <img src="../resources/NoraLogo.svg" class="top-logo">
             </div>
-            <div class="col">
-                <input id="search-area" class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
+            <div class="col search-area">
+                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
             </div>
             <div class="col-auto">
-                <button class="btn btn-outline-success our-buttons w-100 top-bar-sizes" type="submit">
-                    <img src="../resources/search.svg" height="40">
+                <button class="btn btn-outline-success our-buttons top-bar-sizes" type="submit">
+                    <img src="../resources/search.svg" class="top-bar-icons">
                 </button>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary our-buttons w-100 top-bar-sizes">
-                    <img src="../resources/profile.svg" height="40">
+                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
+                    <img src="../resources/profile.svg" class="top-bar-icons">
                 </button>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary our-buttons w-100 top-bar-sizes">
-                    <img src="../resources/ShopCart.svg" height="40">
+                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
+                    <img src="../resources/ShopCart.svg" class="top-bar-icons">
                 </button>
             </div>    
         </div>
@@ -38,35 +38,35 @@
 
     <!-- Menu Profilu -->
     <div class="container">
-        <div class="row g-0">
+        <div class="row g-0 flex-nowrap">
             <div class="col">
                 <div class="d-grid menu-button-left" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Prehľad Účtu</button>
+                    <button type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons pe-2">Prehľad Účtu</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Objednávky</button>
+                    <button type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Objednávky</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons our-buttons">Obľúbené</button>
+                    <button type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Obľúbené</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons our-buttons">Údaje</button>
+                    <button type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Údaje</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid menu-button" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons our-buttons">Súkromie</button>
+                    <button type="button" class="btn btn-secondary menu-buttons-last our-buttons profile-menu-buttons">Súkromie</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-danger our-buttons-logout">Odhlásiť</button>
+                    <button type="button" class="btn btn-danger our-buttons-logout profile-menu-buttons">Odhlásiť</button>
                 </div>
             </div>  
         </div>
@@ -74,22 +74,22 @@
 
 
     <div class="container">
-        <h2 class="heading p-3 ms-1">Profil Hráča: Jožko Hugo Mrkvička</h2>
+        <h2 class="heading p-3 ms-1 main-headings">Profil Hráča: Jožko Hugo Mrkvička</h2>
         <div class="row align-items-center">
             <div class="col-3">
                 <img src="../resources/AccountImage.svg" class="w-100">
             </div>
             <div class="col-9 fs-4">
-                <p>
+                <p class="smaller-text">
                     <b>Telefón:</b> +421 999 999 999
                 </p>
-                <p>
+                <p class="smaller-text">
                     <b>Email:</b> nora.hrac@gnail.com 
                 </p>
-                <p>
+                <p class="smaller-text">
                     <b>Člen od:</b> 15. 03. 2025
                 </p>
-                <p>
+                <p class="smaller-text">
                     <b>Typ člena:</b> klasický
                 </p>
             </div>
@@ -105,31 +105,29 @@
         <div class="paticka">
             <div class="container text-center">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12 col-md-8">
                         <div class="row">
-                            <div class="col">
-                                <p style="text-align:center">Reklamácie</p>
+                            <div class="col-6 col-md-4">
+                                <p>Reklamácie</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">Možnosti dopravy</p>
+                            <div class="col-6 col-md-4">
+                                <p>Možnosti dopravy</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">O nás</p>
+                            <div class="col-6 col-md-4">
+                                <p>O nás</p>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p style="text-align:center">Záruky</p>
+                            <div class="col-6 col-md-4">
+                                <p>Záruky</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">Zmluvné podmienky</p>
+                            <div class="col-6 col-md-4">
+                                <p>Zmluvné podmienky</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">Kontakt</p>
+                            <div class="col-6 col-md-4">
+                                <p>Kontakt</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md-4 mt-3 mt-md-0">
                         Adresa
                     </div>
                 </div>
