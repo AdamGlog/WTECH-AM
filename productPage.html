@@ -11,26 +11,26 @@
     <body>
     <!--Top bar Stranky-->
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center g-1">
             <div class="col-auto">
                 <img src="./resources/NoraLogo.svg" class="top-logo">
             </div>
-            <div class="col">
-                <input id="search-area" class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
+            <div class="col search-area">
+                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
             </div>
             <div class="col-auto">
-                <button class="btn btn-outline-success our-buttons w-100 top-bar-sizes" type="submit">
-                    <img src="./resources/search.svg" height="40">
+                <button class="btn btn-outline-success our-buttons top-bar-sizes" type="submit">
+                    <img src="./resources/search.svg" class="top-bar-icons">
                 </button>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary our-buttons w-100 top-bar-sizes">
-                    <img src="./resources/profile.svg" height="40">
+                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
+                    <img src="./resources/profile.svg" class="top-bar-icons">
                 </button>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary our-buttons w-100 top-bar-sizes">
-                    <img src="./resources/ShopCart.svg" height="40">
+                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
+                    <img src="./resources/ShopCart.svg" class="top-bar-icons">
                 </button>
             </div>    
         </div>
@@ -38,7 +38,7 @@
 
     <!--Menu kategorii-->
     <div class="container">
-        <div class="row g-0">
+        <div class="row g-0 flex-nowrap">
             <div class="col">
                 <div class="d-grid menu-button-left" role="group" aria-label="Basic example">
                 <button id="first-menu-button" type="button" class="btn btn-secondary menu-buttons our-buttons">Hry</button>
@@ -61,7 +61,7 @@
             </div>
             <div class="col">
                 <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
-                <button id="last-menu-button" type="button" class="btn btn-secondary menu-buttons our-buttons">O Nás</button>
+                <button id="last-menu-button" type="button" class="btn btn-secondary menu-buttons-last our-buttons">O Nás</button>
                 </div>
             </div>    
         </div>
@@ -74,7 +74,7 @@
             <h3> The Wichter: The Legend of Regalt</h3>
         </div>
         <div class="row">
-            <div class="col-5">
+            <div class="col-12 col-md-5">
 
             <!-- Carousel -->
             <div id="productCarousel" class="carousel slide">
@@ -115,7 +115,7 @@
 
         <!-- Opis-->
         <div class="col">
-            <div class="col p-3 bg-light border rounded">
+            <div class="col p-3 bg-light border rounded mt-2">
                 <h4>Popis produktu</h4>
                 <p>
                     Regalt z Virie nebol vždy legendou. Bol to muž s mečom, dlhmi a príliš veľa nepriateľmi. 
@@ -141,49 +141,47 @@
             <!-- Tlačidlá -->
             <div class="row">
                 <div class="col">
-                <button class="btn buttonProduct2 w-100 no-wrap">Sledovať cenu</button>
+                <button class="btn buttonProduct2 w-100 no-wrap my-2">Sledovať cenu</button>
                 </div>
                 <div class="col">
-                <button class="btn buttonProduct2 w-100 no-wrap">Pridať do obľúbených</button>
+                <button class="btn buttonProduct2 w-100 no-wrap my-2">Pridať do obľúbených</button>
                 </div>
                 <div class="col">
-                <button class="btn w-100 buttonProduct1 buttonProduct0 no-wrap">Pridať do košíka</button>
+                <button class="btn w-100 buttonProduct1 buttonProduct0 no-wrap my-2">Pridať do košíka</button>
                 </div>
             </div>
         </div>
     </div>
-
+    
     <!-- Paticka -->
     <div class="container">
         <hr class="border-dark border-2 opacity-100 my-0 mt-3"/>
         <div class="paticka">
             <div class="container text-center">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12 col-md-8">
                         <div class="row">
-                            <div class="col">
-                                <p style="text-align:center">Reklamácie</p>
+                            <div class="col-6 col-md-4">
+                                <p>Reklamácie</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">Možnosti dopravy</p>
+                            <div class="col-6 col-md-4">
+                                <p>Možnosti dopravy</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">O nás</p>
+                            <div class="col-6 col-md-4">
+                                <p>O nás</p>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p style="text-align:center">Záruky</p>
+                            <div class="col-6 col-md-4">
+                                <p>Záruky</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">Zmluvné podmienky</p>
+                            <div class="col-6 col-md-4">
+                                <p>Zmluvné podmienky</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">Kontakt</p>
+                            <div class="col-6 col-md-4">
+                                <p>Kontakt</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md-4 mt-3 mt-md-0">
                         Adresa
                     </div>
                 </div>

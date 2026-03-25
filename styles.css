@@ -1,7 +1,7 @@
 .our-buttons {
     background-color: #D9D9D9;
     color: black;
-}
+}   
 .our-main-buttons {
     background-color: transparent;
 }
@@ -17,19 +17,25 @@
     border-radius: 0;
     max-width: 200px;
 }
-.menu-buttons, .our-buttons-logout, .paticka, .no-wrap{
+.menu-buttons, .menu-buttons-last, .our-buttons-logout, .no-wrap{
     white-space: nowrap;
 }
 
 .top-bar-sizes {
-    min-width: 50px;
+    height: 40pt;
+    width: 40pt;
 }
 .menu-buttons {
     border: 2px solid black;
     border-radius: 0;
+    border-right: none;
+}
+.menu-buttons-last{
+    border-radius: 0;
+    border: 2px solid black;
 }
 
-#search-area {
+.search-area {
     min-width: 50%;
 }
 
@@ -43,7 +49,7 @@
 
 .max-sizes-zlavy {
     max-width: 90%;
-    width: 60%;
+    width: 50%;
 }
 .top-logo {
     padding-top: 5px;
@@ -52,10 +58,92 @@
     max-width: 150px;
 }
 
-@media (min-resolution: 3dppx) {
+.carousel-images {
+    height: 240px;
+}
+
+.promo-image {
+    height: 300px;
+}
+.order-img {
+    height: 40px;
+}
+
+@media (max-width: 900px) {
     .top-logo {
-        max-width: 80px;
+        max-width: 50px;
     }
+    .search-area {
+        min-width: 30%;
+    }
+    .top-bar-sizes {
+        width: 40px;
+        height: 40px;
+        padding: 4px;
+    }
+    .top-bar-icons {
+        width: 20px;
+        height: 20px;
+    }
+    .menu-buttons {
+        font-size: 0.75rem;
+        padding: 4px 2px;
+    }
+    .menu-buttons-last {
+        font-size: 0.75rem;
+        padding: 4px 2px;
+    }
+    .profile-menu-buttons {
+        font-size: 0.65rem;
+        padding: 2px 0px;
+    }
+    .carousel-images {
+        height: 80px;
+    }
+    .carousel-text {
+        font-size: 0.6rem;
+    }
+    .lower-gap {
+        margin-left: 2px !important;  /* override na bootstrap */
+        margin-right: 2px !important;
+    }
+    .main-headings {
+        font-size: 0.85rem;
+    }
+    .promo-image {
+        height: 100px;
+    }
+    .button-texts {
+        font-size: 0.7rem;
+    }
+    .smaller-text {
+        font-size: 0.7rem;
+    }
+    .smallest-text {
+        font-size: 0.4rem;
+    }
+    .min-width-promo {
+        width: 50px;
+        height: 25px;
+    }
+    .promo-buttons {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .card-image {
+        height: 100px;
+        width: 50%;
+    }
+    .order-img {
+        height: 20px;
+    }
+
+    .paticka {
+        font-size: 0.7rem;
+        flex-direction: column;
+    }
+    
 }
 
 .heading {
@@ -115,6 +203,9 @@
     width: 255px;
     margin: 0 auto;
     padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    /* object-fit: cover; */
 }
 
 .btn-qty {

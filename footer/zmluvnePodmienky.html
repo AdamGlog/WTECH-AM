@@ -12,26 +12,26 @@
 
     <!--Top bar Stranky-->
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center g-1">
             <div class="col-auto">
                 <img src="../resources/NoraLogo.svg" class="top-logo">
             </div>
-            <div class="col">
-                <input id="search-area" class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
+            <div class="col search-area">
+                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
             </div>
             <div class="col-auto">
-                <button class="btn btn-outline-success our-buttons w-100 top-bar-sizes" type="submit">
-                    <img src="../resources/search.svg" height="40">
+                <button class="btn btn-outline-success our-buttons top-bar-sizes" type="submit">
+                    <img src="../resources/search.svg" class="top-bar-icons">
                 </button>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary our-buttons w-100 top-bar-sizes">
-                    <img src="../resources/profile.svg" height="40">
+                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
+                    <img src="../resources/profile.svg" class="top-bar-icons">
                 </button>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary our-buttons w-100 top-bar-sizes">
-                    <img src="../resources/ShopCart.svg" height="40">
+                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
+                    <img src="../resources/ShopCart.svg" class="top-bar-icons">
                 </button>
             </div>    
         </div>
@@ -62,7 +62,7 @@
             </div>
             <div class="col">
                 <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
-                <button id="last-menu-button" type="button" class="btn btn-secondary menu-buttons our-buttons">O Nás</button>
+                <button id="last-menu-button" type="button" class="btn btn-secondary menu-buttons-last our-buttons">O Nás</button>
                 </div>
             </div>    
         </div>
@@ -78,54 +78,72 @@
             <br>
         </div>
         <div class="row">
-            <div class="col-lg-9">
+            <!-- Pravý sidebar / navigácia -->  
+            <div class="col-lg-3 order-lg-2">
+                <nav class="nav flex-column sticky-top" style="top: 100px;">
+                    <h5>Obsah</h5>
+                    <a class="nav-link" href="#uvod">1. Úvod</a>
+                    <a class="nav-link" href="#prevadzkovatel">2. Prevádzkovateľ obchodu</a>
+                    <a class="nav-link" href="#definicie">3. Definície</a>
+                    <a class="nav-link" href="#uzatvorenie">4. Uzatvorenie zmluvy</a>
+                    <a class="nav-link" href="#ceny">5. Ceny a platobné podmienky</a>
+                    <a class="nav-link" href="#dodanie">6. Dodacie podmienky</a>
+                    <a class="nav-link" href="#odstupenie">7. Odstúpenie od zmluvy a vrátenie tovaru</a>
+                    <a class="nav-link" href="#reklamacie">8. Reklamácie a záruka</a>
+                    <a class="nav-link" href="#osobne_udaje">9. Ochrana osobných údajov</a>
+                    <a class="nav-link" href="#dusevne_vlastnictvo">10. Duševné vlastníctvo</a>
+                    <a class="nav-link" href="#odpovednost">11. Zodpovednosť a sťažnosti</a>
+                    <a class="nav-link" href="#zaver">12. Záverečné ustanovenia</a>
+                </nav>
+            </div>
+            <div class="col-lg-9 order-lg-1 pt-3">
 
-                <!--Úvod-->
-                <h3 id="uvod">1. Úvod</h3>
-                <p>Tieto obchodné podmienky (ďalej len <span class="highlight">Podmienky</span>) 
-                    určujú pravidlá nákupu produktov a služieb prostredníctvom internetového obchodu 
-                    <span class="highlight">Nora</span> (ďalej len „Obchod“). Používateľom, ktorý nakupuje 
-                    alebo prehliada produkty, sa rozumie, že akýmkoľvek nákupom alebo registráciou na stránke 
-                    súhlasí s týmito Podmienkami.</p>
-                <p class="highlight">Dôležité:</p>
-                <p>Ak nesúhlasíte s týmito podmienkami, prosím, nepoužívajte stránku a nenakupujte.</p>
+                    <!--Úvod-->
+                    <h3 id="uvod">1. Úvod</h3>
+                    <p>Tieto obchodné podmienky (ďalej len <span class="highlight">Podmienky</span>) 
+                        určujú pravidlá nákupu produktov a služieb prostredníctvom internetového obchodu 
+                        <span class="highlight">Nora</span> (ďalej len „Obchod“). Používateľom, ktorý nakupuje 
+                        alebo prehliada produkty, sa rozumie, že akýmkoľvek nákupom alebo registráciou na stránke 
+                        súhlasí s týmito Podmienkami.</p>
+                    <p class="highlight">Dôležité:</p>
+                    <p>Ak nesúhlasíte s týmito podmienkami, prosím, nepoužívajte stránku a nenakupujte.</p>
 
-                <!--Prevádzkovateľ obchodu-->
-                <h2 id="prevadzkovatel">2. Prevádzkovateľ obchodu</h2>
-                <p>Obchod prevádzkuje:</p>
-                <ul>
-                    <li><span class="highlight">Nora s.r.o.</span></li>
-                    <li>Sídlo: Rynek Główny 31, 31-008 Kraków</li>
-                    <li>IČO: 00000000</li>
-                    <li>DIČ: SK1112223344</li>
-                    <li>Email: <a href="mailto:kontakt@nora.sk">kontakt@nora.sk</a></li>
-                    <li>Telefón: +421 900 000 000</li>
-                </ul>
-                <p>Prevádzkovateľ je zodpovedný za bezpečnosť nákupného procesu, ochranu osobných údajov a vybavenie reklamácií.</p>
-
-                <!--Definície-->
-                <h2 id="definicie">3. Definície</h2>
-                <ul>
-                    <li><span class="highlight">Tovar:</span> akýkoľvek produkt predávaný cez Obchod, napríklad herné konzoly, počítače, myši, klávesnice, hry, herné doplnky, merchandise.</li>
-                    <li><span class="highlight">Kupujúci:</span> fyzická alebo právnická osoba, ktorá si prostredníctvom webu objedná tovar.</li>
-                    <li><span class="highlight">Objednávka:</span> elektronický prejav záujmu kupujúceho o kúpu tovaru, ktorý obsahuje typ produktu, množstvo, spôsob platby a doručenia.</li>
-                    <li><span class="highlight">Zmluva o kúpe:</span> dohoda medzi Obchodom a Kupujúcim, ktorá vzniká potvrdením objednávky.</li>
-                </ul>
-
-                <!--Uzatvorenie zmluvy-->
-                <h2 id="uzatvorenie">4. Uzatvorenie zmluvy</h2>
-            <ul>
-                <li>Objednávka sa považuje za záväznú okamihom, keď ju Obchod potvrdí emailom alebo SMS.</li>
-                <li>Obchod si vyhradzuje právo odmietnuť objednávku, napríklad pri nedostupnom tovare, neplatnej platbe alebo podozrení na zneužitie.</li>
-                <li>Pred potvrdením objednávky si Kupujúci môže skontrolovať:
+                    <!--Prevádzkovateľ obchodu-->
+                    <h2 id="prevadzkovatel">2. Prevádzkovateľ obchodu</h2>
+                    <p>Obchod prevádzkuje:</p>
                     <ul>
-                        <li>cenu a počet kusov,</li>
-                        <li>spôsob platby a doručenia,</li>
-                        <li>adresu doručenia.</li>
+                        <li><span class="highlight">Nora s.r.o.</span></li>
+                        <li>Sídlo: Rynek Główny 31, 31-008 Kraków</li>
+                        <li>IČO: 00000000</li>
+                        <li>DIČ: SK1112223344</li>
+                        <li>Email: <a href="mailto:kontakt@nora.sk">kontakt@nora.sk</a></li>
+                        <li>Telefón: +421 900 000 000</li>
                     </ul>
-                </li>
-                <li>Odoslaním objednávky Kupujúci potvrdzuje, že všetky údaje sú pravdivé a aktuálne.</li>
-            </ul>
+                    <p>Prevádzkovateľ je zodpovedný za bezpečnosť nákupného procesu, ochranu osobných údajov a vybavenie reklamácií.</p>
+
+                    <!--Definície-->
+                    <h2 id="definicie">3. Definície</h2>
+                    <ul>
+                        <li><span class="highlight">Tovar:</span> akýkoľvek produkt predávaný cez Obchod, napríklad herné konzoly, počítače, myši, klávesnice, hry, herné doplnky, merchandise.</li>
+                        <li><span class="highlight">Kupujúci:</span> fyzická alebo právnická osoba, ktorá si prostredníctvom webu objedná tovar.</li>
+                        <li><span class="highlight">Objednávka:</span> elektronický prejav záujmu kupujúceho o kúpu tovaru, ktorý obsahuje typ produktu, množstvo, spôsob platby a doručenia.</li>
+                        <li><span class="highlight">Zmluva o kúpe:</span> dohoda medzi Obchodom a Kupujúcim, ktorá vzniká potvrdením objednávky.</li>
+                    </ul>
+
+                    <!--Uzatvorenie zmluvy-->
+                    <h2 id="uzatvorenie">4. Uzatvorenie zmluvy</h2>
+                <ul>
+                    <li>Objednávka sa považuje za záväznú okamihom, keď ju Obchod potvrdí emailom alebo SMS.</li>
+                    <li>Obchod si vyhradzuje právo odmietnuť objednávku, napríklad pri nedostupnom tovare, neplatnej platbe alebo podozrení na zneužitie.</li>
+                    <li>Pred potvrdením objednávky si Kupujúci môže skontrolovať:
+                        <ul>
+                            <li>cenu a počet kusov,</li>
+                            <li>spôsob platby a doručenia,</li>
+                            <li>adresu doručenia.</li>
+                        </ul>
+                    </li>
+                    <li>Odoslaním objednávky Kupujúci potvrdzuje, že všetky údaje sú pravdivé a aktuálne.</li>
+                </ul>
 
             <!--Podmienky pri platbe-->
             <h2 id="ceny">5. Ceny a platobné podmienky</h2>
@@ -143,120 +161,102 @@
                 <li>Pokiaľ platba zlyhá, Obchod má právo objednávku zrušiť.</li>
             </ul>
 
-            <!--Dodacie podmienky-->
-            <h2 id="dodanie">6. Dodacie podmienky</h2>
-            <ul>
-                <li>Tovar je doručovaný na adresu uvedenú v objednávke.</li>
-                <li>Štandardná dodacia lehota je 1 až 5 pracovných dní, pri špeciálnych produktoch môže byť dlhšia.</li>
-                <li>Kupujúci bude informovaný o stave objednávky a predpokladanom termíne doručenia prostredníctvom emailu alebo SMS.</li>
-                <li>Obchod nezodpovedá za oneskorenie spôsobené tretími stranami (napr. kuriér, pošta, zlá adresa).</li>
-                <li>Ak tovar nie je doručený, kupujúci má právo kontaktovať Obchod do 7 dní od predpokladaného termínu doručenia.</li>
-            </ul>
+                <!--Dodacie podmienky-->
+                <h2 id="dodanie">6. Dodacie podmienky</h2>
+                <ul>
+                    <li>Tovar je doručovaný na adresu uvedenú v objednávke.</li>
+                    <li>Štandardná dodacia lehota je 1 až 5 pracovných dní, pri špeciálnych produktoch môže byť dlhšia.</li>
+                    <li>Kupujúci bude informovaný o stave objednávky a predpokladanom termíne doručenia prostredníctvom emailu alebo SMS.</li>
+                    <li>Obchod nezodpovedá za oneskorenie spôsobené tretími stranami (napr. kuriér, pošta, zlá adresa).</li>
+                    <li>Ak tovar nie je doručený, kupujúci má právo kontaktovať Obchod do 7 dní od predpokladaného termínu doručenia.</li>
+                </ul>
 
-            <!--Odstúpenie od zmluvy a vrátenie tovaru-->
-            <h2 id="odstupenie">7. Odstúpenie od zmluvy a vrátenie tovaru</h2>
-            <ul>
-                <li>Kupujúci môže odstúpiť od zmluvy do 14 dní od prevzatia tovaru bez udania dôvodu.</li>
-                <li>Podmienky vrátenia:
-                    <ul>
-                        <li>tovar musí byť nepoškodený a kompletný,</li>
-                        <li>originálny obal a príslušenstvo musia byť zachované.</li>
-                    </ul>
-                </li>
-                <li>Postup vrátenia:
-                    <ul>
-                        <li>kontaktujte Obchod emailom alebo telefonicky,</li>
-                        <li>vyplňte formulár odstúpenia od zmluvy,</li>
-                        <li>zašlite tovar na adresu Obchodu.</li>
-                    </ul>
-                </li>
-                <li>Náklady na vrátenie znáša kupujúci, pokiaľ nešlo o chybný alebo poškodený produkt.</li>
-                <li>Obchod vráti peniaze do 14 dní od obdržania vráteného tovaru rovnakou platobnou metódou, akou bola pôvodná platba.</li>
-            </ul>
+                <!--Odstúpenie od zmluvy a vrátenie tovaru-->
+                <h2 id="odstupenie">7. Odstúpenie od zmluvy a vrátenie tovaru</h2>
+                <ul>
+                    <li>Kupujúci môže odstúpiť od zmluvy do 14 dní od prevzatia tovaru bez udania dôvodu.</li>
+                    <li>Podmienky vrátenia:
+                        <ul>
+                            <li>tovar musí byť nepoškodený a kompletný,</li>
+                            <li>originálny obal a príslušenstvo musia byť zachované.</li>
+                        </ul>
+                    </li>
+                    <li>Postup vrátenia:
+                        <ul>
+                            <li>kontaktujte Obchod emailom alebo telefonicky,</li>
+                            <li>vyplňte formulár odstúpenia od zmluvy,</li>
+                            <li>zašlite tovar na adresu Obchodu.</li>
+                        </ul>
+                    </li>
+                    <li>Náklady na vrátenie znáša kupujúci, pokiaľ nešlo o chybný alebo poškodený produkt.</li>
+                    <li>Obchod vráti peniaze do 14 dní od obdržania vráteného tovaru rovnakou platobnou metódou, akou bola pôvodná platba.</li>
+                </ul>
 
-            <!--Reklamácia-->
-            <h2 id="reklamacie">8. Reklamácie a záruka</h2>
-            <ul>
-                <li>Všetky produkty sú chránené zákonnou zárukou 24 mesiacov.</li>
-                <li>Kupujúci môže reklamovať:
-                    <ul>
-                        <li>výrobné chyby,</li>
-                        <li>poškodenie počas prepravy,</li>
-                        <li>nefunkčnosť produktu.</li>
-                    </ul>
-                </li>
-                <li>Postup reklamácie:
-                    <ul>
-                        <li>kontaktujte Obchod,</li>
-                        <li>popíšte problém a priložte doklad o kúpe,</li>
-                        <li>Obchod vybaví reklamáciu do 30 dní.</li>
-                    </ul>
-                </li>
-                <li>Reklamovaný tovar môže byť opravený, vymenený alebo vrátená kúpna cena podľa rozhodnutia Obchodu.</li>
-            </ul>
+                <!--Reklamácia-->
+                <h2 id="reklamacie">8. Reklamácie a záruka</h2>
+                <ul>
+                    <li>Všetky produkty sú chránené zákonnou zárukou 24 mesiacov.</li>
+                    <li>Kupujúci môže reklamovať:
+                        <ul>
+                            <li>výrobné chyby,</li>
+                            <li>poškodenie počas prepravy,</li>
+                            <li>nefunkčnosť produktu.</li>
+                        </ul>
+                    </li>
+                    <li>Postup reklamácie:
+                        <ul>
+                            <li>kontaktujte Obchod,</li>
+                            <li>popíšte problém a priložte doklad o kúpe,</li>
+                            <li>Obchod vybaví reklamáciu do 30 dní.</li>
+                        </ul>
+                    </li>
+                    <li>Reklamovaný tovar môže byť opravený, vymenený alebo vrátená kúpna cena podľa rozhodnutia Obchodu.</li>
+                </ul>
 
-            <!--Ochrana údajov-->
-            <h2 id="osobne_udaje">9. Ochrana osobných údajov</h2>
-            <ul>
-                <li>Obchod spracúva osobné údaje v súlade s GDPR.</li>
-                <li>Údaje sa používajú na:
-                    <ul>
-                        <li>vybavenie objednávky,</li>
-                        <li>doručenie tovaru,</li>
-                        <li>informovanie o akciách a zľavách (len so súhlasom).</li>
-                    </ul>
-                </li>
-                <li>Kupujúci má právo:
-                    <ul>
-                        <li>prístup k údajom,</li>
-                        <li>opravu nesprávnych údajov,</li>
-                        <li>vymazanie údajov,</li>
-                        <li>odvolanie súhlasu so zasielaním marketingu.</li>
-                    </ul>
-                </li>
-            </ul>
+                <!--Ochrana údajov-->
+                <h2 id="osobne_udaje">9. Ochrana osobných údajov</h2>
+                <ul>
+                    <li>Obchod spracúva osobné údaje v súlade s GDPR.</li>
+                    <li>Údaje sa používajú na:
+                        <ul>
+                            <li>vybavenie objednávky,</li>
+                            <li>doručenie tovaru,</li>
+                            <li>informovanie o akciách a zľavách (len so súhlasom).</li>
+                        </ul>
+                    </li>
+                    <li>Kupujúci má právo:
+                        <ul>
+                            <li>prístup k údajom,</li>
+                            <li>opravu nesprávnych údajov,</li>
+                            <li>vymazanie údajov,</li>
+                            <li>odvolanie súhlasu so zasielaním marketingu.</li>
+                        </ul>
+                    </li>
+                </ul>
 
-            <!--Duševné vlastníctvo-->
-            <h2 id="dusevne_vlastnictvo">10. Duševné vlastníctvo</h2>
-            <ul>
-                <li>Všetky texty, grafika, fotografie a obsah webu sú majetkom Obchodu.</li>
-                <li>Kopírovanie, šírenie alebo použitie obsahu bez súhlasu je zakázané a môže byť právne postihnuté.</li>
-            </ul>
+                <!--Duševné vlastníctvo-->
+                <h2 id="dusevne_vlastnictvo">10. Duševné vlastníctvo</h2>
+                <ul>
+                    <li>Všetky texty, grafika, fotografie a obsah webu sú majetkom Obchodu.</li>
+                    <li>Kopírovanie, šírenie alebo použitie obsahu bez súhlasu je zakázané a môže byť právne postihnuté.</li>
+                </ul>
 
-            <!--Zodpovednosť-->
-            <h2 id="odpovednost">11. Zodpovednosť a sťažnosti</h2>
-            <ul>
-                <li>Obchod nezodpovedá za škody spôsobené nesprávnym alebo neoprávneným použitím tovaru.</li>
-                <li>V prípade sporu sa strany pokúsia vyriešiť situáciu dohodou.</li>
-                <li>Ak dohoda nie je možná, spory sa riešia podľa platného práva Slovenskej republiky.</li>
-            </ul>
+                <!--Zodpovednosť-->
+                <h2 id="odpovednost">11. Zodpovednosť a sťažnosti</h2>
+                <ul>
+                    <li>Obchod nezodpovedá za škody spôsobené nesprávnym alebo neoprávneným použitím tovaru.</li>
+                    <li>V prípade sporu sa strany pokúsia vyriešiť situáciu dohodou.</li>
+                    <li>Ak dohoda nie je možná, spory sa riešia podľa platného práva Slovenskej republiky.</li>
+                </ul>
 
-            <!--Záver-->
-            <h2 id="zaver">12. Záverečné ustanovenia</h2>
-            <ul>
-                <li>Podmienky nadobúdajú platnosť dňom zverejnenia na stránke Obchodu.</li>
-                <li>Obchod si vyhradzuje právo meniť Podmienky kedykoľvek, pričom nové podmienky sú platné okamihom zverejnenia.</li>
-                <li>Aktuálna verzia je vždy dostupná na stránke.</li>
-            </ul>
-        </div>
-        <!-- Pravý sidebar / navigácia -->
-        <div class="col-lg-3">
-            <nav class="nav flex-column sticky-top" style="top: 100px;">
-                <h5>Obsah</h5>
-                <a class="nav-link" href="#uvod">1. Úvod</a>
-                <a class="nav-link" href="#prevadzkovatel">2. Prevádzkovateľ obchodu</a>
-                <a class="nav-link" href="#definicie">3. Definície</a>
-                <a class="nav-link" href="#uzatvorenie">4. Uzatvorenie zmluvy</a>
-                <a class="nav-link" href="#ceny">5. Ceny a platobné podmienky</a>
-                <a class="nav-link" href="#dodanie">6. Dodacie podmienky</a>
-                <a class="nav-link" href="#odstupenie">7. Odstúpenie od zmluvy a vrátenie tovaru</a>
-                <a class="nav-link" href="#reklamacie">8. Reklamácie a záruka</a>
-                <a class="nav-link" href="#osobne_udaje">9. Ochrana osobných údajov</a>
-                <a class="nav-link" href="#dusevne_vlastnictvo">10. Duševné vlastníctvo</a>
-                <a class="nav-link" href="#odpovednost">11. Zodpovednosť a sťažnosti</a>
-                <a class="nav-link" href="#zaver">12. Záverečné ustanovenia</a>
-            </nav>
-        </div>
+                <!--Záver-->
+                <h2 id="zaver">12. Záverečné ustanovenia</h2>
+                <ul>
+                    <li>Podmienky nadobúdajú platnosť dňom zverejnenia na stránke Obchodu.</li>
+                    <li>Obchod si vyhradzuje právo meniť Podmienky kedykoľvek, pričom nové podmienky sú platné okamihom zverejnenia.</li>
+                    <li>Aktuálna verzia je vždy dostupná na stránke.</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -266,31 +266,29 @@
         <div class="paticka">
             <div class="container text-center">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12 col-md-8">
                         <div class="row">
-                            <div class="col">
-                                <p style="text-align:center">Reklamácie</p>
+                            <div class="col-6 col-md-4">
+                                <p>Reklamácie</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">Možnosti dopravy</p>
+                            <div class="col-6 col-md-4">
+                                <p>Možnosti dopravy</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">O nás</p>
+                            <div class="col-6 col-md-4">
+                                <p>O nás</p>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p style="text-align:center">Záruky</p>
+                            <div class="col-6 col-md-4">
+                                <p>Záruky</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">Zmluvné podmienky</p>
+                            <div class="col-6 col-md-4">
+                                <p>Zmluvné podmienky</p>
                             </div>
-                            <div class="col">
-                                <p style="text-align:center">Kontakt</p>
+                            <div class="col-6 col-md-4">
+                                <p>Kontakt</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md-4 mt-3 mt-md-0">
                         Adresa
                     </div>
                 </div>
