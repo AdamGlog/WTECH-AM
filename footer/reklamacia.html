@@ -9,6 +9,7 @@
         <link href="../styles.css" rel="stylesheet">
     </head>
   <body>
+
     <!--Top bar Stranky-->
     <div class="container">
         <div class="row align-items-center">
@@ -36,96 +37,81 @@
         </div>
     </div>
 
-    <!-- Menu Profilu -->
+    <!--Menu kategorii-->
     <div class="container">
         <div class="row g-0">
             <div class="col">
                 <div class="d-grid menu-button-left" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Prehľad Účtu</button>
+                <button id="first-menu-button" type="button" class="btn btn-secondary menu-buttons our-buttons">Hry</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Objednávky</button>
+                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Konzoly</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons our-buttons">Obľúbené</button>
+                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Merch</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons our-buttons">Údaje</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-grid menu-button" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons our-buttons">Súkromie</button>
+                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Figúrky</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-danger our-buttons-logout">Odhlásiť</button>
+                <button id="last-menu-button" type="button" class="btn btn-secondary menu-buttons our-buttons">O Nás</button>
                 </div>
-            </div>  
+            </div>    
         </div>
     </div>
 
-
-    <!-- Zmena Udajov o uzivatelovi -->
+    <!--Reklamácia-->
     <div class="container">
-        <h2 class="heading p-3 ms-1">Zmena osobných údajov profilu</h2>
-        <div class="row align-items-center">
+        <br>
+        <h1 class = "text-center highlight">RÝCHLA REKLAMÁCIA</h1>
+        <br>
+        <h4 class = "text-center highlight">Stalo sa niečo zakúpenému produktu? Vybav to tu a rýchlo!</h4>
+        <div class="row">
+            <div class="col mt-4">
+            <!-- Ľavý stĺpec - formulár -->
+                <div class="row">
+                    <div class="col mb-2">
+                        <label for="exampleName" class="form-label">Meno</label>
+                        <input type="email" class="form-control" id="menoReklamanta" placeholder="Janko">
+                    </div>
+                    <div class="col mb-2">
+                        <label for="exampleName" class="form-label">Priezvisko</label>
+                        <input type="email" class="form-control" id="PriezviskoReklamanta" placeholder="Mrkvička">
+                    </div>
+                </div>
+            <div class="mb-2">
+                <label for="exampleName" class="form-label">ID objednávky</label>
+                <input type="email" class="form-control" id="IDobjednavkyReklamanta" placeholder="001122334455">
+            </div>
+            <div class="mb-2">
+                <label for="exampleName" class="form-label">Typ problému</label>
+                <input type="email" class="form-control" id="TypProblemuReklamanta" placeholder="Rozbitie displeju">
+            </div>
+            <div class="mb-2">
+                <label for="exampleName" class="form-label">Dôvod reklamácie</label>
+                <textarea class="form-control" id="DovodReklamacieReklamanta" rows="4" placeholder="nepáči sa mi produkt"> </textarea>
+            </div>
+        </div>
+            <!--Fotka reklamácie-->
             <div class="col-4 text-center">
-                <img src="../resources/AccountImage.svg" class="w-75">
+                <img src="../resources/gallery.svg" class="w-75">
                 <div class="mb-3">
-                    <label for="formFile" class="form-label">Vložiť profilový obrázok</label>
+                    <label for="formFile" class="form-label">Vložiť obrázok z PC</label>
                     <input class="form-control" type="file" id="formFile">
                 </div>
             </div>
-            <div class="col-4 fs-4">
-                <div class="mb-3">
-                    <label for="exampleFormControlInputName" class="form-label">Krstné Meno</label>
-                    <input type="text" class="form-control" id="exampleFormControlInputName" placeholder="Jožko">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInputSurN" class="form-label">Priezvisko</label>
-                    <input type="text" class="form-control" id="exampleFormControlInputSurN" placeholder="Hráško">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInputTel" class="form-label">Telefónne číslo</label>
-                    <input type="tel" class="form-control" id="exampleFormControlInputTel" placeholder="+421 555 555 555">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInputEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleFormControlInputEmail" placeholder="janko.hrasko@gnail.com">
-                </div>
-            </div>
-            <div class="col-3 fs-4">
-                <div class="mb-3">
-                    <label for="exampleFormControlInputStreet" class="form-label">Ulica</label>
-                    <input type="text" class="form-control" id="exampleFormControlInputStreet" placeholder="Kukučínova 2025">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInputHouseN" class="form-label">Číslo Domu</label>
-                    <input type="text" class="form-control" id="exampleFormControlInputHouseN" placeholder="11">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInputCity" class="form-label">Mesto</label>
-                    <input type="text" class="form-control" id="exampleFormControlInputCity" placeholder="Snina">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInputZipCode" class="form-label">PSČ</label>
-                    <input type="text" class="form-control" id="exampleFormControlInputZipCode" placeholder="069 01">
-                </div>
-            </div>
-            <div class="d-flex justify-content-end mt-2">
-                <button class="btn cart-pokracovat">Potvrdiť</button>
-            </div>
         </div>
+        <div class="text-center"><button type="button" class="btn btn-secondary w-50 fw-bold">Potvrdiť reklamáciu</button></div>
     </div>
-    
+
     <!-- Paticka -->
     <div class="container">
         <hr class="border-dark border-2 opacity-100 my-0 mt-3"/>
