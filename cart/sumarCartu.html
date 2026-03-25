@@ -67,9 +67,8 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row mt-4">
-        <h3>Dodacie údaje:</h3>
+    <div class="container mt-3">
+        <h3>Sumár objednávky:</h3>
         <div class="border rounded p-3 bg-light">
             <div class="d-flex align-items-center gap-3 mb-4">
                 <div class="d-flex align-items-center gap-2">
@@ -80,64 +79,68 @@
                 <div class="d-flex align-items-center gap-2">
                     <span class="step-circle active">2</span>
                     <span class="step-label active">Doprava a platba</span>
-                </div> 
+                </div>
                 <div class="step-line active"></div>
                 <div class="d-flex align-items-center gap-2">
                     <span class="step-circle active">3</span>
                     <span class="step-label active">Dodacie údaje</span>
                 </div>
-                <div class="step-line"></div>
+                <div class="step-line active"></div>
                 <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle">4</span>
-                    <span class="step-label">Sumár</span>
+                    <span class="step-circle active">4</span>
+                    <span class="step-label active">Sumár</span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-5">
-                    <div class="mb-3">
-                        <label for="meno" class="form-label">Meno</label>
-                        <input type="text" class="form-control" id="meno">
-                    </div>
-                    <div class="mb-3">
-                        <label for="priezvisko" class="form-label">Priezvisko</label>
-                        <input type="text" class="form-control" id="priezvisko">
-                    </div>
+        <div class="row">    
+            <!--Údaje kupujúceho-->
+            <div class="col-md-4 mb-3">
+                <h4>Dodacie údaje</h4>
+                <p><span class="highlight">Meno:   </span>Jožko</p>
+                <p><span class="highlight">Priezvisko:   </span>Mrkvička</p>
+                <p><span class="highlight">Ulica:   </span>Športová 1078/45</p>
+                <p><span class="highlight">Mesto:   </span>Snina 069 01</p>
+                <p><span class="highlight">Krajina:   </span>Slovensko</p>
+            </div>
+            <!--Zoznam produktov-->
+            <div class="col-md-8 gap-3 mb-2">
+                <h4>Produkty</h4>
+                <div class="d-flex align-items-center">
+                    <img src="../resources/wichterHrncek.png" alt="Produkt"  height="50" class="me-3">
+                    <span class="flex-grow-1">Hrnček the Wichter</span>
+                    <span>Počet ks.:</span>
+                    <input type="number" class="ms-2 form-control qty-input" value="5" readonly>
+                    <span class="ms-4">Cena:</span>
+                    <input type="text" class="ms-2 form-control price-input" value="49,95€" readonly>
                 </div>
-                <div class="col-5">
-                    <div class="mb-3">
-                        <label for="ulica" class="form-label">Ulica</label>
-                        <input type="text" class="form-control" id="meno">
-                    </div>
-                    <div class="mb-3">
-                        <label for="mesto" class="form-label">Mesto</label>
-                        <input type="text" class="form-control" id="priezvisko">
-                    </div>
-                    <div class = "mb-3">
-                            <label for="krajina" class="form-label">Krajina</label>
-                            <select class="form-select" aria-label="Default select example">
-                            <option selected>Výber krajiny</option>
-                            <option value="1">Slovensko</option>
-                            <option value="2">Česko</option>
-                            <option value="3">Poľsko</option>
-                            </select>
-                    </div>
+                <br>
+                <div class="d-flex align-items-center">
+                    <img src="../resources/trickoWichter.png" alt="Produkt"  height="50" class="me-3">
+                    <span class="flex-grow-1">Tričko the Wichter</span>
+                    <span>Počet ks.:</span>
+                    <input type="number" class="ms-2 form-control qty-input" value="3" readonly>
+                    <span class="ms-4">Cena:</span>
+                    <input type="text" class="ms-2 form-control price-input" value="59,97€" readonly>
                 </div>
-                <div class="col-2">
-                    <div class="mb-3">
-                        <label for="cislo-domu" class="form-label">Číslo domu</label>
-                        <input type="text" class="form-control" id="meno">
-                    </div>
-                    <div class="mb-3">
-                        <label for="psc" class="form-label">PSČ</label>
-                        <input type="text" class="form-control" id="priezvisko">
-                    </div>
-                    <div class="mb-3 mt-5"><button class="btn btn-secondary  w-100">Vyplniť info z profilu</button></div>
-                    
+                <br>
+                <div class="d-flex align-items-center">
+                    <img src="../resources/PS7.jpg" alt="Produkt"  height="50" class="me-3">
+                    <span class="flex-grow-1">Play State 7</span>
+                    <span>Počet ks.:</span>
+                    <input type="number" class="ms-2 form-control qty-input" value="1" readonly>
+                    <span class="ms-4">Cena:</span>
+                    <input type="text" class="ms-2 form-control price-input" value="499,99€" readonly>
+                </div>
+
+                <!--Spolu-->
+                <div class="d-flex justify-content-end fw-bold fs-5">
+                    <span>Spolu: </span>
+                    <input type="text" class="form-control ms-4" style="width:115px; text-align:right;" value="634,91€" readonly>
                 </div>
             </div>
+            <!-- Pokračovať a Vrátiť sa-->
             <div class="d-flex justify-content-between mt-2">
                 <button class="btn cart-back">Vrátiť sa</button>
-                <button class="btn cart-pokracovat">Pokračovať</button>
+                <button class="btn cart-pokracovat ms-4">Záväzne objednať</button>
             </div>
         </div>
     </div>

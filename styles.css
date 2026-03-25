@@ -229,3 +229,36 @@
 .highlight {
     font-weight: bold;
 }
+
+.qty-input {
+    width: 62px;
+    text-align: center;
+}
+
+.price-input {
+    width: 105px;
+    text-align: right;
+}
+
+.product-name {
+    flex: 1 1 0;
+    min-width: 120px;
+}
+
+.cart-pokracovat {
+    background-color: #00e000;
+    color: #000;
+}
+
+.cart-pokracovat:hover {
+    background-color: #00c000;
+}
+
+.cart-back {
+    background-color: #cd4242;
+    color: #000;
+}
+
+.cart-back:hover {
+    background-color: #b02a37;
+}
