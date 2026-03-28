@@ -9,6 +9,7 @@
         <link href="../styles.css" rel="stylesheet">
     </head>
   <body>
+
     <!--Top bar Stranky-->
     <div class="container">
         <div class="row align-items-center g-1">
@@ -41,97 +42,77 @@
         <div class="row g-0">
             <div class="col">
                 <div class="d-grid menu-button-left" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons our-buttons">Hry</button>
+                <button id="first-menu-button" type="button" class="btn btn-secondary menu-buttons our-buttons">Hry</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons our-buttons">Konzoly</button>
+                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Konzoly</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons our-buttons">Merch</button>
+                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Merch</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons our-buttons">Figúrky</button>
+                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Figúrky</button>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary menu-buttons-last our-buttons">O Nás</button>
+                <button id="last-menu-button" type="button" class="btn btn-secondary menu-buttons-last our-buttons">O Nás</button>
                 </div>
             </div>    
         </div>
     </div>
 
+    <!--Reklamácia-->
     <div class="container">
-        <div class="row mt-4">
-        <h3>Doprava a platba:</h3>
-        <div class="border rounded p-3 bg-light">
-            <div class="d-flex align-items-center gap-3 mb-4">
-                <div class="d-flex align-items-center gap-2">
-                <span class="step-circle active">1</span>
-                <span class="step-label active">Košík</span>
-                </div>
-                <div class="step-line active"></div>
-                <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle active">2</span>
-                    <span class="step-label active">Doprava a platba</span>
-                </div>
-                <div class="step-line"></div>
-                <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle">3</span>
-                    <span class="step-label">Dodacie údaje</span>
-                </div>
-                <div class="step-line"></div>
-                <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle">4</span>
-                    <span class="step-label">Sumár</span>
-                </div>
-            </div>
+        <br>
+        <h1 class = "text-center highlight">RÝCHLA REKLAMÁCIA</h1>
+        <br>
+        <h4 class = "text-center highlight">Stalo sa niečo zakúpenému produktu? Vybav to tu a rýchlo!</h4>
         <div class="row">
-            <div class="col">
+            <div class="col mt-4">
+            <!-- Ľavý stĺpec - formulár -->
                 <div class="row">
-                    <h4>Výber dopravy:</h4>
-                </div> 
-                <div class="btn-group-vertical w-75 p-3" role="group">
-                <input type="radio" class="btn-check" name="doprava" id="doprava1" autocomplete="off" checked>
-                <label class="btn btn-secondary" for="doprava1">Kuriér</label>
-
-                <input type="radio" class="btn-check" name="doprava" id="doprava2" autocomplete="off">
-                <label class="btn btn-secondary" for="doprava2">Pošta</label>
-
-                <input type="radio" class="btn-check" name="doprava" id="doprava3" autocomplete="off">
-                <label class="btn btn-secondary" for="doprava3">Predajňa</label>
-            </div>
-            </div>
-            <div class="col">
-                <div class="row">
-                    <h4>Výber platby:</h4>
-                </div> 
-                <div class="btn-group-vertical w-75 p-3" role="group" aria-label="Vertical radio toggle button group">
-                <input type="radio" class="btn-check" name="platba" id="platba1" autocomplete="off" checked>
-                <label class="btn " for="platba1">Karta online</label>
-
-                <input type="radio" class="btn-check" name="platba" id="platba2" autocomplete="off">
-                <label class="btn " for="platba2">Bankový prevod</label>
-
-                <input type="radio" class="btn-check" name="platba" id="platba3" autocomplete="off">
-                <label class="btn " for="platba3">Na mieste</label>
+                    <div class="col mb-2">
+                        <label for="exampleName" class="form-label">Meno</label>
+                        <input type="email" class="form-control" id="menoReklamanta" placeholder="Janko">
+                    </div>
+                    <div class="col mb-2">
+                        <label for="exampleName" class="form-label">Priezvisko</label>
+                        <input type="email" class="form-control" id="PriezviskoReklamanta" placeholder="Mrkvička">
+                    </div>
                 </div>
-
+            <div class="mb-2">
+                <label for="exampleName" class="form-label">ID objednávky</label>
+                <input type="email" class="form-control" id="IDobjednavkyReklamanta" placeholder="001122334455">
             </div>
-            <div class="d-flex justify-content-between mt-2">
-                <button class="btn cart-back">Vrátiť sa</button>
-                <button class="btn cart-pokracovat">Pokračovať</button>
+            <div class="mb-2">
+                <label for="exampleName" class="form-label">Typ problému</label>
+                <input type="email" class="form-control" id="TypProblemuReklamanta" placeholder="Rozbitie displeju">
+            </div>
+            <div class="mb-2">
+                <label for="exampleName" class="form-label">Dôvod reklamácie</label>
+                <textarea class="form-control" id="DovodReklamacieReklamanta" rows="4" placeholder="nepáči sa mi produkt"> </textarea>
             </div>
         </div>
+            <!--Fotka reklamácie-->
+            <div class="col-4 text-center">
+                <img src="../resources/gallery.svg" class="w-75">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Vložiť obrázok z PC</label>
+                    <input class="form-control" type="file" id="formFile">
+                </div>
+            </div>
+        </div>
+        <div class="text-center"><button type="button" class="btn btn-secondary w-50 fw-bold">Potvrdiť reklamáciu</button></div>
     </div>
 
-<!-- Paticka -->
+    <!-- Paticka -->
     <div class="container">
         <hr class="border-dark border-2 opacity-100 my-0 mt-3"/>
         <div class="paticka">
