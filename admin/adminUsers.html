@@ -35,7 +35,7 @@
             </div>    
         </div>
     </div>
-    
+
     <!-- Menu Profilu -->
     <div class="container">
         <div class="row g-0 flex-nowrap">
@@ -77,37 +77,97 @@
         </div>
     </div>
 
-    <!-- Admin Dashboard -->
+
+    <!-- Zoznam Užívateľov -->
     <div class="container">
-        <h2 class="heading main-headings text-center px-0 mt-4 my-3">Vitaj Admin!</h2>
-        <h3 class="heading main-headings ps-2">Analytika</h3>
-        <div class="row ps-5">
-            <div class="col">
-                <p>999 objednavok za dnes</p>
+        <div class="row mt-2">
+            <div class="col text-start">
+                <h3 class="heading pt-2 ps-2 ms-1 main-headings">Prehľad Užívateľov</h3>
             </div>
-            <div class="col">
-                <p>100 užívateľov za dne</p>
-            </div>
-            <div class="col">
-                <p>5 nových užívateľov za dnes</p>
+            <div class="col text-end">
+                <button type="button" class="btn btn-success create-button">Vytvoriť nového užívateľa</button>
             </div>
         </div>
-        <h3 class="heading main-headings text-center px-0">Nástroje</h3>
-        <div class="row text-center">
-            <div class="col">
-                <a type="button" href="./adminProducts.html" class="btn btn-secondary our-buttons">Správa Produktov</a>
-            </div>
-            <div class="col">
-                <a type="button" href="./adminCategories.html" class="btn btn-secondary our-buttons">Správa Kategórií</a>
-            </div>
-            <div class="col">
-                <a type="button" href="./adminUsers.html" class="btn btn-secondary our-buttons">Správa Užívateľov</a>
-            </div>
-            <div class="col">
-                <a type="button" href="./adminOrders.html" class="btn btn-secondary our-buttons">Správa Objednávok</a>
-            </div>
+        <div class="table-responsive">
+            <table class="table table-bordered text-center align-middle smallest-text">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>Profilový obrázok</th>
+                        <th>Krstné meno</th>
+                        <th>Priezvisko</th>
+                        <th>Telefónne číslo</th>
+                        <th>Email</th>
+                        <th>Ulica</th>
+                        <th>Číslo domu</th>
+                        <th>Mesto</th>
+                        <th>PSČ</th>
+                        <th>Funkcie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="../resources/AccountImage.svg" class="order-img rounded-circle"></td>
+                        <td>Jožko</td>
+                        <td>Mrkvička</td>
+                        <td>+421 999 999 999</td>
+                        <td>jozko@gnail.com</td>
+                        <td>Hlavná</td>
+                        <td>42</td>
+                        <td>Bratislava</td>
+                        <td>81101</td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary table-function-buttons">
+                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                            <button type="button" class="btn btn-danger table-function-buttons">
+                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td><img src="../resources/AccountImage.svg" class="order-img rounded-circle"></td>
+                        <td>Mária</td>
+                        <td>Nováková</td>
+                        <td>+421 888 888 888</td>
+                        <td>maria@gnail.com</td>
+                        <td>Sadová</td>
+                        <td>7</td>
+                        <td>Košice</td>
+                        <td>04001</td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary table-function-buttons">
+                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                            <button type="button" class="btn btn-danger table-function-buttons">
+                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="../resources/AccountImage.svg" class="order-img rounded-circle"></td>
+                        <td>Peter</td>
+                        <td>Horváth</td>
+                        <td>+421 777 777 777</td>
+                        <td>peter@gnail.com</td>
+                        <td>Lesná</td>
+                        <td>3</td>
+                        <td>Žilina</td>
+                        <td>01001</td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary table-function-buttons">
+                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                            <button type="button" class="btn btn-danger table-function-buttons">
+                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+
     
     <!-- Paticka -->
     <div class="container">

@@ -35,7 +35,7 @@
             </div>    
         </div>
     </div>
-    
+
     <!-- Menu Profilu -->
     <div class="container">
         <div class="row g-0 flex-nowrap">
@@ -77,37 +77,72 @@
         </div>
     </div>
 
-    <!-- Admin Dashboard -->
+
+    <!-- Zoznam Kategórií -->
     <div class="container">
-        <h2 class="heading main-headings text-center px-0 mt-4 my-3">Vitaj Admin!</h2>
-        <h3 class="heading main-headings ps-2">Analytika</h3>
-        <div class="row ps-5">
-            <div class="col">
-                <p>999 objednavok za dnes</p>
+        <div class="row mt-2">
+            <div class="col text-start">
+                <h3 class="heading pt-2 ps-2 ms-1 main-headings">Prehľad Kategórií</h3>
             </div>
-            <div class="col">
-                <p>100 užívateľov za dne</p>
-            </div>
-            <div class="col">
-                <p>5 nových užívateľov za dnes</p>
+            <div class="col text-end">
+                <button type="button" class="btn btn-success create-button">Vytvoriť novú kategóriu</button>
             </div>
         </div>
-        <h3 class="heading main-headings text-center px-0">Nástroje</h3>
-        <div class="row text-center">
-            <div class="col">
-                <a type="button" href="./adminProducts.html" class="btn btn-secondary our-buttons">Správa Produktov</a>
-            </div>
-            <div class="col">
-                <a type="button" href="./adminCategories.html" class="btn btn-secondary our-buttons">Správa Kategórií</a>
-            </div>
-            <div class="col">
-                <a type="button" href="./adminUsers.html" class="btn btn-secondary our-buttons">Správa Užívateľov</a>
-            </div>
-            <div class="col">
-                <a type="button" href="./adminOrders.html" class="btn btn-secondary our-buttons">Správa Objednávok</a>
-            </div>
+        <div class="table-responsive">
+            <table class="table table-bordered text-center align-middle smallest-text">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>ID kategórie</th>
+                        <th>Názov</th>
+                        <th>Počet produktov</th>
+                        <th>Funkcie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Hry</td>
+                        <td>24</td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary table-function-buttons">
+                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                            <button type="button" class="btn btn-danger table-function-buttons">
+                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Konzoly</td>
+                        <td>8</td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary table-function-buttons">
+                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                            <button type="button" class="btn btn-danger table-function-buttons">
+                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Merch</td>
+                        <td>15</td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary table-function-buttons">
+                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                            <button type="button" class="btn btn-danger table-function-buttons">
+                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+
     
     <!-- Paticka -->
     <div class="container">

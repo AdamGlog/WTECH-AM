@@ -138,7 +138,22 @@
     .order-img {
         height: 20px;
     }
-
+    .table-function-buttons {
+        max-width: 15px;
+        max-height: 15px;
+        padding: 0px;
+        font-size: 0.5rem;
+    }
+    .table-function-buttons-icons {
+        max-width: 8px;
+        max-height: 8px;
+    }
+    .create-button {
+        max-width: 100px;
+        max-height: 20px;
+        padding: 0px;
+        font-size: 0.5rem;
+    }
     .paticka {
         font-size: 0.7rem;
         flex-direction: column;
@@ -352,4 +367,17 @@
 
 .cart-back:hover {
     background-color: #b02a37;
+}
+
+.table-function-buttons {
+    height: 30px;
+    width: 30px;
+    padding: 0px;
+    margin: 1px;
+}
+
+.create-button {
+    width: 250px;
+    height: 35px;
+    padding: 0px;
 }
