@@ -6,67 +6,36 @@
         <title>Nora</title>
         <!-- CSS z Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <link href="./styles.css" rel="stylesheet">
+        <link href="../styles.css" rel="stylesheet">
     </head>
   <body>
     <!--Top bar Stranky-->
     <div class="container">
         <div class="row align-items-center g-1">
             <div class="col-auto">
-                <img src="./resources/NoraLogo.svg" class="top-logo">
+                <img src="../resources/NoraLogo.svg" class="top-logo">
             </div>
             <div class="col search-area">
                 <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
             </div>
             <div class="col-auto">
                 <button class="btn btn-outline-success our-buttons top-bar-sizes" type="submit">
-                    <img src="./resources/search.svg" class="top-bar-icons">
+                    <img src="../resources/search.svg" class="top-bar-icons">
                 </button>
             </div>
             <div class="col-auto">
                 <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
-                    <img src="./resources/profile.svg" class="top-bar-icons">
+                    <img src="../resources/profile.svg" class="top-bar-icons">
                 </button>
             </div>
             <div class="col-auto">
                 <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
-                    <img src="./resources/ShopCart.svg" class="top-bar-icons">
+                    <img src="../resources/ShopCart.svg" class="top-bar-icons">
                 </button>
             </div>    
         </div>
     </div>
     
-    <!--Menu kategorii-->
-    <div class="container">
-        <div class="row g-0 flex-nowrap">
-            <div class="col">
-                <div class="d-grid menu-button-left" role="group" aria-label="Basic example">
-                <button id="first-menu-button" type="button" class="btn btn-secondary menu-buttons our-buttons">Hry</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-grid" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Konzoly</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-grid" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Merch</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-grid" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary menu-buttons our-buttons">Figúrky</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
-                <button id="last-menu-button" type="button" class="btn btn-secondary menu-buttons-last our-buttons">O Nás</button>
-                </div>
-            </div>    
-        </div>
-    </div>
-
     <!-- Menu Profilu -->
     <div class="container">
         <div class="row g-0 flex-nowrap">
@@ -96,6 +65,11 @@
                 </div>
             </div>
             <div class="col">
+                <div class="d-grid menu-button" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-secondary menu-buttons-last our-buttons profile-menu-buttons">Admin</button>
+                </div>
+            </div>
+            <div class="col">
                 <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-danger our-buttons-logout profile-menu-buttons">Odhlásiť</button>
                 </div>
@@ -103,9 +77,36 @@
         </div>
     </div>
 
-
-    <!-- new page content -->
-
+    <div class="container">
+        <h2 class="heading main-headings text-center px-0 mt-4 my-3">Vitaj Admin!</h2>
+        <h3 class="heading main-headings ps-2">Analytika</h3>
+        <div class="row ps-5">
+            <div class="col">
+                <p>999 objednavok za dnes</p>
+            </div>
+            <div class="col">
+                <p>100 užívateľov za dne</p>
+            </div>
+            <div class="col">
+                <p>5 nových užívateľov za dnes</p>
+            </div>
+        </div>
+        <h3 class="heading main-headings text-center px-0">Nástroje</h3>
+        <div class="row text-center">
+            <div class="col">
+                <a type="button" href="./adminProducts.html" class="btn btn-secondary our-buttons">Správa Produktov</a>
+            </div>
+            <div class="col">
+                <a type="button" href="./adminCategories.html" class="btn btn-secondary our-buttons">Správa Kategórií</a>
+            </div>
+            <div class="col">
+                <a type="button" href="./adminUsers.html" class="btn btn-secondary our-buttons">Správa Užívateľov</a>
+            </div>
+            <div class="col">
+                <a type="button" href="./adminOrders.html" class="btn btn-secondary our-buttons">Správa Objednávok</a>
+            </div>
+        </div>
+    </div>
     
     <!-- Paticka -->
     <div class="container">
