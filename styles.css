@@ -1,7 +1,31 @@
+/* color palette
+* light  blue: #9CEEF5
+* middle blue: #81CAFB
+* darker blue: #28469C
+*/
+
+.body-bg {
+    background-image: url("./resources/Background.png");
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
+}
 .our-buttons {
-    background-color: #D9D9D9;
+    background-color: #81CAFB;
+    /* background-color: #C6FF33; */
+    /* color: white; */
     color: black;
 }   
+.our-buttons:hover {
+    background-color: #28469C;
+    color: white;
+    border-color: white;
+    border: 2px solid white;
+}
+.table-th-color {
+    background-color: #81CAFB !important;
+}
 .our-main-buttons {
     background-color: transparent;
 }
@@ -158,6 +182,40 @@
         max-width: 10px;
         max-height: 10px;
     }
+    .step-label {
+        display: none;
+    }
+    .step-line {
+        min-width: 0;
+        flex: 1;
+    }
+     .step-circle {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.75rem !important;
+        flex-shrink: 0;
+    }
+    .kosik-item {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .kosik-item-name {
+        width: 100%;
+    }
+    .kosik-item-controls {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    /* kosik responizibilny*/
+    .d-flex.align-items-center {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .qty-input, .price-input {
+        width: 80px !important;
+    }
     .paticka {
         font-size: 0.7rem;
         flex-direction: column;
@@ -204,7 +262,9 @@
 }
 
 .paticka {
-    background-color:#e0e0e0;
+    background-color:#81CAFB;
+    /* color: white; */
+    /* background-color:#C6FF33; */
     padding:3%;
 }
 .first-in-zoznam {
@@ -373,6 +433,28 @@
     background-color: #b02a37;
 }
 
+/* tlacitka kosika nekliknute */
+.btn-check + .btn {
+    background-color: #9CEEF5;
+    border-color: #9CEEF5;
+    color: black;
+}
+
+/* tlacitka kosika kliknute */
+.btn-check:checked + .btn {
+    background-color: #81CAFB;
+    border-color: #81CAFB;
+    color: black;
+}
+
+/* tlacitka kosika hover */
+.btn-check + .btn:hover,
+.btn-check:checked + .btn:hover {
+    background-color: #28469C;
+    border-color: #28469C;
+    color: white;
+}
+
 .table-function-buttons {
     height: 30px;
     width: 30px;
@@ -401,5 +483,17 @@
 }
 
 .admin-dasboard-buttons:hover .icon-white {
+    display: inline;
+}
+
+.bar-icon-white {
+    display: none;
+}
+
+.bar-buttons:hover .bar-icon-black {
+    display: none;
+}
+
+.bar-buttons:hover .bar-icon-white {
     display: inline;
 }
