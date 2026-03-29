@@ -154,6 +154,10 @@
         padding: 0px;
         font-size: 0.5rem;
     }
+    .admin-dasboard-buttons-icons {
+        max-width: 10px;
+        max-height: 10px;
+    }
     .paticka {
         font-size: 0.7rem;
         flex-direction: column;
@@ -380,4 +384,22 @@
     width: 250px;
     height: 35px;
     padding: 0px;
+}
+
+.admin-dasboard-buttons {
+    width: 250px;
+    height: 35px;
+    padding: 4px;
+}
+
+.icon-white {
+    display: none;
+}
+
+.admin-dasboard-buttons:hover .icon-black {
+    display: none;
+}
+
+.admin-dasboard-buttons:hover .icon-white {
+    display: inline;
 }

@@ -81,31 +81,55 @@
     <!-- Admin Dashboard -->
     <div class="container">
         <h2 class="heading main-headings text-center px-0 mt-4 my-3">Vitaj Admin!</h2>
-        <h3 class="heading main-headings ps-2">Analytika</h3>
-        <div class="row ps-5">
-            <div class="col">
-                <p>999 objednavok za dnes</p>
+        <div class="row g-3">
+            <div class="col-12 col-md-4">
+                <div class="card text-center border-secondary">
+                    <div class="card-body smaller-text">
+                        <h2 class="card-title fw-bold">999</h2>
+                        <p class="card-text text-muted">Objednávok dnes</p>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <p>100 užívateľov za dne</p>
+            <div class="col-12 col-md-4">
+                <div class="card text-center border-secondary">
+                    <div class="card-body smaller-text">
+                        <h2 class="card-title fw-bold">100</h2>
+                        <p class="card-text text-muted">Aktívnych užívateľov</p>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <p>5 nových užívateľov za dnes</p>
+            <div class="col-12 col-md-4">
+                <div class="card text-center border-secondary">
+                    <div class="card-body smaller-text">
+                        <h2 class="card-title fw-bold">5</h2>
+                        <p class="card-text text-muted">Nových užívateľov dnes</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <h3 class="heading main-headings text-center px-0">Nástroje</h3>
+        <h3 class="heading main-headings text-center px-0 pt-3">Nástroje</h3>
         <div class="row text-center">
-            <div class="col">
-                <a type="button" href="./adminProducts.html" class="btn btn-secondary our-buttons">Správa Produktov</a>
-            </div>
-            <div class="col">
-                <a type="button" href="./adminCategories.html" class="btn btn-secondary our-buttons">Správa Kategórií</a>
-            </div>
-            <div class="col">
-                <a type="button" href="./adminUsers.html" class="btn btn-secondary our-buttons">Správa Užívateľov</a>
-            </div>
-            <div class="col">
-                <a type="button" href="./adminOrders.html" class="btn btn-secondary our-buttons">Správa Objednávok</a>
+            <div class="col d-flex flex-column align-items-center smaller-text">
+                <a type="button" href="./adminProducts.html" class="btn btn-secondary our-buttons my-2 admin-dasboard-buttons">
+                    <img src="../resources/InventoryWhite.svg" class="admin-dasboard-buttons-icons icon-white"/>
+                    <img src="../resources/InventoryBlack.svg" class="admin-dasboard-buttons-icons icon-black"/>
+                    Správa Produktov
+                </a>
+                <a type="button" href="./adminCategories.html" class="btn btn-secondary our-buttons my-2 admin-dasboard-buttons">
+                    <img src="../resources/FolderWhite.svg" class="admin-dasboard-buttons-icons icon-white"/>
+                    <img src="../resources/FolderBlack.svg" class="admin-dasboard-buttons-icons icon-black"/>
+                    Správa Kategórií
+                </a>
+                <a type="button" href="./adminUsers.html" class="btn btn-secondary our-buttons my-2 admin-dasboard-buttons">
+                    <img src="../resources/UserListWhite.svg" class="admin-dasboard-buttons-icons icon-white"/>
+                    <img src="../resources/UserListBlack.svg" class="admin-dasboard-buttons-icons icon-black"/>
+                    Správa Užívateľov
+                </a>
+                <a type="button" href="./adminOrders.html" class="btn btn-secondary our-buttons my-2 admin-dasboard-buttons">
+                    <img src="../resources/OrderWhite.svg" class="admin-dasboard-buttons-icons icon-white"/>
+                    <img src="../resources/OrderBlack.svg" class="admin-dasboard-buttons-icons icon-black"/>
+                    Správa Objednávok
+                </a>
             </div>
         </div>
     </div>
