@@ -25,7 +25,7 @@
                 </button>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
+                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes" data-bs-toggle="modal" data-bs-target="#profil">
                     <img src="../resources/profile.svg" class="top-bar-icons">
                 </button>
             </div>
@@ -68,6 +68,29 @@
         </div>
     </div>
 
+    <!-- Modálne okno - Prihlásenie -->
+    <div class="modal fade" id="profil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Prihlásenie</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="exampleName" class="form-label">Email alebo Meno profilu</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="jozkoMrkvicka555">
+                <label for="inputPassword5" class="form-label">Heslo</label>
+                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+            </div>
+            <div class="modal-footer d-flex flex-column align-items-center">
+                <button type="button" class="btn btn-primary">Prihlásiť</button>
+                <label for="exampleName" class="form-label">Nemáte účet? Zaregistrujte sa -> <a href="#">TU</a></label>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Text o Kontakte-->
     <div class="container">
         <br>
         <h1 class = "text-center">SME TU PRE VÁS</h1>
