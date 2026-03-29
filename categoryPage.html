@@ -97,18 +97,75 @@
                 <h2 class="heading p-3 ms-1 main-headings">Hry</h2>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
+                <button type="button" class="btn btn-secondary our-buttons dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="./resources/SortImage.svg" class="top-bar-icons">
+                    Zoradenie
                 </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Pôvodné zoradenie</a></li>
+                    <li><a class="dropdown-item" href="#">Najdrahšie</a></li>
+                    <li><a class="dropdown-item" href="#">Najlacnejšie</a></li>
+                    <li><a class="dropdown-item" href="#">S najvyššou akciou</a></li>
+                    <li><a class="dropdown-item" href="#">S najnižšou akciou</a></li>
+                    <li><a class="dropdown-item" href="#">Najpredávanejšie</a></li>
+                    <li><a class="dropdown-item" href="#">Najmenej predávané</a></li>
+                </ul>
             </div>  
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes">
-                    <img src="./resources/FilterImage.svg" class="top-bar-icons">
-                </button>
-            </div>  
+                <div class="dropdown">
+                        <button type="button" class="btn btn-secondary our-buttons dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            <img src="./resources/FilterImage.svg" class="top-bar-icons">
+                            Filtrovanie
+                        </button>
+                        <div class="dropdown-menu p-3 dropdown-menu-end" style="min-width: 300px;">
+                            <!-- Cena od -->
+                            <label class="form-label highlight">Cena od:  </label>
+                            <output for="cenaSlider">0 €</output>
+                            <input type="range" class="form-range mb-2" min="0" max="999" value="0" id="cenaSliderOd">
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">0 €</small>
+                                <small class="text-muted">999 €</small>
+                            </div>
+                            <!-- Cena do -->
+                            <label class="form-label highlight">Cena do:  </label>
+                            <output for="cenaSlider">999 €</output>
+                            <input type="range" class="form-range mb-2" min="0" max="999" value="999" id="cenaSliderDo">
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted">0 €</small>
+                                <small class="text-muted">999 €</small>
+                            </div>
+                            <!-- Typ -->
+                            <label class="form-label highlight">Typ</label>
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ1"><label class="form-check-label" for="typ1">Akčné</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ2"><label class="form-check-label" for="typ2">RPG</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ3"><label class="form-check-label" for="typ3">Športové</label></div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ4"><label class="form-check-label" for="typ4">Stratégia</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ5"><label class="form-check-label" for="typ5">Simulácia</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ6"><label class="form-check-label" for="typ6">Adventúra</label></div>
+                                </div>
+                            </div>
+                            <!-- Hodnotenie -->
+                            <label class="form-label highlight">Minimálne hodnotenie:</label>
+                            <div class="d-flex gap-2 mb-3">
+                                <label for="range2" class="form-label">0★</label>
+                                <input type="range" class="form-range" min="0" max="5" id="range3">    
+                                <label for="range2" class="form-label">5★</label>
+                            </div>
+                            <!-- Tlačidlá -->
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-outline-secondary w-50" id="resetFilter">Resetovať</button>
+                                <button type="button" class="btn btn-primary w-50" id="aplikovatFilter">Filtrovať</button>
+                            </div>
+                        </div>
+                </div>  
+            </div>
         </div>
     </div>
-    
+
     <!-- Produkty v danej Kategorii -->
     <div class="container text-center">
         <div class="row justify-content-md-center">
@@ -177,6 +234,7 @@
             </div>
         </div>
     </div>
+
     <!-- Strankovanie -->
     <div class="container">
         <nav aria-label="..." class="p-3" >
