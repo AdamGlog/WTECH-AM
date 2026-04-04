@@ -95,7 +95,7 @@
                 <h3 class="heading pt-2 ps-2 ms-1 main-headings">Prehľad Objednávok</h3>
             </div>
             <div class="col text-end">
-                <button type="button" class="btn btn-success create-button">Vytvoriť novú objednávku</button>
+                <button type="button" class="btn btn-success create-button" data-bs-toggle="modal" data-bs-target="#create-order">Vytvoriť novú objednávku</button>
             </div>
         </div>
         <div class="table-responsive">
@@ -127,10 +127,10 @@
                             <img src="../resources/CapPOF.jpg" class="order-img">
                         </td>
                         <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons">
+                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-order">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
                             </button>
-                            <button type="button" class="btn btn-danger table-function-buttons">
+                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-order">
                                 <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
                             </button>
                         </td>
@@ -147,10 +147,10 @@
                             <img src="../resources/CapPOF.jpg" class="order-img">
                         </td>
                         <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons">
+                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-order">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
                             </button>
-                            <button type="button" class="btn btn-danger table-function-buttons">
+                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-order">
                                 <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
                             </button>
                         </td>
@@ -160,6 +160,269 @@
         </div>
     </div>
     
+    <!-- Modálne okno - Vytvorenie novej objednávky -->
+    <div class="modal fade" id="create-order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Vytvorenie novej objednávky</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Meno užívateľa -->
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Meno a priezvisko objednávateľa</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Meno" aria-label="Meno">
+                        <span class="input-group-text"> </span>
+                        <input type="text" class="form-control" placeholder="Priezvisko" aria-label="Priezvisko">    
+                    </div>
+                </div>
+                <!-- Dátum objednávky -->
+                <div class="mb-3">
+                    <label for="userDate" class="form-label">Dátum</label>
+                    <input type="date" class="form-control" id="orderDate" max="2026-04-05">
+                </div>
+                <!-- Cena -->
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label">Cena objednávky</label>
+                    <input type="text" class="form-control" id="productPrice">
+                    <div class="form-text">Zadaj cenu vo formáte 0.00</div>
+                </div>                
+                <!-- Stav objednávky -->
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Stav objednávky</label>
+                    <select class="form-select" id="productCategory">
+                    <option value>Vyber stav</option>
+                    <option value="1">rezervovaná</option>
+                    <option value="2">pripravuje sa</option>
+                    <option value="3">dopravuje sa</option>
+                    <option value="4">vybavená</option>
+                    </select>
+                </div>
+                <!-- Typ doručenia -->
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Typ doručenia</label>
+                    <select class="form-select" id="productCategory">
+                    <option value>Vyber doručenie</option>
+                    <option value="1">Kuriér</option>
+                    <option value="2">Pošta</option>
+                    <option value="3">Predajňa</option>
+                    </select>
+                </div>
+                <!-- Typ platby -->
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Typ platby</label>
+                    <select class="form-select" id="productCategory">
+                    <option value>Vyber typ platby</option>
+                    <option value="1">Karta online</option>
+                    <option value="2">Bankový prevod</option>
+                    <option value="3">Na mieste</option>
+                    </select>
+                </div>
+                <!-- Telefónne číslo objednávateľa -->
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Telefónne číslo objednávateľa</label>
+                    <div class="input-group mb-3">
+                        <select class="form-select" style="max-width: 100px;">
+                            <option value="+421" selected>+421</option>
+                            <option value="+420">+420</option>
+                            <option value="+48">+48</option>
+                        </select>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <!-- Adresa objednávky -->
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Adresa objednávky</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Ulica" aria-label="Ulica">
+                        <span class="input-group-text">,</span>
+                        <input type="text" class="form-control" placeholder="Číslo domu" aria-label="Číslo domu">    
+                    </div>
+                </div>
+                <!-- PSČ objednávky -->
+                <div class="mb-3">
+                    <label for="productQuantity" class="form-label">PSČ mesta objednávky</label>
+                    <input type="text" class="form-control" aria-label="PSC mesta">
+                </div>
+                <!-- Produkty v objednávke -->
+                <div class="mb-3">
+                    <label class="form-label">Pridať produkt</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="search" class="form-control" placeholder="Hľadať produkt">
+                        <button type="submit" class="btn btn-primary btn-sm">Hľadať</button>
+                    </div>
+                </div>
+                <!-- Vybrané produkty -->
+                <div class="mb-3">
+                    <p>Vybrané produkty:</p>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            The Wichter hrnček
+                            <div class="d-flex gap-2">
+                                <input type="number" name="product_1" value="1" min="1" class="form-control admin-objednavky-produkty">
+                                <button type="submit" name="remove" value="1" class="btn btn-danger btn-sm">X</button>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            The Wichter: Legend of Regalt
+                            <div class="d-flex gap-2">
+                                <input type="number" name="product_2" value="2" min="1" class="form-control admin-objednavky-produkty">
+                                <button type="submit" name="remove" value="2" class="btn btn-danger btn-sm">X</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer d-flex flex-column align-items-center">
+                <button type="button" class="btn btn-primary">Vytvoriť objednávku</button>    
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modálne okno - Upravenie existujúcej objednávky -->
+    <div class="modal fade" id="edit-order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Upravenie existujúcej objednávky</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Meno užívateľa -->
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Meno a priezvisko objednávateľa</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Momentálne Meno" aria-label="Meno">
+                        <span class="input-group-text"> </span>
+                        <input type="text" class="form-control" placeholder="Momentálne Priezvisko" aria-label="Priezvisko">    
+                    </div>
+                </div>
+                <!-- Dátum objednávky -->
+                <div class="mb-3">
+                    <label for="userDate" class="form-label">Dátum</label>
+                    <input type="date" class="form-control" id="orderDate" max="2026-04-05">
+                </div>
+                <!-- Cena -->
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label">Cena objednávky</label>
+                    <input type="text" class="form-control" placeholder="Momentálna Cena" id="productPrice">
+                    <div class="form-text">Zadaj cenu vo formáte 0.00</div>
+                </div>                
+                <!-- Stav objednávky -->
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Stav objednávky</label>
+                    <select class="form-select" id="productCategory">
+                    <option value>Vyber stav</option>
+                    <option selected value="1">rezervovaná</option>
+                    <option value="2">pripravuje sa</option>
+                    <option value="3">dopravuje sa</option>
+                    <option value="4">vybavená</option>
+                    </select>
+                </div>
+                <!-- Typ doručenia -->
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Typ doručenia</label>
+                    <select class="form-select" id="productCategory">
+                    <option value>Vyber doručenie</option>
+                    <option selected value="1">Kuriér</option>
+                    <option value="2">Pošta</option>
+                    <option value="3">Predajňa</option>
+                    </select>
+                </div>
+                <!-- Typ platby -->
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Typ platby</label>
+                    <select class="form-select" id="productCategory">
+                    <option value>Vyber typ platby</option>
+                    <option selected value="1">Karta online</option>
+                    <option value="2">Bankový prevod</option>
+                    <option value="3">Na mieste</option>
+                    </select>
+                </div>
+                <!-- Telefónne číslo -->
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Telefónne číslo</label>
+                    <div class="input-group mb-3">
+                        <select class="form-select" style="max-width: 100px;">
+                            <option value="+421" selected>+421</option>
+                            <option value="+420">+420</option>
+                            <option value="+48">+48</option>
+                        </select>
+                        <input type="text" class="form-control" placeholder="Momentálne tel. číslo">
+                    </div>
+                </div>
+                <!-- Bydlisko užívateľa -->
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Adresa užívateľa</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Momentálna ulica" aria-label="Ulica">
+                        <span class="input-group-text">,</span>
+                        <input type="text" class="form-control" placeholder="Momentálne číslo domu" aria-label="Číslo domu">    
+                    </div>
+                </div>
+                <!-- PSČ užívateľa -->
+                <div class="mb-3">
+                    <label for="productQuantity" class="form-label">PSČ mesta adresy</label>
+                    <input type="text" class="form-control" placeholder="Momentálne nastavené PSC" aria-label="PSC mesta">
+                </div>
+                <!-- Produkty v objednávke -->
+                <div class="mb-3">
+                    <label class="form-label">Pridať produkt</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="search" class="form-control" placeholder="Hľadať produkt">
+                        <button type="submit" class="btn btn-primary btn-sm">Hľadať</button>
+                    </div>
+                </div>
+                <!-- Vybrané produkty -->
+                <div class="mb-3">
+                    <p>Vybrané produkty:</p>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            The Wichter hrnček
+                            <div class="d-flex gap-2">
+                                <input type="number" name="product_1" value="1" min="1" class="form-control admin-objednavky-produkty">
+                                <button type="submit" name="remove" value="1" class="btn btn-danger btn-sm">X</button>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            The Wichter: Legend of Regalt
+                            <div class="d-flex gap-2">
+                                <input type="number" name="product_2" value="2" min="1" class="form-control admin-objednavky-produkty">
+                                <button type="submit" name="remove" value="2" class="btn btn-danger btn-sm">X</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer d-flex flex-column align-items-center">
+                <button type="button" class="btn btn-primary">Uložiť editovaného užívateľa</button>    
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modálne okno - Vymazanie objednávky -->
+    <div class="modal fade" id="delete-order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Potvrdenie vymazania objednávky</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Ste si istý, že chcete vymazať túto objednávku?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
+                    <button type="button" class="btn btn-danger">Áno, natrvalo vymazať</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Paticka -->
     <div class="container">
         <hr class="border-dark border-2 opacity-100 my-0 mt-3"/>

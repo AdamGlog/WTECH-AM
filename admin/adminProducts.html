@@ -211,6 +211,12 @@
                     <label for="productQuantity" class="form-label">Množstvo</label>
                     <input type="number" class="form-control" id="productQuantity" min="0" step="1">
                 </div>
+                <!-- Pridanie Fotky produktu -->
+                <div class="mb-3">
+                    <label for="formFile" class="form-label smaller-text">Vložiť fotky produktu</label>
+                    <input class="form-control smaller-text" type="file" id="formFile" multiple>
+                    <div class="form-text">Môžeš nahrať viac obrázkov naraz.</div>
+                </div>
             </div>
             <div class="modal-footer d-flex flex-column align-items-center">
                 <button type="button" class="btn btn-primary">Vytvoriť produkt</button>
@@ -265,7 +271,26 @@
                     <label for="productQuantity" class="form-label">Množstvo</label>
                     <input type="number" class="form-control" id="productQuantity" placeholder="Momentálne množstvo tu" min="0" step="1">
                 </div>
-            </div>
+                <!-- Pridanie Fotky produktu -->
+                <div class="mb-3">
+                    <label for="formFile" class="form-label smaller-text">Pridať fotky produktu</label>
+                    <input class="form-control smaller-text" type="file" id="formFile" multiple>
+                    <div class="form-text">Môžeš nahrať viac obrázkov naraz.</div>
+                </div>
+                <!-- Existujúce Fotky Produktu -->
+                <div class="mb-3">
+                    <label class="form-label">Existujúce fotky</label>
+                    <div class="d-flex flex-wrap gap-2">
+                        <div class="position-relative">
+                        <img src="../resources/TheWichter.jpg" class="img-thumbnail" style="width:100px; height:100px;">
+                        <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Odstrániť"></button>
+                        </div>
+                        <div class="position-relative">
+                        <img src="../resources/TheWichter2.png" class="img-thumbnail" style="width:100px; height:100px;">
+                        <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Odstrániť"></button>
+                        </div>
+                    </div>
+                </div>
             <div class="modal-footer d-flex flex-column align-items-center">
                 <button type="button" class="btn btn-primary">Uložiť editovaný produkt</button>
             </div>
@@ -273,7 +298,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modálne okno - Vymazanie produktu -->
     <div class="modal fade" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

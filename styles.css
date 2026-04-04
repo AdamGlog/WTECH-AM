@@ -497,3 +497,7 @@
 .bar-buttons:hover .bar-icon-white {
     display: inline;
 }
+
+.admin-objednavky-produkty {
+    width: 80px;
+}
