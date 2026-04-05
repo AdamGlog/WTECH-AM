@@ -82,32 +82,28 @@
         </div>
     </div>
 
-
     <div class="container">
-        <h2 class="heading p-3 ms-1 main-headings">Profil Hráča: JorkoMrkvicka555</h2>
+        <h2 class="heading p-3 ms-1 main-headings">Profil Hráča: {{ $user->nickname }}</h2>
         <div class="row align-items-center">
             <div class="col-3">
                 <img src="../resources/AccountImage.svg" class="w-100">
             </div>
             <div class="col-9 fs-4">
                 <p class="smaller-text">
-                    <b>Telefón:</b> +421 999 999 999
+                    <b>Telefón:</b> +421 {{ $user->telefonne_cislo }}
                 </p>
                 <p class="smaller-text">
-                    <b>Email:</b> nora.hrac@gnail.com 
+                    <b>Email:</b> {{ $user->email }} 
                 </p>
                 <p class="smaller-text">
-                    <b>Člen od:</b> 15. 03. 2025
+                    <b>Člen od:</b> {{ $user->datum_registracie }}
                 </p>
                 <p class="smaller-text">
-                    <b>Typ člena:</b> klasický
+                    <b>Typ člena:</b> {{ $user->typ_clena }}
                 </p>
             </div>
         </div>
     </div>
-
-
-
     
     <!-- Paticka -->
     <div class="container">

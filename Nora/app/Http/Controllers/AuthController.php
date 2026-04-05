@@ -9,22 +9,30 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        // Získame údaje z formulára
-        $nickname = $request->input('nickname');
-        $password = $request->input('password');
-
-        // Hľadáme používateľa podľa nickname
+        $nickname = $request->nickname;
+        $heslo = $request->heslo;
         $user = User::where('nickname', $nickname)->first();
 
-        // Porovnanie hesla
-        if ($user && $user->password === $password) {
-            // Úspešné prihlásenie → presmerovanie na profil
-            return redirect()->route('profileOverview');
+        if ($user && $user->heslo === $heslo) {
+            // ulozim id
+            session(['user_id' => $user->id]);
+            return redirect('/profileOverview');
         }
 
-        // Neúspešné prihlásenie → späť s chybou
         return redirect()->back()->withErrors([
-            'nickname' => 'Nesprávny nickname alebo heslo.'
-        ])->withInput();
+            'nickname' => 'Zlé meno alebo heslo'
+        ]);
+    }
+
+    public function profile()
+    {
+        $userId = session('user_id');
+
+        if (!$userId) {
+            return redirect('/');
+        }
+
+        $user = User::find($userId);
+        return view('profile/profileOverview', ['user' => $user]);
     }
 }
