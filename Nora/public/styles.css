@@ -1,0 +1,499 @@
+/* color palette
+* light  blue: #9CEEF5
+* middle blue: #81CAFB
+* darker blue: #28469C
+*/
+
+.body-bg {
+    background-image: url("./resources/Background.png");
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
+}
+.our-buttons {
+    background-color: #81CAFB;
+    /* background-color: #C6FF33; */
+    /* color: white; */
+    color: black;
+}   
+.our-buttons:hover {
+    background-color: #28469C;
+    color: white;
+    border-color: white;
+    border: 2px solid white;
+}
+.table-th-color {
+    background-color: #81CAFB !important;
+}
+.our-main-buttons {
+    background-color: transparent;
+}
+.menu-main-buttons img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.our-buttons-logout {
+    color: white;
+    border: 2px solid white;
+    border-radius: 0;
+    max-width: 200px;
+}
+.menu-buttons, .menu-buttons-last, .our-buttons-logout, .no-wrap{
+    white-space: nowrap;
+}
+
+.top-bar-sizes {
+    height: 40pt;
+    width: 40pt;
+}
+.menu-buttons {
+    border: 2px solid black;
+    border-radius: 0;
+    border-right: none;
+}
+.menu-buttons-last{
+    border-radius: 0;
+    border: 2px solid black;
+}
+
+.search-area {
+    min-width: 50%;
+}
+
+.promo-buttons {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.min-width-promo {
+    min-width: 150px;
+}
+
+.max-sizes-zlavy {
+    max-width: 90%;
+    width: 50%;
+}
+.top-logo {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    aspect-ratio: 4/3;
+    max-width: 150px;
+}
+
+.carousel-images {
+    height: 240px;
+}
+
+.promo-image {
+    height: 300px;
+}
+.order-img {
+    height: 40px;
+}
+
+@media (max-width: 900px) {
+    .top-logo {
+        max-width: 50px;
+    }
+    .search-area {
+        min-width: 30%;
+    }
+    .top-bar-sizes {
+        width: 40px;
+        height: 40px;
+        padding: 4px;
+    }
+    .top-bar-icons {
+        width: 20px;
+        height: 20px;
+    }
+    .menu-buttons {
+        font-size: 0.75rem;
+        padding: 4px 2px;
+    }
+    .menu-buttons-last {
+        font-size: 0.75rem;
+        padding: 4px 2px;
+    }
+    .profile-menu-buttons {
+        font-size: 0.65rem;
+        padding: 2px 0px;
+    }
+    .carousel-images {
+        height: 80px;
+    }
+    .carousel-text {
+        font-size: 0.6rem;
+    }
+    .lower-gap {
+        margin-left: 2px !important;  /* override na bootstrap */
+        margin-right: 2px !important;
+    }
+    .main-headings {
+        font-size: 0.85rem;
+    }
+    .promo-image {
+        height: 100px;
+    }
+    .button-texts {
+        font-size: 0.7rem;
+    }
+    .smaller-text {
+        font-size: 0.7rem;
+    }
+    .smallest-text {
+        font-size: 0.4rem;
+    }
+    .min-width-promo {
+        width: 50px;
+        height: 25px;
+    }
+    .promo-buttons {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .card-image {
+        height: 100px;
+        width: 50%;
+    }
+    .order-img {
+        height: 20px;
+    }
+    .table-function-buttons {
+        max-width: 15px;
+        max-height: 15px;
+        padding: 0px;
+        font-size: 0.5rem;
+    }
+    .table-function-buttons-icons {
+        max-width: 8px;
+        max-height: 8px;
+    }
+    .create-button {
+        max-width: 100px;
+        max-height: 20px;
+        padding: 0px;
+        font-size: 0.5rem;
+    }
+    .admin-dasboard-buttons-icons {
+        max-width: 10px;
+        max-height: 10px;
+    }
+    .step-label {
+        display: none;
+    }
+    .step-line {
+        min-width: 0;
+        flex: 1;
+    }
+     .step-circle {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.75rem !important;
+        flex-shrink: 0;
+    }
+    .kosik-item {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .kosik-item-name {
+        width: 100%;
+    }
+    .kosik-item-controls {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    /* kosik responizibilny*/
+    .d-flex.align-items-center {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .qty-input, .price-input {
+        width: 80px !important;
+    }
+    .paticka {
+        font-size: 0.7rem;
+        flex-direction: column;
+    }
+    
+}
+
+.heading {
+    padding-left: 10%;
+}
+
+.main-paddings {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.buttonProduct1:hover {
+    background-color: limegreen;
+}
+
+.buttonProduct0 {
+    background-color: lime;
+}
+
+.buttonProduct2:hover {
+    background-color: DodgerBlue;
+}
+
+.buttonProduct2 {
+    background-color: DodgerBlue;
+}
+
+.pagination .page-link {
+    color: black;
+    background-color: #D9D9D9;
+    border-color: #aaa;
+}
+
+.pagination .page-item.active .page-link {
+    color: black;
+    background-color: #aaa;
+    border-color: #888;
+}
+
+.paticka {
+    background-color:#81CAFB;
+    /* color: white; */
+    /* background-color:#C6FF33; */
+    padding:3%;
+}
+.first-in-zoznam {
+    padding-left: 16.5%;
+}
+.menu-button-left{
+    padding-left: 10%;
+}
+.menu-button-right{
+    padding-right: 10%;
+}
+
+.card-image {
+    height: 350px;
+    width: 255px;
+    margin: 0 auto;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    /* object-fit: cover; */
+}
+
+.btn-qty {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-qty-prev {
+  background-color: #cb533e;
+}
+
+.btn-qty-next {
+  background-color: #14b369;
+}
+
+.kosik-qty {
+  width: 35px;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.btn-qty-prev:hover {
+    background-color: #b8341d;
+}
+
+.btn-qty-next:hover {
+  background-color: #079251;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ccc;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .85rem;
+}
+
+.step-circle.active {
+  background: #38b328;
+}
+
+.step-label {
+  font-size: .85rem;
+  color: #aaa;
+}
+
+.step-label.active {
+  color: #38b328;
+  font-weight: 600;
+}
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: #ccc;
+  min-width: 40px;
+}
+
+.right-banner {
+    float: right;
+}
+
+.step-line.active {
+    background-color: #23b06e;
+}
+
+.step-circle.active {
+    background-color: #23b06e;
+}
+
+.btn-check + .btn {
+    background-color: #c16262;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-check:checked + .btn {
+    background-color: #0cc25b;
+    color: #fff;
+    border: none;
+}
+
+.btn-check + .btn:hover {
+    background-color: #6b7767;
+    color: #ffffff;
+    border: none;
+}
+
+.zaruka-text {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.highlight {
+    font-weight: bold;
+}
+
+.qty-input {
+    width: 62px;
+    text-align: center;
+}
+
+.price-input {
+    width: 105px;
+    text-align: right;
+}
+
+.product-name {
+    flex: 1 1 0;
+    min-width: 120px;
+}
+
+.cart-pokracovat {
+    background-color: #00e000;
+    color: #000;
+}
+
+.cart-pokracovat:hover {
+    background-color: #00c000;
+}
+
+.cart-back {
+    background-color: #cd4242;
+    color: #000;
+}
+
+.cart-back:hover {
+    background-color: #b02a37;
+}
+
+/* tlacitka kosika nekliknute */
+.btn-check + .btn {
+    background-color: #9CEEF5;
+    border-color: #9CEEF5;
+    color: black;
+}
+
+/* tlacitka kosika kliknute */
+.btn-check:checked + .btn {
+    background-color: #81CAFB;
+    border-color: #81CAFB;
+    color: black;
+}
+
+/* tlacitka kosika hover */
+.btn-check + .btn:hover,
+.btn-check:checked + .btn:hover {
+    background-color: #28469C;
+    border-color: #28469C;
+    color: white;
+}
+
+.table-function-buttons {
+    height: 30px;
+    width: 30px;
+    padding: 0px;
+    margin: 1px;
+}
+
+.create-button {
+    width: 250px;
+    height: 35px;
+    padding: 0px;
+}
+
+.admin-dasboard-buttons {
+    width: 250px;
+    height: 35px;
+    padding: 4px;
+}
+
+.icon-white {
+    display: none;
+}
+
+.admin-dasboard-buttons:hover .icon-black {
+    display: none;
+}
+
+.admin-dasboard-buttons:hover .icon-white {
+    display: inline;
+}
+
+.bar-icon-white {
+    display: none;
+}
+
+.bar-buttons:hover .bar-icon-black {
+    display: none;
+}
+
+.bar-buttons:hover .bar-icon-white {
+    display: inline;
+}

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="sk">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kontaktné údaje</title>
+        <link rel="icon" type="image/x-icon" href="../resources/NoraLogo.svg">
+        <!-- CSS z Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="../styles.css" rel="stylesheet">
+    </head>
+    <body class="body-bg">
+    <!--Top bar Stranky-->
+    <div class="container">
+        <div class="row align-items-center g-1">
+            <div class="col-auto">
+                <a href="../main.html">
+                    <img src="../resources/NoraLogo.svg" class="top-logo">
+                </a>
+            </div>
+            <div class="col search-area">
+                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-outline-success our-buttons top-bar-sizes bar-buttons" type="submit">
+                    <img src="../resources/search.svg" class="top-bar-icons bar-icon-black">
+                    <img src="../resources/searchWhite.svg" class="top-bar-icons bar-icon-white">
+                </button>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons" data-bs-toggle="modal" data-bs-target="#profil">
+                    <img src="../resources/profile.svg" class="top-bar-icons bar-icon-black">
+                    <img src="../resources/profileWhite.svg" class="top-bar-icons bar-icon-white">
+                </button>
+            </div>
+            <div class="col-auto">
+                <a href="../cart/cart.html">
+                    <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons">
+                        <img src="../resources/ShopCart.svg" class="top-bar-icons bar-icon-black">
+                        <img src="../resources/ShopCartWhite.svg" class="top-bar-icons bar-icon-white">
+                    </button>
+                </a>
+            </div>    
+        </div>
+    </div>
+
+    <!--Menu kategorii-->
+    <div class="container">
+        <div class="row g-0 flex-nowrap">
+            <div class="col">
+                <div class="d-grid menu-button-left" role="group" aria-label="Basic example">
+                    <a href="../categoryPage.html" type="button" class="btn btn-secondary menu-buttons our-buttons">Hry</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid" role="group" aria-label="Basic example">
+                    <a href="../categoryPage.html" type="button" class="btn btn-secondary menu-buttons our-buttons">Konzoly</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid" role="group" aria-label="Basic example">
+                    <a href="../categoryPage.html" type="button" class="btn btn-secondary menu-buttons our-buttons">Merch</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid" role="group" aria-label="Basic example">
+                    <a href="../categoryPage.html" type="button" class="btn btn-secondary menu-buttons our-buttons">Figúrky</a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
+                    <a href="./aboutUs.html" type="button" class="btn btn-secondary menu-buttons-last our-buttons">O Nás</a>
+                </div>
+            </div>    
+        </div>
+    </div>
+
+    <!-- Modálne okno - Prihlásenie -->
+    <div class="modal fade" id="profil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Prihlásenie</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="exampleName" class="form-label">Email alebo Meno profilu</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="jozkoMrkvicka555">
+                <label for="inputPassword5" class="form-label">Heslo</label>
+                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+            </div>
+            <div class="modal-footer d-flex flex-column align-items-center">
+                <button type="button" class="btn btn-primary">Prihlásiť</button>
+                <label for="exampleName" class="form-label">Nemáte účet? Zaregistrujte sa -> <a href="../profile/registration.html">TU</a></label>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Text o Kontakte-->
+    <div class="container">
+        <br>
+        <h1 class = "text-center">SME TU PRE VÁS</h1>
+        <br>
+        <!--Zákaznícke centrum-->
+        <div class="row justify-content-around align-items-center">
+            <div class="col-md-6">
+                <p class="text-start mb-0 zaruka-text">
+                <span class="highlight title">Zákaznícke centrum</span><br>
+                Máš nejaký problém? Neváhaj a zavolaj nám. Tvoj problém vyriešime 
+                rýchlejšie než stihneš vystrčiť nohy z nory. Pomôžeme s hocijakým 
+                problémam zo sveta gamingu alebo našej elektroniky. Naši kolegovia
+                zo zákacníckeho centra sú školený na problémy hocijakého typu.
+                https://www.justdial.com/Kolkata/Free-Shyam-Solution/033PXX33-XX33-110907171301-Z2N8_BZDET
+            </p>
+            </div>
+            <div class="col">
+                <img src="../resources/zakaznickeCentrum.jpg" 
+                            class="d-block w-75 mx-auto" 
+                            style="max-width: 400px;"
+                            alt="zákaznícke centrum">
+            </div>
+        </div>
+
+        <!--Vyťaženosť linky-->
+        <div class="row justify-content-around align-items-center">
+            <div class="col">
+                <img src="../resources/vytazenost.png" 
+                            class="d-block w-75 mx-auto" 
+                            style="max-width: 450px;"
+                            alt="vytazenost nasej tel. linky">
+            </div>
+            <div class="col-md-6">
+                <p class="text-end mb-0 zaruka-text">
+                <p class = "highlight">Tvoj telefonát vybavíme:</p>
+                <p>+421 900 000 000</p>
+                <p>pondelok - piatok: 8:00-18:00</p>
+                <p>sobota - nedeľa: 10:00-17:00</p>
+                https://www.telekom.sk/kontakt/zakaznicka-linka
+                </p>
+            </div> 
+        </div>
+        <!--špeciálne služby-->
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <div class="d-flex justify-content-center align-items-center gap-3 mb-2">
+                    <div>
+                        <p class="fw-bold mb-0">Výkup hier a konzol:</p>
+                        <p>+421 900 000 000</p>
+                    </div>
+                    <img src="../resources/controller.svg" alt="obrazok" height="60">
+                </div>
+                <p class="w-75 text-center ms-auto">Zbavuješ sa starých hier alebo konzol? Prines ich k nám a my ti 
+                    za ne zaplatíme férovu cenu. Odkupujeme hry a konzoly všetkých 
+                    generácií — od retro kúskov až po najnovšie modely. Rýchlo, jednoducho 
+                    a bez zbytočného papierovania.</p>
+            </div>
+            <div class="col-md-6 text-center">
+                    <div class="d-flex align-items-between gap-3 mb-2">
+                        <div>
+                            <p class="fw-bold mb-0">Náš servis:</p>
+                            <p>+421 900 000 000</p>
+                        </div>
+                    <img src="../resources/repair.svg" alt="obrazok" height="60">
+                </div>
+                <p class="w-75 text-center">
+                    Pokazila sa ti konzola alebo herný ovládač? Náš tím skúsených technikov 
+                    sa postará o rýchlu a spoľahlivú opravu. Opravujeme všetky bežné značky 
+                    a modely, či už ide o mechanické poškodenie, softvérový problém alebo 
+                    opotrebované diely. Prines nám svoje zariadenie a my sa o zvyšok postaráme.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paticka -->
+    <div class="container">
+        <hr class="border-dark border-2 opacity-100 my-0 mt-3"/>
+        <div class="paticka">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            <div class="col-6 col-md-4">
+                                <a href="../footer/reklamacia.html" class="link-dark link-underline link-underline-opacity-0 link-opacity-75-hover">
+                                    <p>Reklamácie</p>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <a href="../footer/shipping.html" class="link-dark link-underline link-underline-opacity-0 link-opacity-75-hover">
+                                    <p>Možnosti dopravy</p>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <a href="../footer/aboutUs.html" class= "link-dark link-underline link-underline-opacity-0 link-opacity-75-hover">
+                                    <p>O nás</p>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <a href="../footer/warranty.html" class= "link-dark link-underline link-underline-opacity-0 link-opacity-75-hover">
+                                    <p>Záruky</p>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <a href="../footer/zmluvnePodmienky.html" class= "link-dark link-underline link-underline-opacity-0 link-opacity-75-hover">
+                                    <p>Zmluvné podmienky</p>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <a href="../footer/kontakt.html" class= "link-dark link-underline link-underline-opacity-0 link-opacity-75-hover">
+                                    <p>Kontakt</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mt-3 mt-md-0">
+                        <p>Adresa</p>
+                        <p>
+                            <span class="highlight">Nora s.r.o. </span>Rynek Główny 31, 31-008 Kraków
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS z Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
