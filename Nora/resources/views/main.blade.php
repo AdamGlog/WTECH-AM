@@ -14,7 +14,11 @@
     <div class="container">
         <div class="row align-items-center g-1">
             <div class="col-auto">
+<<<<<<< HEAD
                 <a href="./">
+=======
+                <a href="./main.html">
+>>>>>>> main
                     <img src="./resources/NoraLogo.svg" class="top-logo">
                 </a>
             </div>
@@ -79,6 +83,7 @@
     <div class="modal fade" id="profil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
+<<<<<<< HEAD
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Prihlásenie</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -102,6 +107,22 @@
                 </div>
             </form>
                 
+=======
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Prihlásenie</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="exampleName" class="form-label">Email alebo Meno profilu</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="jozkoMrkvicka555">
+                <label for="inputPassword5" class="form-label">Heslo</label>
+                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+            </div>
+            <div class="modal-footer d-flex flex-column align-items-center">
+                <button type="button" class="btn btn-primary">Prihlásiť</button>
+                <label for="exampleName" class="form-label">Nemáte účet? Zaregistrujte sa -> <a href="./profile/registration.html">TU</a></label>
+            </div>
+>>>>>>> main
             </div>
         </div>
     </div>
