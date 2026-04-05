@@ -95,7 +95,7 @@
                 <h3 class="heading pt-2 ps-2 ms-1 main-headings">Prehľad Produktov</h3>
             </div>
             <div class="col text-end">
-                <button type="button" class="btn btn-success create-button">Vytvoriť nový produkt</button>
+                <button type="button" class="btn btn-success create-button" data-bs-toggle="modal" data-bs-target="#add-new-product">Vytvoriť nový produkt</button>
             </div>
         </div>
         <div class="table-responsive">
@@ -120,10 +120,10 @@
                         <td>49,99€</td>
                         <td>12</td>
                         <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons">
+                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
                             </button>
-                            <button type="button" class="btn btn-danger table-function-buttons">
+                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product">
                                 <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
                             </button>
                         </td>
@@ -136,10 +136,10 @@
                         <td>499,99€</td>
                         <td>3</td>
                         <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons">
+                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
                             </button>
-                            <button type="button" class="btn btn-danger table-function-buttons">
+                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product">
                                 <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
                             </button>
                         </td>
@@ -152,10 +152,10 @@
                         <td>19,99€</td>
                         <td>30</td>
                         <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons">
+                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
                             </button>
-                            <button type="button" class="btn btn-danger table-function-buttons">
+                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product">
                                 <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
                             </button>
                         </td>
@@ -165,7 +165,158 @@
         </div>
     </div>
 
-    
+    <!-- Modálne okno - Vytvorenie nového produktu -->
+    <div class="modal fade" id="add-new-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Vytvorenie nového produktu</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Názov produktu -->
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Názov produktu</label>
+                    <input type="text" class="form-control" id="productName">
+                </div>
+                <!-- Kategória -->
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Kategória</label>
+                    <select class="form-select" id="productCategory">
+                    <option selected>Vyber kategóriu</option>
+                    <option value="1">Hry</option>
+                    <option value="2">Konzoly</option>
+                    <option value="3">Merch</option>
+                    <option value="4">Figúrky</option>
+                    </select>
+                </div>
+                <!-- Popis produktu -->
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Popis produktu</label>
+                    <textarea class="form-control" id="productDescription" rows="6"></textarea>
+                </div>
+                <!-- Doplnkové info -->
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Doplnkové info produktu</label>
+                    <textarea class="form-control" id="productDescription" rows="6"></textarea>
+                </div>
+                <!-- Cena -->
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label">Cena</label>
+                    <input type="text" class="form-control" id="productPrice">
+                    <div class="form-text">Zadaj cenu vo formáte 0.00</div>
+                </div>
+                <!-- Množstvo -->
+                <div class="mb-3">
+                    <label for="productQuantity" class="form-label">Množstvo</label>
+                    <input type="number" class="form-control" id="productQuantity" min="0" step="1">
+                </div>
+                <!-- Pridanie Fotky produktu -->
+                <div class="mb-3">
+                    <label for="formFile" class="form-label smaller-text">Vložiť fotky produktu</label>
+                    <input class="form-control smaller-text" type="file" id="formFile" multiple>
+                    <div class="form-text">Môžeš nahrať viac obrázkov naraz.</div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex flex-column align-items-center">
+                <button type="button" class="btn btn-primary">Vytvoriť produkt</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modálne okno - Editovanie produktu -->
+    <div class="modal fade" id="edit-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editovanie produktu</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Názov produktu -->
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Názov produktu</label>
+                    <input type="text" class="form-control" id="productName" placeholder="Existujúci názov produktu tu">
+                </div>
+                <!-- Kategória -->
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Kategória</label>
+                    <select class="form-select" id="productCategory">
+                    <option selected>Vyber kategóriu</option>
+                    <option value="1">Hry</option>
+                    <option value="2">Konzoly</option>
+                    <option value="3">Merch</option>
+                    <option value="4">Figúrky</option>
+                    </select>
+                </div>
+                <!-- Popis produktu -->
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Popis produktu</label>
+                    <textarea class="form-control" id="productDescription" rows="6" placeholder="Momentálny popis produktu"></textarea>
+                </div>
+                <!-- Doplnkové info -->
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Doplnkové info produktu</label>
+                    <textarea class="form-control" id="productDescription" rows="6" placeholder="Momentálne zadané parametre pre hru, výkonnosť konzoly alebo iné ďalšie info o produkte"></textarea>
+                </div>
+                <!-- Cena -->
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label">Cena</label>
+                    <input type="text" class="form-control" id="productPrice" placeholder="19.99">
+                    <div class="form-text">Zadaj cenu vo formáte 0.00</div>
+                </div>
+                <!-- Množstvo -->
+                <div class="mb-3">
+                    <label for="productQuantity" class="form-label">Množstvo</label>
+                    <input type="number" class="form-control" id="productQuantity" placeholder="Momentálne množstvo tu" min="0" step="1">
+                </div>
+                <!-- Pridanie Fotky produktu -->
+                <div class="mb-3">
+                    <label for="formFile" class="form-label smaller-text">Pridať fotky produktu</label>
+                    <input class="form-control smaller-text" type="file" id="formFile" multiple>
+                    <div class="form-text">Môžeš nahrať viac obrázkov naraz.</div>
+                </div>
+                <!-- Existujúce Fotky Produktu -->
+                <div class="mb-3">
+                    <label class="form-label">Existujúce fotky</label>
+                    <div class="d-flex flex-wrap gap-2">
+                        <div class="position-relative">
+                        <img src="../resources/TheWichter.jpg" class="img-thumbnail" style="width:100px; height:100px;">
+                        <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Odstrániť"></button>
+                        </div>
+                        <div class="position-relative">
+                        <img src="../resources/TheWichter2.png" class="img-thumbnail" style="width:100px; height:100px;">
+                        <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Odstrániť"></button>
+                        </div>
+                    </div>
+                </div>
+            <div class="modal-footer d-flex flex-column align-items-center">
+                <button type="button" class="btn btn-primary">Uložiť editovaný produkt</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modálne okno - Vymazanie produktu -->
+    <div class="modal fade" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Potvrdenie vymazania produktu</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>Ste si istý, že chcete vymazať tento produkt?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
+            <button type="button" class="btn btn-danger">Áno, natrvalo vymazať</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
     <!-- Paticka -->
     <div class="container">
         <hr class="border-dark border-2 opacity-100 my-0 mt-3"/>
