@@ -53,14 +53,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <label for="exampleName" class="form-label">Email alebo Meno profilu</label>
+                <label class="form-label">Email alebo Meno profilu</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="jozkoMrkvicka555">
-                <label for="inputPassword5" class="form-label">Heslo</label>
+                <label class="form-label">Heslo</label>
                 <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
             </div>
             <div class="modal-footer d-flex flex-column align-items-center">
                 <button type="button" class="btn btn-primary">Prihlásiť</button>
-                <label for="exampleName" class="form-label">Nemáte účet? Zaregistrujte sa -> <a href="./registration.html">TU</a></label>
+                <label class="form-label">Nemáte účet? Zaregistrujte sa -> <a href="./registration.html">TU</a></label>
             </div>
             </div>
         </div>
@@ -68,43 +68,92 @@
 
     <!-- reklamy a registracia-->
     <div class="container ">
-    <div class="row d-flex mt-4 justify-content-between">
-        <div class="col-2">
-        <img src="../resources/banner_reklama.png" 
-                            class="" height="700"
-                            alt="produkt2">
-        </div>
-        <div class="col-6 px-5">
-            <h2 class="text-center mb-4">Registrácia</h2>
-        <div class="mb-3">
-            <label for="exampleName" class="form-label">Meno Profilu</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="jozkoMrkvicka555">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email adresa</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div>
-            <label for="inputPassword5" class="form-label">Heslo</label>
-            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-        <div id="passwordHelpBlock" class="form-text">
-            Tvoje heslo musí byť dlhé v rozmedzí 8 až 30 znakov dlhé, musí obsahovať písmená a čísla a nesmie obsahovať medzery, špeciálne znaky alebo emoji.
-        </div>
-            <label for="inputPassword5" class="form-label">Znovu zadaj heslo</label>
-            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-        <div id="passwordHelpBlock" class="form-text">
-            Tvoje heslo musí byť dlhé v rozmedzí 8 až 30 znakov dlhé, musí obsahovať písmená a čísla a nesmie obsahovať medzery, špeciálne znaky alebo emoji.
-        </div>  
-        <!-- Pokračovať -->
-            <div class="d-flex justify-content-center mt-4">
-                <button class="btn btn-secondary">Registrovať</button>
+        <div class="row d-flex mt-4 justify-content-between">
+            <div class="col-2">
+                <img src="../resources/banner_reklama.png" class="" height="700" alt="produkt2">
+            </div>
+            <div class="col-6 px-5">
+                <h2 class="text-center mb-4">Registrácia</h2>
+            <!-- Form -->
+            <form action="/registration" method="POST">
+                @csrf
+
+                <!-- Meno užívateľa -->
+                <div class="mb-3">
+                    <label class="form-label">Meno a priezvisko</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="meno" class="form-control" placeholder="Meno" aria-label="Meno">
+                        <span class="input-group-text"> </span>
+                        <input type="text" name="priezvisko" class="form-control" placeholder="Priezvisko" aria-label="Priezvisko">    
+                    </div>
+                </div>
+
+                <!-- Prezývka užívateľa -->
+                <div class="mb-3">
+                    <label class="form-label">Nickname užívateľa</label>
+                    <input type="text" name="nickname" class="form-control" aria-label="Nickname">
+                </div>
+
+                <!-- Profilovka užívateľa -->
+                <div class="mb-3">
+                    <label class="form-label smaller-text">Vložiť profilový obrázok</label>
+                    <input class="form-control smaller-text" type="file" name="profilovka" id="formFile">
+                </div>
+
+                <!-- Telefónne číslo -->
+                <div class="mb-3">
+                    <label class="form-label">Telefónne číslo</label>
+                    <div class="input-group mb-3">
+                        <select name="predvolba" class="form-select" style="max-width: 100px;">
+                            <option value="+421" selected>+421</option>
+                            <option value="+420">+420</option>
+                            <option value="+48">+48</option>
+                        </select>
+                        <input type="text" name="telefonne_cislo" class="form-control">
+                    </div>
+                </div>
+
+                <!-- Email užívateľa -->
+                <div class="mb-3">
+                    <label class="form-label">Email užívateľa</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+
+                <!-- Heslo -->
+                <div class="mb-3">
+                    <label class="form-label">Heslo</label>
+                    <input type="password" name="heslo" class="form-control">
+                </div>
+
+                <!-- Bydlisko užívateľa -->
+                <div class="mb-3">
+                    <label class="form-label">Adresa užívateľa</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="ulica" class="form-control" placeholder="Ulica" aria-label="Ulica">
+                        <span class="input-group-text">,</span>
+                        <input type="text" name="cislo_domu" class="form-control" placeholder="Číslo domu" aria-label="Číslo domu">    
+                    </div>
+                </div>
+
+                <!-- PSČ užívateľa -->
+                <div class="mb-3">
+                    <label class="form-label">PSČ mesta adresy</label>
+                    <input type="text" name="mesto_psc" class="form-control" aria-label="PSC mesta">
+                </div>
+                <!-- Pokračovať -->
+                    <div class="d-flex justify-content-center mt-4">
+                        <button type="submit" class="btn btn-secondary">Registrovať</button>
+                    </div>
+                </div>
+            </form>
+
+
+            <div class="col-2 ">
+            <img src="../resources/banner_reklama.png" 
+                                class="right-banner" height="700"
+                                alt="produkt2">
             </div>
         </div>
-        <div class="col-2 ">
-        <img src="../resources/banner_reklama.png" 
-                            class="right-banner" height="700"
-                            alt="produkt2">
-        </div>
-    </div>
     </div>
 
     <!-- Paticka -->
