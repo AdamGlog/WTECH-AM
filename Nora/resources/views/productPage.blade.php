@@ -173,6 +173,15 @@
                 <div class="col">
                 <button class="btn buttonProduct2 w-100 no-wrap my-2">Pridať do obľúbených</button>
                 </div>
+                <div class="col-auto d-flex align-items-center gap-1">
+                    <button class="btn-qty btn-qty-prev">
+                        <img src="../resources/arrow_back.png" height="20">
+                    </button>
+                    <span class="kosik-qty">1</span>
+                    <button class="btn-qty btn-qty-next">
+                        <img src="../resources/arrow_forward.png" height="20">
+                    </button>
+                </div>
                 <div class="col">
                 <button class="btn w-100 buttonProduct1 buttonProduct0 no-wrap my-2">Pridať do košíka</button>
                 </div>
