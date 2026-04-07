@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row align-items-center g-1">
             <div class="col-auto">
-                <a href="./">
+                <a href="/">
                     <img src="./resources/NoraLogo.svg" class="top-logo">
                 </a>
             </div>
@@ -34,7 +34,7 @@
                 </button>
             </div>
             <div class="col-auto">
-                <a href="./cart/cart.html">
+                <a href="/cart">
                     <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons">
                         <img src="./resources/ShopCart.svg" class="top-bar-icons bar-icon-black">
                         <img src="./resources/ShopCartWhite.svg" class="top-bar-icons bar-icon-white">
@@ -98,7 +98,7 @@
                     <div class="modal-footer d-flex flex-column align-items-center">
                         <button type="submit" class="btn btn-primary">Prihlásiť</button>
                         <label for="exampleName" class="form-label">
-                            Nemáte účet? Zaregistrujte sa -> <a href="./profile/registration.html">TU</a>
+                            Nemáte účet? Zaregistrujte sa -> <a href="/registration">TU</a>
                         </label>
                     </div>
                 </form> 

@@ -104,7 +104,7 @@
                 <h2 class="heading p-3 ms-1 main-headings">Hry</h2>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary our-buttons dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-secondary our-buttons dropdown-toggle smaller-text" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="./resources/SortImage.svg" class="top-bar-icons">
                     Zoradenie
                 </button>
@@ -120,7 +120,7 @@
             </div>  
             <div class="col-auto">
                 <div class="dropdown">
-                        <button type="button" class="btn btn-secondary our-buttons dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                        <button type="button" class="btn btn-secondary our-buttons dropdown-toggle smaller-text" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                             <img src="./resources/FilterImage.svg" class="top-bar-icons">
                             Filtrovanie
                         </button>

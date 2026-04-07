@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sumár objednávky</title>
+        <title>Košík</title>
         <link rel="icon" type="image/x-icon" href="../resources/NoraLogo.svg">
         <!-- CSS z Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -97,90 +97,101 @@
         </div>
     </div>
 
-    <!--Sumár celej objednávky-->
-    <div class="container mt-3">
-        <h3>Sumár objednávky:</h3>
+    <!--Košík vypísaný-->
+    <div class="container mt-4">
+        <h3 class="main-headings">Obsah Košíka:</h3>
         <div class="border rounded p-3 bg-light">
             <!--Orientačné čísla-->
-            <div class="d-flex align-items-center gap-3 mb-4">
+            <div class="d-flex align-items-center justify-content-center gap-3 mb-4">
                 <div class="d-flex align-items-center gap-2">
                 <span class="step-circle active">1</span>
                 <span class="step-label active">Košík</span>
                 </div>
-                <div class="step-line active"></div>
+                <div class="step-line"></div>
                 <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle active">2</span>
-                    <span class="step-label active">Doprava a platba</span>
+                    <span class="step-circle">2</span>
+                    <span class="step-label">Doprava a platba</span>
                 </div>
-                <div class="step-line active"></div>
+                <div class="step-line"></div>
                 <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle active">3</span>
-                    <span class="step-label active">Dodacie údaje</span>
+                    <span class="step-circle">3</span>
+                    <span class="step-label">Dodacie údaje</span>
                 </div>
-                <div class="step-line active"></div>
+                <div class="step-line"></div>
                 <div class="d-flex align-items-center gap-2">
-                    <span class="step-circle active">4</span>
-                    <span class="step-label active">Sumár</span>
+                    <span class="step-circle">4</span>
+                    <span class="step-label">Sumár</span>
                 </div>
             </div>
-        <div class="row">    
-            <!--Údaje kupujúceho-->
-            <div class="col-12 col-md-4 mb-3">
-                <h4>Dodacie údaje</h4>
-                <p><span class="highlight">Meno:   </span>Jožko</p>
-                <p><span class="highlight">Priezvisko:   </span>Mrkvička</p>
-                <p><span class="highlight">Ulica:   </span>Športová 1078/45</p>
-                <p><span class="highlight">Mesto:   </span>Snina 069 01</p>
-                <p><span class="highlight">Krajina:   </span>Slovensko</p>
+            <!-- Položka -->
+            <div class="d-flex align-items-center border rounded bg-white p-2 mb-2 flex-wrap kosik-item">
+                <img src="../resources/wichterHrncek.png" height="50" class="me-3">
+                <span class="me-2 kosik-item-name"><strong>Hrnček The Wichter</strong> - Popis produktu</span>
+                <div class="kosik-item-controls ms-auto d-flex align-items-center gap-2">
+                    <span>Počet ks.</span>
+                    <button class="btn btn-danger btn-sm">✕</button>
+                    <button class="btn-qty btn-qty-prev">
+                        <img src="../resources/arrow_back.png" height="20">
+                    </button>
+                    <span class="kosik-qty">5</span>
+                    <button class="btn-qty btn-qty-next">
+                        <img src="../resources/arrow_forward.png" height="20">
+                    </button>
+                    <span class="fw-bold">49,95 €</span>
+                </div>
             </div>
-            <!--Zoznam produktov-->
-            <div class="col-12 col-md-8 gap-3 mb-2">
-                <h4>Produkty</h4>
-                <div class="d-flex align-items-center">
-                    <img src="../resources/wichterHrncek.png" alt="Produkt"  height="50" class="me-3">
-                    <span class="flex-grow-1">Hrnček the Wichter</span>
-                    <span>Počet ks.:</span>
-                    <input type="text" class="ms-2 form-control qty-input" value="5" readonly>
-                    <span class="ms-4">Cena:</span>
-                    <input type="text" class="ms-2 form-control price-input" value="49,95€" readonly>
-                </div>
-                <br>
-                <div class="d-flex align-items-center">
-                    <img src="../resources/trickoWichter.png" alt="Produkt"  height="50" class="me-3">
-                    <span class="flex-grow-1">Tričko the Wichter</span>
-                    <span>Počet ks.:</span>
-                    <input type="text" class="ms-2 form-control qty-input" value="3" readonly>
-                    <span class="ms-4">Cena:</span>
-                    <input type="text" class="ms-2 form-control price-input" value="59,97€" readonly>
-                </div>
-                <br>
-                <div class="d-flex align-items-center">
-                    <img src="../resources/PS7.jpg" alt="Produkt"  height="50" class="me-3">
-                    <span class="flex-grow-1">Play State 7</span>
-                    <span>Počet ks.:</span>
-                    <input type="text" class="ms-2 form-control qty-input" value="1" readonly>
-                    <span class="ms-4">Cena:</span>
-                    <input type="text" class="ms-2 form-control price-input" value="499,99€" readonly>
-                </div>
 
-                <!--Spolu-->
-                <div class="d-flex justify-content-end fw-bold fs-5">
-                    <span>Spolu: </span>
-                    <input type="text" class="form-control ms-4" style="width:115px; text-align:right;" value="634,91€" readonly>
+            <!-- Položka -->
+            <div class="d-flex align-items-center border rounded bg-white p-2 mb-2 flex-wrap kosik-item">
+                <img src="../resources/wichterHrncek.png" height="50" class="me-3">
+                <span class="me-2 kosik-item-name"><strong>Hrnček The Wichter</strong> - Popis produktu</span>
+                <div class="kosik-item-controls ms-auto d-flex align-items-center gap-2">
+                    <span>Počet ks.</span>
+                    <button class="btn btn-danger btn-sm">✕</button>
+                    <button class="btn-qty btn-qty-prev">
+                        <img src="../resources/arrow_back.png" height="20">
+                    </button>
+                    <span class="kosik-qty">5</span>
+                    <button class="btn-qty btn-qty-next">
+                        <img src="../resources/arrow_forward.png" height="20">
+                    </button>
+                    <span class="fw-bold">49,95 €</span>
                 </div>
             </div>
-            <!-- Pokračovať a Vrátiť sa-->
-            <div class="d-flex justify-content-between mt-2">
-                <a href="./cartData.html">
-                    <button class="btn cart-back">Vrátiť sa</button>
-                </a>
-                <a href="./cartCompleted.html">
-                    <button class="btn cart-pokracovat ms-4">Záväzne objednať</button>
+
+            <!-- Položka -->
+            <div class="d-flex align-items-center border rounded bg-white p-2 mb-2 flex-wrap kosik-item">
+                <img src="../resources/wichterHrncek.png" height="50" class="me-3">
+                <span class="me-2 kosik-item-name"><strong>Hrnček The Wichter</strong> - Popis produktu</span>
+                <div class="kosik-item-controls ms-auto d-flex align-items-center gap-2">
+                    <span>Počet ks.</span>
+                    <button class="btn btn-danger btn-sm">✕</button>
+                    <button class="btn-qty btn-qty-prev">
+                        <img src="../resources/arrow_back.png" height="20">
+                    </button>
+                    <span class="kosik-qty">5</span>
+                    <button class="btn-qty btn-qty-next">
+                        <img src="../resources/arrow_forward.png" height="20">
+                    </button>
+                    <span class="fw-bold">49,95 €</span>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between fw-bold fs-5">
+                <span>Spolu</span>
+                <span>634,91 €</span>
+            </div>
+
+            <!-- Pokračovať -->
+            <div class="d-flex justify-content-end mt-2">
+                <a href="/cartShipment">
+                    <button class="btn cart-pokracovat">Pokračovať</button>
                 </a>
             </div>
+
         </div>
     </div>
-
+      
     <!-- Paticka -->
     <div class="container">
         <hr class="border-dark border-2 opacity-100 my-0 mt-3"/>
@@ -234,5 +245,6 @@
 
     <!-- JS z Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
+  
+</body>
 </html>

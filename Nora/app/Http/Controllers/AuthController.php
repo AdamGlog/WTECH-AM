@@ -35,4 +35,10 @@ class AuthController extends Controller
         $user = User::find($userId);
         return view('profile/profileOverview', ['user' => $user]);
     }
+
+    public function logout()
+    {
+        session()->flush(); // vymaže celú session
+        return redirect('/');
+    }
 }

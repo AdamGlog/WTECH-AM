@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row align-items-center g-1">
             <div class="col-auto">
-                <a href="../main.html">
+                <a href="/">
                     <img src="../resources/NoraLogo.svg" class="top-logo">
                 </a>
             </div>
@@ -28,7 +28,7 @@
                 </button>
             </div>
             <div class="col-auto">
-                <a href="./profileOverview.html">
+                <a href="/profileOverview">
                     <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons" data-bs-toggle="modal" data-bs-target="#profil">
                         <img src="../resources/profile.svg" class="top-bar-icons bar-icon-black">
                         <img src="../resources/profileWhite.svg" class="top-bar-icons bar-icon-white">
@@ -36,7 +36,7 @@
                 </a>
             </div>
             <div class="col-auto">
-                <a href="../cart/cart.html">
+                <a href="/cart">
                     <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons">
                         <img src="../resources/ShopCart.svg" class="top-bar-icons bar-icon-black">
                         <img src="../resources/ShopCartWhite.svg" class="top-bar-icons bar-icon-white">
@@ -51,32 +51,35 @@
         <div class="row g-0 flex-nowrap">
             <div class="col">
                 <div class="d-grid menu-button-left" role="group" aria-label="Basic example">
-                    <a href="./profileOverview.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons pe-2">Prehľad Účtu</a>
+                    <a href="/profileOverview.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons pe-2">Prehľad Účtu</a>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                        <a href="./profileOrders.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Objednávky</a>
+                        <a href="/profileOrders.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Objednávky</a>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                        <a href="./profileFavourites.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Obľúbené</a>
+                        <a href="/profileFavourites.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Obľúbené</a>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid" role="group" aria-label="Basic example">
-                        <a href="./profileData.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Údaje</a>
+                        <a href="/profileData.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Údaje</a>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid menu-button" role="group" aria-label="Basic example">
-                        <a href="./profilePrivacy.html" type="button" class="btn btn-secondary menu-buttons-last our-buttons profile-menu-buttons">Súkromie</a>
+                        <a href="/profilePrivacy.html" type="button" class="btn btn-secondary menu-buttons-last our-buttons profile-menu-buttons">Súkromie</a>
                 </div>
             </div>
             <div class="col">
                 <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
-                        <a href="../main.html" type="button" class="btn btn-danger our-buttons-logout profile-menu-buttons">Odhlásiť</a>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger our-buttons-logout profile-menu-buttons w-100">Odhlásiť</button>
+                        </form>
                 </div>
             </div>  
         </div>

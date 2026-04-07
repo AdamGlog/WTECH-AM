@@ -186,8 +186,7 @@
         display: none;
     }
     .step-line {
-        min-width: 0;
-        flex: 1;
+        display: none;
     }
      .step-circle {
         width: 28px !important;

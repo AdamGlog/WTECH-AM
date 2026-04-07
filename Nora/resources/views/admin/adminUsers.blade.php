@@ -205,7 +205,7 @@
         </div>
     </div>
 
-        <!-- Modálne okno - Vytvorenie nového užívateľa -->
+    <!-- Modálne okno - Vytvorenie nového užívateľa -->
     <div class="modal fade" id="create-user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
