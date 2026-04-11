@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="sk">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Správa produktov</title>
+        <link rel="icon" type="image/x-icon" href="../resources/NoraLogo.svg">
+        <!-- CSS z Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="../styles.css" rel="stylesheet">
+    </head>
+    <body class="body-bg">
+    <!--Top bar Stranky-->
+    <x-topbar/>
+
+    <!-- Menu Profilu Admina -->
+    <x-menu-profilu-admina/>
+
+
+    <!-- Zoznam Produktov -->
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col text-start">
+                <h3 class="heading pt-2 ps-2 ms-1 main-headings">Prehľad Produktov</h3>
+            </div>
+            <div class="col text-end">
+                <button type="button" class="btn btn-success create-button" data-bs-toggle="modal" data-bs-target="#add-new-product">Vytvoriť nový produkt</button>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered text-center align-middle smallest-text">
+                <thead class="table-info">
+                    <tr>
+                        <th>Obrázok</th>
+                        <th>ID produktu</th>
+                        <th>Názov</th>
+                        <th>Kategória</th>
+                        <th>Cena</th>
+                        <th>Skladom</th>
+                        <th>Funkcie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="../resources/TheWichter.jpg" class="order-img"></td>
+                        <td>1001</td>
+                        <td>The Wichter: The Legend of Regalt</td>
+                        <td>Hry</td>
+                        <td>49,99€</td>
+                        <td>12</td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product">
+                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product">
+                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="../resources/PS7.jpg" class="order-img"></td>
+                        <td>1002</td>
+                        <td>Play State 7</td>
+                        <td>Konzoly</td>
+                        <td>499,99€</td>
+                        <td>3</td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product">
+                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product">
+                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="../resources/trickoWichter.png" class="order-img"></td>
+                        <td>1003</td>
+                        <td>Tričko The Wichter</td>
+                        <td>Merch</td>
+                        <td>19,99€</td>
+                        <td>30</td>
+                        <td class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product">
+                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product">
+                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modálne okno - Vytvorenie nového produktu -->
+    <div class="modal fade" id="add-new-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Vytvorenie nového produktu</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Názov produktu -->
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Názov produktu</label>
+                    <input type="text" class="form-control" id="productName">
+                </div>
+                <!-- Kategória -->
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Kategória</label>
+                    <select class="form-select" id="productCategory">
+                    <option selected>Vyber kategóriu</option>
+                    <option value="1">Hry</option>
+                    <option value="2">Konzoly</option>
+                    <option value="3">Merch</option>
+                    <option value="4">Figúrky</option>
+                    </select>
+                </div>
+                <!-- Popis produktu -->
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Popis produktu</label>
+                    <textarea class="form-control" id="productDescription" rows="6"></textarea>
+                </div>
+                <!-- Doplnkové info -->
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Doplnkové info produktu</label>
+                    <textarea class="form-control" id="productDescription" rows="6"></textarea>
+                </div>
+                <!-- Cena -->
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label">Cena</label>
+                    <input type="text" class="form-control" id="productPrice">
+                    <div class="form-text">Zadaj cenu vo formáte 0.00</div>
+                </div>
+                <!-- Množstvo -->
+                <div class="mb-3">
+                    <label for="productQuantity" class="form-label">Množstvo</label>
+                    <input type="number" class="form-control" id="productQuantity" min="0" step="1">
+                </div>
+                <!-- Pridanie Fotky produktu -->
+                <div class="mb-3">
+                    <label for="formFile" class="form-label smaller-text">Vložiť fotky produktu</label>
+                    <input class="form-control smaller-text" type="file" id="formFile" multiple>
+                    <div class="form-text">Môžeš nahrať viac obrázkov naraz.</div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex flex-column align-items-center">
+                <button type="button" class="btn btn-primary">Vytvoriť produkt</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modálne okno - Editovanie produktu -->
+    <div class="modal fade" id="edit-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editovanie produktu</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Názov produktu -->
+                    <div class="mb-3">
+                        <label for="productName" class="form-label">Názov produktu</label>
+                        <input type="text" class="form-control" id="productName" placeholder="Existujúci názov produktu tu">
+                    </div>
+                    <!-- Kategória -->
+                    <div class="mb-3">
+                        <label for="productCategory" class="form-label">Kategória</label>
+                        <select class="form-select" id="productCategory">
+                        <option selected>Vyber kategóriu</option>
+                        <option value="1">Hry</option>
+                        <option value="2">Konzoly</option>
+                        <option value="3">Merch</option>
+                        <option value="4">Figúrky</option>
+                        </select>
+                    </div>
+                    <!-- Popis produktu -->
+                    <div class="mb-3">
+                        <label for="productDescription" class="form-label">Popis produktu</label>
+                        <textarea class="form-control" id="productDescription" rows="6" placeholder="Momentálny popis produktu"></textarea>
+                    </div>
+                    <!-- Doplnkové info -->
+                    <div class="mb-3">
+                        <label for="productDescription" class="form-label">Doplnkové info produktu</label>
+                        <textarea class="form-control" id="productDescription" rows="6" placeholder="Momentálne zadané parametre pre hru, výkonnosť konzoly alebo iné ďalšie info o produkte"></textarea>
+                    </div>
+                    <!-- Cena -->
+                    <div class="mb-3">
+                        <label for="productPrice" class="form-label">Cena</label>
+                        <input type="text" class="form-control" id="productPrice" placeholder="19.99">
+                        <div class="form-text">Zadaj cenu vo formáte 0.00</div>
+                    </div>
+                    <!-- Množstvo -->
+                    <div class="mb-3">
+                        <label for="productQuantity" class="form-label">Množstvo</label>
+                        <input type="number" class="form-control" id="productQuantity" placeholder="Momentálne množstvo tu" min="0" step="1">
+                    </div>
+                    <!-- Pridanie Fotky produktu -->
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label smaller-text">Pridať fotky produktu</label>
+                        <input class="form-control smaller-text" type="file" id="formFile" multiple>
+                        <div class="form-text">Môžeš nahrať viac obrázkov naraz.</div>
+                    </div>
+                    <!-- Existujúce Fotky Produktu -->
+                    <div class="mb-3">
+                        <label class="form-label">Existujúce fotky</label>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="position-relative">
+                                <img src="../resources/TheWichter.jpg" class="img-thumbnail" style="width:100px; height:100px;">
+                                <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Odstrániť"></button>
+                            </div>
+                            <div class="position-relative">
+                                <img src="../resources/TheWichter2.png" class="img-thumbnail" style="width:100px; height:100px;">
+                                <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Odstrániť"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex flex-column align-items-center">
+                        <button type="button" class="btn btn-primary">Uložiť editovaný produkt</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modálne okno - Vymazanie produktu -->
+    <div class="modal fade" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Potvrdenie vymazania produktu</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Ste si istý, že chcete vymazať tento produkt?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
+                    <button type="button" class="btn btn-danger">Áno, natrvalo vymazať</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paticka -->
+    <x-paticka/>
+
+    <!-- JS z Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

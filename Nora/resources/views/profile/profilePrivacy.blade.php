@@ -11,76 +11,10 @@
     </head>
     <body class="body-bg">
     <!--Top bar Stranky-->
-    <div class="container">
-        <div class="row align-items-center g-1">
-            <div class="col-auto">
-                <a href="../main.html">
-                    <img src="../resources/NoraLogo.svg" class="top-logo">
-                </a>
-            </div>
-            <div class="col search-area">
-                <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
-            </div>
-            <div class="col-auto">
-                <button class="btn btn-outline-success our-buttons top-bar-sizes bar-buttons" type="submit">
-                    <img src="../resources/search.svg" class="top-bar-icons bar-icon-black">
-                    <img src="../resources/searchWhite.svg" class="top-bar-icons bar-icon-white">
-                </button>
-            </div>
-            <div class="col-auto">
-                <a href="./profileOverview.html">
-                    <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons" data-bs-toggle="modal" data-bs-target="#profil">
-                        <img src="../resources/profile.svg" class="top-bar-icons bar-icon-black">
-                        <img src="../resources/profileWhite.svg" class="top-bar-icons bar-icon-white">
-                    </button>
-                </a>
-            </div>
-            <div class="col-auto">
-                <a href="../cart/cart.html">
-                    <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons">
-                        <img src="../resources/ShopCart.svg" class="top-bar-icons bar-icon-black">
-                        <img src="../resources/ShopCartWhite.svg" class="top-bar-icons bar-icon-white">
-                    </button>
-                </a>
-            </div>    
-        </div>
-    </div>
-
-    <!-- Menu Profilu -->
-    <div class="container">
-        <div class="row g-0 flex-nowrap">
-            <div class="col">
-                <div class="d-grid menu-button-left" role="group" aria-label="Basic example">
-                    <a href="./profileOverview.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons pe-2">Prehľad Účtu</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-grid" role="group" aria-label="Basic example">
-                        <a href="./profileOrders.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Objednávky</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-grid" role="group" aria-label="Basic example">
-                        <a href="./profileFavourites.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Obľúbené</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-grid" role="group" aria-label="Basic example">
-                        <a href="./profileData.html" type="button" class="btn btn-secondary menu-buttons our-buttons profile-menu-buttons">Údaje</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-grid menu-button" role="group" aria-label="Basic example">
-                        <a href="./profilePrivacy.html" type="button" class="btn btn-secondary menu-buttons-last our-buttons profile-menu-buttons">Súkromie</a>
-                </div>
-            </div>
-            <div class="col">
-                <div class="d-grid menu-button-right" role="group" aria-label="Basic example">
-                        <a href="../main.html" type="button" class="btn btn-danger our-buttons-logout profile-menu-buttons">Odhlásiť</a>
-                </div>
-            </div>  
-        </div>
-    </div>
+    <x-profile-topbar/>
+    
+    <!--Menu Profilu-->
+    <x-menu-profilu/>
 
 
     <!-- Newsletter a zmena hesla -->
