@@ -3,32 +3,31 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 
 // Main
 Route::get('/', function () {
     return view('main');
 });
-Route::get('/categoryPage', function () {
-    return view('/categoryPage');
-});
+Route::get('/category/{nazov}', [CategoryController::class, 'show']);
 Route::get('/productPage', function () {
     return view('/productPage');
 });
 
 
 // Categories - zatial simple redirect, kym nebude categoryPage dynamicka
-Route::get('/category/hry', function () {
-    return redirect('/categoryPage');
-});
-Route::get('/category/konzoly', function () {
-    return redirect('/categoryPage');
-});
-Route::get('/category/merch', function () {
-    return redirect('/categoryPage');
-});
-Route::get('/category/figurky', function () {
-    return redirect('/categoryPage');
-});
+// Route::get('/category/hry', function () {
+//     return redirect('/categoryPage');
+// });
+// Route::get('/category/konzoly', function () {
+//     return redirect('/categoryPage');
+// });
+// Route::get('/category/merch', function () {
+//     return redirect('/categoryPage');
+// });
+// Route::get('/category/figurky', function () {
+//     return redirect('/categoryPage');
+// });
 
 // Cart
 Route::get('/cart', function () {
