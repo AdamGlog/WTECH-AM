@@ -20,7 +20,9 @@ class ProduktSeeder extends Seeder
         ['kategoria_id' => 1, 'meno' => 'Megaboing', 'popis' => 'Zábavná plošinovka pre celú rodinu.', 'cena' => 39.99, 'obrazok' => 'megaboing', 'doplnkove_info' => 'PC, PS6, PS7', 'pocet_na_sklade' => 60, 'hodnotenie' => 4.6],
         ['kategoria_id' => 1, 'meno' => 'My Meowing Cats', 'popis' => 'Relaxačná simulácia so mačkami.', 'cena' => 19.99, 'obrazok' => 'MyMeowingCats', 'doplnkove_info' => 'PC, PS6', 'pocet_na_sklade' => 80, 'hodnotenie' => 4.5],
         ['kategoria_id' => 1, 'meno' => 'Path of Fiitkar', 'popis' => 'Epická fantasy akčná RPG.', 'cena' => 49.99, 'obrazok' => 'PathOfFiitkar', 'doplnkove_info' => 'PC, PS6, PS7', 'pocet_na_sklade' => 35, 'hodnotenie' => 4.7],
-        ['kategoria_id' => 1, 'meno' => 'The Wichter', 'popis' => 'Rozsiahla RPG hra s bohatým príbehom.', 'cena' => 49.99, 'obrazok' => 'TheWichter', 'doplnkove_info' => 'PC, PS6, PS7', 'pocet_na_sklade' => 50, 'hodnotenie' => 4.9],
+        ['kategoria_id' => 1, 'meno' => 'The Wichter: The Legend of Regalt', 'popis' => 'Regalt z Virie nebol vždy legendou. Bol to muž s mečom, dlhmi a príliš veľa nepriateľmi. V tejto epickej RPG hre prežiješ jeho príbeh od začiatku - od prvého zabitého monštra až po okamih, keď celý svet začal šepkať jeho meno.
+
+        Preskúmaj rozľahlý otvorený svet plný živých miest, zabudnutých ruín a stvorení, ktoré ťa nepustia spať. Každé rozhodnutie má cenu. Každý spojenec môže byť zrada. A každý súboj môže byť posledný.', 'cena' => 49.99, 'obrazok' => 'TheWichter', 'doplnkove_info' => 'PC, PS6, PS7', 'pocet_na_sklade' => 50, 'hodnotenie' => 4.9],
         ['kategoria_id' => 1, 'meno' => 'Football 26', 'popis' => 'Moderná futbalová hra s pokročilými technikami a rýchlonaučiteľným formátom.', 'cena' => 59.99, 'obrazok' => 'football26', 'doplnkove_info' => 'PC, PS6, PS7', 'pocet_na_sklade' => 50, 'hodnotenie' => 4.3],
 
         // Konzoly (kategoria_id: 2)
@@ -47,6 +49,7 @@ class ProduktSeeder extends Seeder
         // Figúrky (kategoria_id: 4)
         ['kategoria_id' => 4, 'meno' => 'Figúrka All of Them Part III: Ellie', 'popis' => 'Detailná figúrka postavy Ellie z hry All of Them Part III.', 'cena' => 44.99, 'obrazok' => 'FigurkaAllOfThemIII', 'doplnkove_info' => '20cm, PVC', 'pocet_na_sklade' => 45, 'hodnotenie' => 4.9],
         ['kategoria_id' => 4, 'meno' => 'Plyšák Vlad z Megaboing', 'popis' => 'Mäkký plyšový Vlad z hry Megaboing.', 'cena' => 24.99, 'obrazok' => 'plysakMegaboing', 'doplnkove_info' => '30cm, polyester', 'pocet_na_sklade' => 70, 'hodnotenie' => 4.7],
+        ['kategoria_id' => 4, 'meno' => 'Figúrka Football 26: Alexander-Arnold', 'popis' => 'Autentická figúrka jedného z najlepších futbalistov moderných čias. Trent hrá za špičkový španielsky klub a vďaka svojim dychberúcim výkonom sa stal jedným z tvárí moderného futbalu.', 'cena' => 29.99, 'obrazok' => 'figurkaF26', 'doplnkove_info' => '30cm, kvalitný plast, ručná práca', 'pocet_na_sklade' => 60, 'hodnotenie' => 4.6],
         ]);
     }
 }

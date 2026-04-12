@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             PouzivateliaSeeder::class,
             ProduktSeeder::class,
             KosikSeeder::class,
+            ProduktObrazkySeeder::class,
         ]);
     }
 }
