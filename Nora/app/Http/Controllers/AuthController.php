@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Pouzivatel;
 
 class AuthController extends Controller
 {
@@ -11,7 +11,7 @@ class AuthController extends Controller
     {
         $nickname = $request->nickname;
         $heslo = $request->heslo;
-        $user = User::where('nickname', $nickname)->first();
+        $user = Pouzivatel::where('nickname', $nickname)->first();
 
         if ($user && $user->heslo === $heslo) {
             // ulozim id
@@ -32,7 +32,7 @@ class AuthController extends Controller
             return redirect('/');
         }
 
-        $user = User::find($userId);
+        $user = Pouzivatel::find($userId);
         return view('profile/profileOverview', ['user' => $user]);
     }
 

@@ -20,7 +20,7 @@
     <div class="container ">
         <div class="row d-flex mt-4 justify-content-between">
             <div class="col-2">
-                <img src="../resources/banner_reklama.png" class="" height="700" alt="produkt2">
+                <img src="../resources/banner_reklama.webp" class="" height="700" alt="produkt2">
             </div>
             <div class="col-6 px-5">
                 <h2 class="text-center mb-4">Registrácia</h2>
@@ -44,19 +44,6 @@
                     <input type="text" name="nickname" class="form-control" aria-label="Nickname">
                 </div>
 
-                <!-- Telefónne číslo -->
-                <div class="mb-3">
-                    <label class="form-label">Telefónne číslo</label>
-                    <div class="input-group mb-3">
-                        <select name="predvolba" class="form-select" style="max-width: 100px;">
-                            <option value="+421" selected>+421</option>
-                            <option value="+420">+420</option>
-                            <option value="+48">+48</option>
-                        </select>
-                        <input type="text" name="telefonne_cislo" class="form-control">
-                    </div>
-                </div>
-
                 <!-- Email užívateľa -->
                 <div class="mb-3">
                     <label class="form-label">Email užívateľa</label>
@@ -78,7 +65,7 @@
 
 
             <div class="col-2 ">
-            <img src="../resources/banner_reklama.png" 
+            <img src="../resources/banner_reklama.webp" 
                                 class="right-banner" height="700"
                                 alt="produkt2">
             </div>
