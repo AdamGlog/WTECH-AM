@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('meno', 255);
             $table->text('popis')->nullable();
             $table->float('cena');
+            $table->text('info')->nullable();
             $table->text('doplnkove_info')->nullable();
             $table->integer('pocet_na_sklade')->default(0);
             $table->float('hodnotenie')->nullable();
