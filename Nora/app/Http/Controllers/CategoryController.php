@@ -10,7 +10,7 @@ class CategoryController extends Controller
     {
         $kategoria = Kategoria::where('meno', $nazov)->firstOrFail();
         
-        $produkty = Produkt::where('kategoria_ID', $kategoria->id)
+        $produkty = Produkt::where('kategoria_id', $kategoria->id)
                            ->paginate(6); // 6 produktov na stranku = 2 riadky x 3 karty
         
         return view('categoryPage', [

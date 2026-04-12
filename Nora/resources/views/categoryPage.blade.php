@@ -99,7 +99,7 @@
                 @foreach($riadok as $produkt)
                     <div class="col-12 col-sm-6 col-md-4">
                         <div class="card h-100">
-                            <img src="{{ asset('resources/' . $produkt->meno . '.jpg') }}" 
+                            <img src="{{ asset('resources/' . $produkt->obrazok . '.webp') }}" 
                                  class="card-img-top card-image" 
                                  alt="{{ $produkt->meno }}">
                             <div class="card-body">
