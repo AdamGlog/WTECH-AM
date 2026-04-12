@@ -24,7 +24,7 @@
             <div class="row mh-50">
                 <div class="col mw-50">
                     <a href="/categoryPage">
-                        <img src="./resources/MegaVypredaj.jpg" class="max-sizes-zlavy"/>
+                        <img src="./resources/MegaVypredaj.webp" class="max-sizes-zlavy"/>
                     </a>
                 </div>
             </div>
@@ -41,19 +41,19 @@
                             <div class="d-flex justify-content-center">
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage">
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/TheWichter.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/TheWichter.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">The Wichter: The Legend of Regalt</p>
                                  </div>
                                 <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage">
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/trickoWichter.png" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/trickoWichter.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Tričko The Wichter</p>
                                  </div>
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage">    
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/MyMeowingCats.png" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/MyMeowingCats.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">My Meowing Cats</p>
                                  </div>
@@ -64,19 +64,19 @@
                             <div class="d-flex justify-content-center">
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/PathOfFiitkar.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/PathOfFiitkar.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Path of Fiitkar</p>
                                  </div>
                                 <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/plysakMegaboing.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/plysakMegaboing.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                         <p class="carousel-text">Plyšák Vlad z Megaboing</p>
                                  </div>
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/plagatWichter.png" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/plagatWichter.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                         <p class="carousel-text">Plagát The Wichter</p>
                                  </div>
@@ -86,19 +86,19 @@
                             <div class="d-flex justify-content-center">
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/plagatWichter2.png" alt="1"class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/plagatWichter2.webp" alt="1"class="carousel-images"></button>
                                     </a>
                                         <p class="carousel-text">Premium plagát The Wichter</p>
                                  </div>
                                 <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/MerchBoxMegaboing.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/MerchBoxMegaboing.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Mega box s merchom Megaboing</p>
                                  </div>
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/PS7.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/PS7.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Play State 7 konzola</p>
                                  </div>
@@ -128,19 +128,19 @@
                         <div class="d-flex justify-content-center">
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/wichterHrncek.png" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/wichterHrncek.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Hrnček The Wichter</p>
                                  </div>
                                 <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/megaboing.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/megaboing.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Megaboing</p>
                                  </div>
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/Cap2POF.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/Cap2POF.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">FAN šiltovka Path of Fiitkar</p>
                                  </div>
@@ -150,19 +150,19 @@
                         <div class="d-flex justify-content-center">
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/FigurkaAllOfThemIII.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/FigurkaAllOfThemIII.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Figúrka Eli z All of Them Part III</p>
                                  </div>
                                 <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/CapPOF.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/CapPOF.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Originálna šiltovka Path of Fiitkar</p>
                                  </div>
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/wichterHrncek2.png" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/wichterHrncek2.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Gold hrnček The Wichter</p>
                                  </div>
@@ -172,19 +172,19 @@
                         <div class="d-flex justify-content-center">
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/PS6.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/PS6.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Play State 6 konzola</p>
                                  </div>
                                 <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/AllOfThemIII.jpg" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/AllOfThemIII.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">All of Them part III.</p>
                                  </div>
                                  <div class="d-inline-block text-center mx-2 lower-gap">
                                     <a href="/productPage"> 
-                                        <button type="button" class="btn our-main-buttons"><img src="./resources/klucenkaWichter.png" alt="1" class="carousel-images"></button>
+                                        <button type="button" class="btn our-main-buttons"><img src="./resources/klucenkaWichter.webp" alt="1" class="carousel-images"></button>
                                     </a>
                                     <p class="carousel-text">Premium Kľúčenka The Wichter</p>
                                  </div>
@@ -201,7 +201,6 @@
                     </button>
                     </div>
                 </div>
-              
             </div>
     </div>
     <!-- Promo  -->
@@ -210,7 +209,7 @@
         <div class="row align-items-center">
             <div class="col">
                 <a href="/categoryPage">
-                    <img src="./resources/Promo.jpg" class="w-100 promo-image">
+                    <img src="./resources/Promo.webp" class="w-100 promo-image">
                 </a>
             </div>
             <div class="col">

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\PouzivatelController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
@@ -16,20 +16,6 @@ Route::get('/product/{id}', [ProductController::class, 'show']);
 //    return view('/productPage');
 //});
 
-
-// Categories - zatial simple redirect, kym nebude categoryPage dynamicka
-// Route::get('/category/hry', function () {
-//     return redirect('/categoryPage');
-// });
-// Route::get('/category/konzoly', function () {
-//     return redirect('/categoryPage');
-// });
-// Route::get('/category/merch', function () {
-//     return redirect('/categoryPage');
-// });
-// Route::get('/category/figurky', function () {
-//     return redirect('/categoryPage');
-// });
 
 // Cart
 Route::get('/cart', function () {
@@ -65,14 +51,14 @@ Route::get('/profilePrivacy', function () {
 });
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
-Route::get('/registration', [UserController::class, 'register']);
-Route::post('/registration', [UserController::class, 'create']);
+Route::get('/registration', [PouzivatelController::class, 'register']);
+Route::post('/registration', [PouzivatelController::class, 'create']);
 
 // Admin
-Route::get('/adminUsers', [UserController::class, 'listUsers']);
-Route::get('/adminUsers/{id}/edit', [UserController::class, 'edit']);
-Route::post('/adminUsers/{id}/update', [UserController::class, 'update']);
-Route::post('/adminUsers/{id}/delete', [UserController::class, 'delete']);
+Route::get('/adminUsers', [PouzivatelController::class, 'listUsers']);
+Route::get('/adminUsers/{id}/edit', [PouzivatelController::class, 'edit']);
+Route::post('/adminUsers/{id}/update', [PouzivatelController::class, 'update']);
+Route::post('/adminUsers/{id}/delete', [PouzivatelController::class, 'delete']);
 Route::get('/adminDashboard', function () {
     return view('admin/adminDashboard');
 });

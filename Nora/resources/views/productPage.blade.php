@@ -79,11 +79,11 @@
                 </div>
                 <div class="col-auto d-flex align-items-center gap-1">
                     <button class="btn-qty btn-qty-prev">
-                        <img src="../resources/arrow_back.png" height="20">
+                        <img src="../resources/ArrowBack.svg" height="20">
                     </button>
                     <span class="kosik-qty">1</span>
                     <button class="btn-qty btn-qty-next">
-                        <img src="../resources/arrow_forward.png" height="20">
+                        <img src="../resources/ArrowForward.svg" height="20">
                     </button>
                 </div>
                 <div class="col">

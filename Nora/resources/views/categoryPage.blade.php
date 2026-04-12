@@ -31,13 +31,17 @@
                     Zoradenie
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Pôvodné zoradenie</a></li>
+                    <!-- <li><a class="dropdown-item" href="#">Pôvodné zoradenie</a></li>
                     <li><a class="dropdown-item" href="#">Najdrahšie</a></li>
                     <li><a class="dropdown-item" href="#">Najlacnejšie</a></li>
                     <li><a class="dropdown-item" href="#">S najvyššou akciou</a></li>
                     <li><a class="dropdown-item" href="#">S najnižšou akciou</a></li>
                     <li><a class="dropdown-item" href="#">Najpredávanejšie</a></li>
-                    <li><a class="dropdown-item" href="#">Najmenej predávané</a></li>
+                    <li><a class="dropdown-item" href="#">Najmenej predávané</a></li> -->
+                    <li><a class="dropdown-item" href="/category/{{ $kategoria->meno }}">Pôvodné zoradenie</a></li>
+                    <li><a class="dropdown-item" href="?sort=najdrahsie&{{ http_build_query(request()->except('sort')) }}">Najdrahšie</a></li>
+                    <li><a class="dropdown-item" href="?sort=najlacnejsie&{{ http_build_query(request()->except('sort')) }}">Najlacnejšie</a></li>
+                    <li><a class="dropdown-item" href="?sort=hodnotenie&{{ http_build_query(request()->except('sort')) }}">Najlepšie hodnotené</a></li>
                 </ul>
             </div>
             <div class="col-auto">
@@ -46,47 +50,67 @@
                         <img src="{{ asset('resources/FilterImage.svg') }}" class="top-bar-icons">
                         Filtrovanie
                     </button>
-                    <!-- Cena od a Cena do-->
-                    <div class="dropdown-menu p-3 dropdown-menu-end" style="min-width: 300px;">
-                        <label class="form-label highlight">Cena od:</label>
-                        <output>0 €</output>
-                        <input type="range" class="form-range mb-2" min="0" max="999" value="0" id="cenaSliderOd">
-                        <label class="form-label highlight">Cena do:</label>
-                        <output>999 €</output>
-                        <input type="range" class="form-range mb-2" min="0" max="999" value="999" id="cenaSliderDo">
-                        <div class="d-flex justify-content-between mb-2">
-                            <small class="text-muted">0 €</small>
-                            <small class="text-muted">999 €</small>
-                        </div>
-
-                        <!-- Typ -->
-                        <label class="form-label highlight">Typ</label>
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="typ1"><label class="form-check-label" for="typ1">Akčné</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="typ2"><label class="form-check-label" for="typ2">RPG</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="typ3"><label class="form-check-label" for="typ3">Športové</label></div>
+                    <!-- Form pre Filtrovanie -->
+                    <form method="GET" action="/category/{{ $kategoria->meno }}">
+                        @if(request('sort'))
+                            <input type="hidden" name="sort" value="{{ request('sort') }}">
+                        @endif
+                        <div class="dropdown-menu p-3 dropdown-menu-end" style="min-width: 300px;">
+                            <!-- Filter by cena od -->
+                            <label class="form-label highlight">Cena od:</label>
+                            <output id="outputOd">{{ request('cena_od', 0) }} €</output>
+                            <input type="range" class="form-range mb-2" min="0" max="999" 
+                                value="{{ request('cena_od', 0) }}" 
+                                name="cena_od" id="cenaSliderOd"
+                                oninput="document.getElementById('outputOd').value = this.value + ' €'">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted">0 €</small>
+                                <small class="text-muted">999 €</small>
                             </div>
-                            <div class="col-6">
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="typ4"><label class="form-check-label" for="typ4">Stratégia</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="typ5"><label class="form-check-label" for="typ5">Simulácia</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="typ6"><label class="form-check-label" for="typ6">Adventúra</label></div>
+                            <!-- Filter by cena do -->
+                            <label class="form-label highlight">Cena do:</label>
+                            <output id="outputDo">{{ request('cena_do', 999) }} €</output>
+                            <input type="range" class="form-range mb-2" min="0" max="999" 
+                                value="{{ request('cena_do', 999) }}" 
+                                name="cena_do" id="cenaSliderDo"
+                                oninput="document.getElementById('outputDo').value = this.value + ' €'">
+                            <div class="d-flex justify-content-between mb-2">
+                                <small class="text-muted">0 €</small>
+                                <small class="text-muted">999 €</small>
+                            </div>
+
+                            <!-- Filter by typ - zatial disabled, kym nie je v DB typ -->
+                            <label class="form-label highlight">Typ</label>
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ1" disabled><label class="form-check-label text-muted" for="typ1">Akčné</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ2" disabled><label class="form-check-label text-muted" for="typ2">RPG</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ3" disabled><label class="form-check-label text-muted" for="typ3">Športové</label></div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ4" disabled><label class="form-check-label text-muted" for="typ4">Stratégia</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ5" disabled><label class="form-check-label text-muted" for="typ5">Simulácia</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ6" disabled><label class="form-check-label text-muted" for="typ6">Adventúra</label></div>
+                                </div>
+                            </div>
+                            <!-- Filter by hodnotenie -->
+                            <label class="form-label highlight">Minimálne hodnotenie:</label>
+                            <div class="d-flex gap-2 mb-3">
+                                <label class="form-label">0★</label>
+                                <input type="range" class="form-range" min="0" max="5" step="0.5"
+                                    name="hodnotenie" id="range3"
+                                    value="{{ request('hodnotenie', 0) }}"
+                                    oninput="document.getElementById('outputHodnotenie').value = this.value + '★'">
+                                <label class="form-label">5★</label>
+                            </div>
+                            <output id="outputHodnotenie">{{ request('hodnotenie', 0) }}★</output>
+
+                            <div class="d-flex gap-2 mt-2">
+                                <a href="/category/{{ $kategoria->meno }}" class="btn btn-outline-secondary w-50">Resetovať</a>
+                                <button type="submit" class="btn btn-primary w-50">Filtrovať</button>
                             </div>
                         </div>
-
-                        <!-- Hodnotenie -->
-                        <label class="form-label highlight">Minimálne hodnotenie:</label>
-                        <div class="d-flex gap-2 mb-3">
-                            <label class="form-label">0★</label>
-                            <input type="range" class="form-range" min="0" max="5" id="range3">
-                            <label class="form-label">5★</label>
-                        </div>
-
-                        <div class="d-flex gap-2">
-                            <button type="button" class="btn btn-outline-secondary w-50">Resetovať</button>
-                            <button type="button" class="btn btn-primary w-50">Filtrovať</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -104,7 +128,7 @@
                                  alt="{{ $produkt->meno }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $produkt->meno }}</h5>
-                                <p class="card-text">{{ $produkt->popis }}</p>
+                                <p class="card-text">{{ $produkt->popis }}<br>Cena: {{ $produkt->cena }}€<br>Hodnotenie: {{ $produkt->hodnotenie }}★</p>
                                 <a href="/product/{{ $produkt->id }}" class="btn btn-secondary our-buttons">Objav produkt</a>
                             </div>
                         </div>

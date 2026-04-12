@@ -250,14 +250,25 @@
 
 .pagination .page-link {
     color: black;
-    background-color: #D9D9D9;
-    border-color: #aaa;
+    background-color: #9CEEF5;
+    border-color: #81CAFB;
+}
+
+.pagination .page-link:hover {
+    color: white;
+    background-color: #81CAFB;
+    border-color: #28469C;
 }
 
 .pagination .page-item.active .page-link {
-    color: black;
-    background-color: #aaa;
-    border-color: #888;
+    color: white;
+    background-color: #28469C;
+    border-color: #28469C;
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: #e9ecef;
+    color: #999;
 }
 
 .paticka {
