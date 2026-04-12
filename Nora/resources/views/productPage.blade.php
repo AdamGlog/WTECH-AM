@@ -57,7 +57,7 @@
             <div class="col p-3 bg-light border rounded mt-2">
                 <h4>Popis produktu</h4>
                 <p>
-                    {{ $produkt->popis }}
+                    {{ $produkt->info }}
                 </p>
                 <h4>
                     Požiadavky:
@@ -78,12 +78,12 @@
                 <button class="btn buttonProduct2 w-100 no-wrap my-2">Pridať do obľúbených</button>
                 </div>
                 <div class="col-auto d-flex align-items-center gap-1">
-                    <button class="btn-qty btn-qty-prev">
-                        <img src="../resources/ArrowBack.svg" height="20">
+                    <button class="btn-qty btn-qty-prev" onclick="zmenPocet(-1)">
+                        <img src="{{ asset('resources/ArrowBack.svg') }}" height="20">
                     </button>
-                    <span class="kosik-qty">1</span>
-                    <button class="btn-qty btn-qty-next">
-                        <img src="../resources/ArrowForward.svg" height="20">
+                    <span class="kosik-qty" id="pocet_zobrazeny">1</span>
+                    <button class="btn-qty btn-qty-next" onclick="zmenPocet(1)">
+                        <img src="{{ asset('resources/ArrowForward.svg') }}" height="20">
                     </button>
                 </div>
                 <div class="col">
@@ -98,6 +98,14 @@
 
     <!-- JS z Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  
+    <!-- JS pre zmenu počtu -->
+    <script>
+        function zmenPocet(zmena) {
+            let el = document.getElementById('pocet_zobrazeny');
+            let novy = parseInt(el.innerText) + zmena;
+            if (novy < 1) novy = 1;
+            el.innerText = novy; 
+        }
+    </script>
 </body>
 </html>

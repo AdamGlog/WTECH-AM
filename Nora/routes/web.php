@@ -5,6 +5,7 @@ use App\Http\Controllers\PouzivatelController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 
 // Main
 Route::get('/', function () {
@@ -21,6 +22,7 @@ Route::get('/product/{id}', [ProductController::class, 'show']);
 Route::get('/cart', function () {
     return view('cart/cart');
 });
+Route::post('/kosik/cart', [CartController::class, 'pridat']);
 Route::get('/cartShipment', function () {
     return view('cart/cartShipment');
 });
