@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('profilovka_url', 255)->nullable();
             $table->string('meno', 20);
             $table->string('priezvisko', 20);
+            $table->string('heslo', 20);
             $table->string('telefonne_cislo', 20)->nullable();
             $table->string('email', 30)->unique();
             $table->date('datum_registracie');
