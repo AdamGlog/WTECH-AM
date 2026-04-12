@@ -84,4 +84,22 @@ Route::get('/adminOrders', function () {
     return view('admin/adminOrders');
 });
 
-// TODO: Footer
+// Footer
+Route::get('/aboutUs', function () {
+    return view('footer/aboutUs');
+});
+Route::get('/kontakt', function () {
+    return view('footer/kontakt');
+});
+Route::get('/reklamacia', function () {
+    return view('footer/reklamacia');
+});
+Route::get('/shipping', function () {
+    return view('footer/shipping');
+});
+Route::get('/warranty', function () {
+    return view('footer/warranty');
+});
+Route::get('/zmluvnePodmienky', function () {
+    return view('footer/zmluvnePodmienky');
+});
