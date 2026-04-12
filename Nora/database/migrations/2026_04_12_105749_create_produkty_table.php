@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('doplnkove_info')->nullable();
             $table->integer('pocet_na_sklade')->default(0);
             $table->float('hodnotenie')->nullable();
+            $table->string('obrazok', 30);
             $table->timestamps();
         });
     }
