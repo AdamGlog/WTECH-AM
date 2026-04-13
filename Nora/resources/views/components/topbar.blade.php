@@ -6,15 +6,15 @@
                 <img src="{{ asset('resources/NoraLogo.svg') }}" class="top-logo">
             </a>
         </div>
-        <div class="col search-area">
-            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"/>   
-        </div>
-        <div class="col-auto">
+        <form method="GET" action="/search" class="col search-area d-flex">
+            <input class="form-control me-2" type="search" name="search-querry" 
+                placeholder="Search..." aria-label="Search"
+                value="{{ request('search-querry') }}"/>
             <button class="btn btn-outline-success our-buttons top-bar-sizes bar-buttons" type="submit">
                 <img src="{{ asset('resources/search.svg') }}" class="top-bar-icons bar-icon-black">
                 <img src="{{ asset('resources/searchWhite.svg') }}" class="top-bar-icons bar-icon-white">
             </button>
-        </div>
+        </form>
         <div class="col-auto">
             <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons" data-bs-toggle="modal" data-bs-target="#profil">
                 <img src="{{ asset('resources/profile.svg') }}" class="top-bar-icons bar-icon-black">

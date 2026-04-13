@@ -12,10 +12,8 @@ Route::get('/', function () {
     return view('main');
 });
 Route::get('/category/{nazov}', [CategoryController::class, 'show']);
+Route::get('/search', [CategoryController::class, 'search']);
 Route::get('/product/{id}', [ProductController::class, 'show']);
-//Route::get('/productPage', function () {
-//    return view('/productPage');
-//});
 
 
 // Cart

@@ -3,7 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Kategória {{ $kategoria->meno }}</title>
+        <title>
+            @if($kategoria)
+                {{ $kategoria->meno }}
+            @else
+                Hľadanie
+            @endif
+        </title>
         <link rel="icon" type="image/x-icon" href="{{ asset('resources/NoraLogo.svg') }}">
         <!-- CSS z Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +29,13 @@
     <div class="container pt-3">
         <div class="row g-1 align-items-center">
             <div class="col">
-                <h2 class="heading p-3 ms-1 main-headings">{{ $kategoria->meno }}</h2>
+                <h2 class="heading p-3 ms-1 main-headings">
+                    @if($kategoria)
+                        {{ $kategoria->meno }}
+                    @else
+                        Hľadanie: "{{ $searchQuery }}"
+                    @endif
+                </h2>
             </div>
             <div class="col-auto">
                 <button type="button" class="btn btn-secondary our-buttons dropdown-toggle smaller-text" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,10 +50,11 @@
                     <li><a class="dropdown-item" href="#">S najnižšou akciou</a></li>
                     <li><a class="dropdown-item" href="#">Najpredávanejšie</a></li>
                     <li><a class="dropdown-item" href="#">Najmenej predávané</a></li> -->
-                    <li><a class="dropdown-item" href="/category/{{ $kategoria->meno }}">Pôvodné zoradenie</a></li>
-                    <li><a class="dropdown-item" href="?sort=najdrahsie&{{ http_build_query(request()->except('sort')) }}">Najdrahšie</a></li>
-                    <li><a class="dropdown-item" href="?sort=najlacnejsie&{{ http_build_query(request()->except('sort')) }}">Najlacnejšie</a></li>
-                    <li><a class="dropdown-item" href="?sort=hodnotenie&{{ http_build_query(request()->except('sort')) }}">Najlepšie hodnotené</a></li>
+                        <li><a class="dropdown-item" href="{{ $baseUrl }}">Pôvodné zoradenie</a></li>
+                        <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=najdrahsie">Najdrahšie</a></li>
+                        <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=najlacnejsie">Najlacnejšie</a></li>
+                        <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=hodnotenie">Najlepšie hodnotené</a></li>
+                    </ul>
                 </ul>
             </div>
             <div class="col-auto">
@@ -51,10 +64,13 @@
                         Filtrovanie
                     </button>
                     <!-- Form pre Filtrovanie -->
-                    <form method="GET" action="/category/{{ $kategoria->meno }}">
+                    <form method="GET" action="{{ $kategoria ? '/category/' . $kategoria->meno : '/search' }}">
                         @if(request('sort'))
                             <input type="hidden" name="sort" value="{{ request('sort') }}">
                         @endif
+                        @unless($kategoria)
+                            <input type="hidden" name="search-querry" value="{{ $searchQuery }}">
+                        @endunless
                         <div class="dropdown-menu p-3 dropdown-menu-end" style="min-width: 300px;">
                             <!-- Filter by cena od -->
                             <label class="form-label highlight">Cena od:</label>
@@ -94,7 +110,7 @@
                                 </div>
                             </div>
                             <!-- Filter by hodnotenie -->
-                            <label class="form-label highlight">Minimálne hodnotenie:</label>
+                            <label class="form-label highlight">Minimálne hodnotenie:</label> <output id="outputHodnotenie">{{ request('hodnotenie', 0) }}★</output>
                             <div class="d-flex gap-2 mb-3">
                                 <label class="form-label">0★</label>
                                 <input type="range" class="form-range" min="0" max="5" step="0.5"
@@ -103,10 +119,10 @@
                                     oninput="document.getElementById('outputHodnotenie').value = this.value + '★'">
                                 <label class="form-label">5★</label>
                             </div>
-                            <output id="outputHodnotenie">{{ request('hodnotenie', 0) }}★</output>
+                            
 
                             <div class="d-flex gap-2 mt-2">
-                                <a href="/category/{{ $kategoria->meno }}" class="btn btn-outline-secondary w-50">Resetovať</a>
+                                <a href="{{ $baseUrl }}" class="btn btn-outline-secondary w-50">Resetovať</a>
                                 <button type="submit" class="btn btn-primary w-50">Filtrovať</button>
                             </div>
                         </div>
@@ -118,24 +134,28 @@
 
     <!-- Produkty v danej Kategorii -->
     <div class="container text-center mt-3">
-        @foreach($produkty->chunk(3) as $riadok)
-            <div class="row justify-content-md-center mb-4">
-                @foreach($riadok as $produkt)
-                    <div class="col-12 col-sm-6 col-md-4">
-                        <div class="card h-100">
-                            <img src="{{ asset('resources/' . $produkt->obrazok . '.webp') }}" 
-                                 class="card-img-top card-image" 
-                                 alt="{{ $produkt->meno }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $produkt->meno }}</h5>
-                                <p class="card-text">{{ $produkt->popis }}<br>Cena: {{ $produkt->cena }}€<br>Hodnotenie: {{ $produkt->hodnotenie }}★</p>
-                                <a href="/product/{{ $produkt->id }}" class="btn btn-secondary our-buttons">Objav produkt</a>
+        @if ($produkty->isEmpty())
+            <p class="smaller-text">Nenašiel sa žiaden produkt</p>
+        @else 
+            @foreach($produkty->chunk(3) as $riadok)
+                <div class="row justify-content-md-center mb-4">
+                    @foreach($riadok as $produkt)
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="card h-100">
+                                <img src="{{ asset('resources/' . $produkt->obrazok . '.webp') }}" 
+                                    class="card-img-top card-image" 
+                                    alt="{{ $produkt->meno }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $produkt->meno }}</h5>
+                                    <p class="card-text">{{ $produkt->popis }}<br>Cena: {{ $produkt->cena }}€<br>Hodnotenie: {{ $produkt->hodnotenie }}★</p>
+                                    <a href="/product/{{ $produkt->id }}" class="btn btn-secondary our-buttons">Objav produkt</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
             </div>
         @endforeach
+        @endif
     </div>
 
     <!-- Strankovanie -->
