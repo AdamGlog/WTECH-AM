@@ -22,6 +22,7 @@ Route::get('/cart', function () {
     return view('cart/cart');
 });
 Route::post('/kosik/cart', [CartController::class, 'pridat']);
+Route::post('/kosik/update', [CartController::class, 'aktualizovat']);
 Route::get('/cartShipment', function () {
     return view('cart/cartShipment');
 });

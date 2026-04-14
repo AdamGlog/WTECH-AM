@@ -58,38 +58,27 @@
             <!--Zoznam produktov-->
             <div class="col-12 col-md-8 gap-3 mb-2">
                 <h4>Produkty</h4>
-                <div class="d-flex align-items-center">
-                    <img src="../resources/wichterHrncek.png" alt="Produkt"  height="50" class="me-3">
-                    <span class="flex-grow-1">Hrnček the Wichter</span>
-                    <span>Počet ks.:</span>
-                    <input type="text" class="ms-2 form-control qty-input" value="5" readonly>
-                    <span class="ms-4">Cena:</span>
-                    <input type="text" class="ms-2 form-control price-input" value="49,95€" readonly>
-                </div>
-                <br>
-                <div class="d-flex align-items-center">
-                    <img src="../resources/trickoWichter.png" alt="Produkt"  height="50" class="me-3">
-                    <span class="flex-grow-1">Tričko the Wichter</span>
-                    <span>Počet ks.:</span>
-                    <input type="text" class="ms-2 form-control qty-input" value="3" readonly>
-                    <span class="ms-4">Cena:</span>
-                    <input type="text" class="ms-2 form-control price-input" value="59,97€" readonly>
-                </div>
-                <br>
-                <div class="d-flex align-items-center">
-                    <img src="../resources/PS7.jpg" alt="Produkt"  height="50" class="me-3">
-                    <span class="flex-grow-1">Play State 7</span>
-                    <span>Počet ks.:</span>
-                    <input type="text" class="ms-2 form-control qty-input" value="1" readonly>
-                    <span class="ms-4">Cena:</span>
-                    <input type="text" class="ms-2 form-control price-input" value="499,99€" readonly>
-                </div>
+                @if(session('cart') && count(session('cart')) > 0)
+                    @foreach(session('cart') as $id => $item)
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ asset('resources/' . ($item['image'] ?? '') . '.webp') }}" alt="{{ $item['meno'] }}" height="50" class="me-3">
+                            <span class="flex-grow-1">{{ $item['meno'] }}</span>
+                            <span>Počet ks.:</span>
+                            <input type="text" class="ms-2 form-control qty-input" value="{{ $item['pocet'] }}" style="width: 50px; text-align: center;" readonly>
+                            <span class="ms-4">Cena:</span>
+                            <input type="text" class="ms-2 form-control price-input" value="{{ number_format($item['cena'] * $item['pocet'], 2, ',', ' ') }}€" style="width: 100px; text-align: right;" readonly>
+                        </div>
+                        <br>
+                    @endforeach
 
                 <!--Spolu-->
                 <div class="d-flex justify-content-end fw-bold fs-5">
                     <span>Spolu: </span>
-                    <input type="text" class="form-control ms-4" style="width:115px; text-align:right;" value="634,91€" readonly>
+                    <input type="text" class="form-control ms-4" style="width:115px; text-align:right;" value="{{ number_format(collect(session('cart'))->sum(fn($item) => $item['pocet'] * $item['cena']), 2, ',', ' ') }}€" readonly>
                 </div>
+                @else
+                    <div class="alert alert-warning">V košíku nie sú žiadne produkty.</div>
+                @endif
             </div>
             <!-- Pokračovať a Vrátiť sa-->
             <div class="d-flex justify-content-between mt-2">
