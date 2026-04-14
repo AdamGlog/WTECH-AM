@@ -72,10 +72,10 @@
             <!-- Tlačidlá -->
             <div class="row">
                 <div class="col">
-                <button class="btn buttonProduct2 w-100 no-wrap my-2">Sledovať cenu</button>
+                    <button class="btn buttonProduct2 w-100 no-wrap my-2">Sledovať cenu</button>
                 </div>
                 <div class="col">
-                <button class="btn buttonProduct2 w-100 no-wrap my-2">Pridať do obľúbených</button>
+                    <button class="btn buttonProduct2 w-100 no-wrap my-2">Pridať do obľúbených</button>
                 </div>
                 <div class="col-auto d-flex align-items-center gap-1">
                     <button class="btn-qty btn-qty-prev" onclick="zmenPocet(-1)">
@@ -86,8 +86,18 @@
                         <img src="{{ asset('resources/ArrowForward.svg') }}" height="20">
                     </button>
                 </div>
+                <!-- Pridať do košíka -->
                 <div class="col">
-                <button class="btn w-100 buttonProduct1 buttonProduct0 no-wrap my-2">Pridať do košíka</button>
+                    <form method="POST" action="/kosik/cart">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $produkt->id }}">
+                        <input type="hidden" name="qty" id="qty_input" value="1">
+                        
+                        <button type="submit" 
+                                class="btn w-100 buttonProduct1 buttonProduct0 no-wrap my-2">
+                            Pridať do košíka
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -102,9 +112,11 @@
     <script>
         function zmenPocet(zmena) {
             let el = document.getElementById('pocet_zobrazeny');
+            let input = document.getElementById('qty_input');
             let novy = parseInt(el.innerText) + zmena;
             if (novy < 1) novy = 1;
             el.innerText = novy; 
+            input.value = novy;
         }
     </script>
 </body>

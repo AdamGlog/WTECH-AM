@@ -10,26 +10,47 @@ class CartController extends Controller
 {
     public function pridat(Request $request)
     {
-        $kosik = Kosik::firstOrCreate(
-            ['pouzivatel_id' => auth()->id()]
-        );
+        $request->validate([
+            'id'  => 'required|integer|exists:produkty,id',
+            'qty' => 'required|integer|min:1'
+        ]);
 
-        $polozka = KosikPolozka::where('kosik_id', $kosik->id)
-            ->where('produkt_id', $request->produkt_id)
-            ->first();
+        $produkty = \App\Models\Produkt::findOrFail($request->id);
+        $cart = session()->get('cart', []);
+        $id = $request->id;
 
-        if ($polozka) {
-            $polozka->update([
-                'pocet_ks' => $polozka->pocet_ks + $request->pocet_ks
-            ]);
-        } else {
-            KosikPolozka::create([
-                'kosik_id' => $kosik->id,
-                'produkt_id' => $request->produkt_id,
-                'pocet_ks' => $request->pocet_ks,
-            ]);
+        if(isset($cart[$id])){
+            $cart[$id]['pocet'] += $request->qty;
+        } 
+        else{
+            $cart[$id] = [
+                'meno'      => $produkty->meno,
+                'pocet'  => $request->qty,
+                'cena'     => $produkty->cena,
+                'image' => $produkty->obrazok ?? null,
+            ];
         }
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 
+            $request->qty . ' × ' . $produkty->meno . ' bolo pridané do košíka.'
+        );
+    }
 
-        return redirect()->back()->with('success', 'Produkt pridaný do košíka!');
+    public function aktualizovat(Request $request)
+    {
+        $cart = session()->get('cart', []);
+        $id = $request->id;
+        $zmena = $request->zmena; //-1 alebo 1 alebo pri delete mnozstvo v kosiku
+
+        if(isset($cart[$id])){
+            $cart[$id]['pocet'] += $zmena;
+
+            //ak pocet klesne na 0, produkt vymazeme
+            if($cart[$id]['pocet'] < 1){
+                unset($cart[$id]);
+            }
+            session()->put('cart', $cart);
+        }
+        return redirect()->back();
     }
 }

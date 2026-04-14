@@ -45,64 +45,49 @@
                     <span class="step-label">Sumár</span>
                 </div>
             </div>
-            <!-- Položka -->
-            <div class="d-flex align-items-center border rounded bg-white p-2 mb-2 flex-wrap kosik-item">
-                <img src="../resources/wichterHrncek.png" height="50" class="me-3">
-                <span class="me-2 kosik-item-name"><strong>Hrnček The Wichter</strong> - Popis produktu</span>
-                <div class="kosik-item-controls ms-auto d-flex align-items-center gap-2">
-                    <span>Počet ks.</span>
-                    <button class="btn btn-danger btn-sm">✕</button>
-                    <button class="btn-qty btn-qty-prev">
-                        <img src="../resources/arrow_back.png" height="20">
-                    </button>
-                    <span class="kosik-qty">5</span>
-                    <button class="btn-qty btn-qty-next">
-                        <img src="../resources/arrow_forward.png" height="20">
-                    </button>
-                    <span class="fw-bold">49,95 €</span>
+            <!-- Položky v košíku -->
+            @if(session('cart') && count(session('cart')) > 0)
+                @foreach(session('cart') as $id => $item)
+                    <div class="d-flex align-items-center border rounded bg-white p-2 mb-2 flex-wrap kosik-item">
+                        <img src="{{ asset('resources/' . ($item['image'] ?? '') . '.webp') }}" height="50" class="me-3" alt="{{ $item['meno'] }}">
+                        <span class="me-2 kosik-item-name highlight">{{ $item['meno'] }}</span>
+                        <div class="kosik-item-controls ms-auto d-flex align-items-center gap-2">
+                            <span>Počet ks.</span>
+                            <!-- Odstrániť -->
+                            <form method="POST" action="/kosik/update" style="display: inline;">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $id }}">
+                                <input type="hidden" name="zmena" value="-{{ $item['pocet'] }}">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="zmenMnozstvo({{ $id }}, -{{ $item['pocet'] }})">✕</button>
+                            </form>
+                            <!-- Tlačidlá pre počet -->
+                            <button class="btn-qty btn-qty-prev centering" onclick="zmenMnozstvo({{ $id }}, -1)">
+                                <img src="{{ asset('resources/ArrowBack.svg') }}" height="20">
+                            </button>
+                            <span class="kosik-qty" id="pocet_zobrazeny">{{ $item['pocet'] }}</span>
+                            <button class="btn-qty btn-qty-next" onclick="zmenMnozstvo({{ $id }}, 1)">
+                                <img src="{{ asset('resources/ArrowForward.svg') }}" height="20">
+                            </button>
+                            <span class="fw-bold">{{ number_format($item['cena'], 2) }} €</span>
+                        </div>
+                    </div>
+                @endforeach
+                <!-- Celková suma -->
+                <div class="d-flex justify-content-between fw-bold fs-5">
+                    <span>Spolu</span>
+                    <span>
+                        {{ number_format(
+                            collect(session('cart'))->sum(function($item) {
+                                return $item['pocet'] * $item['cena'];
+                            }), 
+                        2) }} €
+                    </span>
                 </div>
-            </div>
-
-            <!-- Položka -->
-            <div class="d-flex align-items-center border rounded bg-white p-2 mb-2 flex-wrap kosik-item">
-                <img src="../resources/wichterHrncek.png" height="50" class="me-3">
-                <span class="me-2 kosik-item-name"><strong>Hrnček The Wichter</strong> - Popis produktu</span>
-                <div class="kosik-item-controls ms-auto d-flex align-items-center gap-2">
-                    <span>Počet ks.</span>
-                    <button class="btn btn-danger btn-sm">✕</button>
-                    <button class="btn-qty btn-qty-prev">
-                        <img src="../resources/arrow_back.png" height="20">
-                    </button>
-                    <span class="kosik-qty">5</span>
-                    <button class="btn-qty btn-qty-next">
-                        <img src="../resources/arrow_forward.png" height="20">
-                    </button>
-                    <span class="fw-bold">49,95 €</span>
+                @else
+                <div class="alert alert-info text-center py-5">
+                    <p class="fs-5">Váš košík je prázdny.</p>
                 </div>
-            </div>
-
-            <!-- Položka -->
-            <div class="d-flex align-items-center border rounded bg-white p-2 mb-2 flex-wrap kosik-item">
-                <img src="../resources/wichterHrncek.png" height="50" class="me-3">
-                <span class="me-2 kosik-item-name"><strong>Hrnček The Wichter</strong> - Popis produktu</span>
-                <div class="kosik-item-controls ms-auto d-flex align-items-center gap-2">
-                    <span>Počet ks.</span>
-                    <button class="btn btn-danger btn-sm">✕</button>
-                    <button class="btn-qty btn-qty-prev">
-                        <img src="../resources/arrow_back.png" height="20">
-                    </button>
-                    <span class="kosik-qty">5</span>
-                    <button class="btn-qty btn-qty-next">
-                        <img src="../resources/arrow_forward.png" height="20">
-                    </button>
-                    <span class="fw-bold">49,95 €</span>
-                </div>
-            </div>
-
-            <div class="d-flex justify-content-between fw-bold fs-5">
-                <span>Spolu</span>
-                <span>634,91 €</span>
-            </div>
+            @endif
 
             <!-- Pokračovať -->
             <div class="d-flex justify-content-end mt-2">
@@ -110,7 +95,6 @@
                     <button class="btn cart-pokracovat">Pokračovať</button>
                 </a>
             </div>
-
         </div>
     </div>
       
@@ -119,6 +103,24 @@
 
     <!-- JS z Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  
+    <script>
+    function zmenMnozstvo(id, zmena) {
+        //pomocny formular
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '/kosik/update';
+        
+        //CSRF token
+        const csrfToken = '{{ csrf_token() }}';
+        
+        form.innerHTML = `
+            <input type="hidden" name="_token" value="${csrfToken}">
+            <input type="hidden" name="id" value="${id}">
+            <input type="hidden" name="zmena" value="${zmena}">
+        `;
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
 </body>
 </html>
