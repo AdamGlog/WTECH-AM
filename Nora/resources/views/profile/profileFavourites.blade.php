@@ -22,7 +22,7 @@
         <div class="row justify-content-md-center pt-3 text-center">
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card">
-                    <img src="../resources/TheWichter.jpg" class="card-img-top card-image" alt="..." >
+                    <img src="../resources/TheWichter.webp" class="card-img-top card-image" alt="..." >
                     <div class="card-body">
                         <h5 class="card-title">The Wichter: The Legend of Regalt</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
@@ -33,7 +33,7 @@
             </div>
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card">
-                    <img src="../resources/PathOfFiitkar.jpg" class="card-img-top card-image" alt="...">
+                    <img src="../resources/PathOfFiitkar.webp" class="card-img-top card-image" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Path of Fiitkar</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card">
-                    <img src="../resources/CyberBug.jpg" class="card-img-top card-image" alt="...">
+                    <img src="../resources/CyberBug.webp" class="card-img-top card-image" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">CyberBug 2067</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>

@@ -46,6 +46,8 @@ class ProduktObrazkySeeder extends Seeder
         ['produkt_id' => 25, 'cesta' => 'resources/FigurkaAllOfThemIII.webp', 'hlavny' => true],
         ['produkt_id' => 26, 'cesta' => 'resources/plysakMegaboing.webp', 'hlavny' => true],
         ['produkt_id' => 27, 'cesta' => 'resources/figurkaFutbalista.webp', 'hlavny' => true],
+        ['produkt_id' => 28, 'cesta' => 'resources/SteakDeck.webp', 'hlavny' => true],
+        ['produkt_id' => 29, 'cesta' => 'resources/5DS.webp', 'hlavny' => true],
     ]);
     }
 }

@@ -36,10 +36,10 @@
                     <td>259,99€</td>
                     <td>pripravuje sa</td>
                     <td class="text-end">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
                     </td>
                 </tr>
                 <tr>
@@ -48,9 +48,9 @@
                     <td>959,99€</td>
                     <td>vybavená</td>
                     <td class="text-end">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
                     </td>
                 </tr>
                 <tr>
@@ -59,7 +59,7 @@
                     <td>19,99€</td>
                     <td>vybavená</td>
                     <td class="text-end">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
                     </td>
                 </tr>
                 <tr>
@@ -68,9 +68,9 @@
                     <td>629,99€</td>
                     <td>zrušená</td>
                     <td class="text-end">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
-                        <img src="../resources/CapPOF.jpg" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
+                        <img src="../resources/CapPOF.webp" class="order-img">
                     </td>
                 </tr>
             </tbody>

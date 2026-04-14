@@ -43,18 +43,10 @@
                     Zoradenie
                 </button>
                 <ul class="dropdown-menu">
-                    <!-- <li><a class="dropdown-item" href="#">Pôvodné zoradenie</a></li>
-                    <li><a class="dropdown-item" href="#">Najdrahšie</a></li>
-                    <li><a class="dropdown-item" href="#">Najlacnejšie</a></li>
-                    <li><a class="dropdown-item" href="#">S najvyššou akciou</a></li>
-                    <li><a class="dropdown-item" href="#">S najnižšou akciou</a></li>
-                    <li><a class="dropdown-item" href="#">Najpredávanejšie</a></li>
-                    <li><a class="dropdown-item" href="#">Najmenej predávané</a></li> -->
-                        <li><a class="dropdown-item" href="{{ $baseUrl }}">Pôvodné zoradenie</a></li>
-                        <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=najdrahsie">Najdrahšie</a></li>
-                        <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=najlacnejsie">Najlacnejšie</a></li>
-                        <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=hodnotenie">Najlepšie hodnotené</a></li>
-                    </ul>
+                    <li><a class="dropdown-item" href="{{ $baseUrl }}">Pôvodné zoradenie</a></li>
+                    <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=najdrahsie">Najdrahšie</a></li>
+                    <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=najlacnejsie">Najlacnejšie</a></li>
+                    <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=hodnotenie">Najlepšie hodnotené</a></li>
                 </ul>
             </div>
             <div class="col-auto">
@@ -95,20 +87,30 @@
                                 <small class="text-muted">999 €</small>
                             </div>
 
-                            <!-- Filter by typ - zatial disabled, kym nie je v DB typ -->
+                            <!-- Filter by typ - dynamicky podľa kategórie Disclaimer: logika vytvorená pomocou GrokAI https://grok.com/ -->
                             <label class="form-label highlight">Typ</label>
                             <div class="row mb-3">
-                                <div class="col-6">
-                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ1" disabled><label class="form-check-label text-muted" for="typ1">Akčné</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ2" disabled><label class="form-check-label text-muted" for="typ2">RPG</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ3" disabled><label class="form-check-label text-muted" for="typ3">Športové</label></div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ4" disabled><label class="form-check-label text-muted" for="typ4">Stratégia</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ5" disabled><label class="form-check-label text-muted" for="typ5">Simulácia</label></div>
-                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="typ6" disabled><label class="form-check-label text-muted" for="typ6">Adventúra</label></div>
-                                </div>
+                                @if(isset($vsetkyTypy) && count($vsetkyTypy) > 0)
+                                    <div class="col-12">
+                                        @foreach($vsetkyTypy as $typ)
+                                            <div class="form-check">
+                                                <input class="form-check-input" 
+                                                    type="checkbox" 
+                                                    name="typ[]" 
+                                                    id="typ_{{ str_replace(' ', '_', $typ) }}" 
+                                                    value="{{ $typ }}"
+                                                    {{ in_array($typ, request('typ', [])) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="typ_{{ str_replace(' ', '_', $typ) }}">
+                                                    {{ $typ }}
+                                                </label>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <p class="text-muted small">Žiadne typy pre túto kategóriu.</p>
+                                @endif
                             </div>
+
                             <!-- Filter by hodnotenie -->
                             <label class="form-label highlight">Minimálne hodnotenie:</label> <output id="outputHodnotenie">{{ request('hodnotenie', 0) }}★</output>
                             <div class="d-flex gap-2 mb-3">

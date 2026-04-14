@@ -28,7 +28,7 @@
         <!--Doručenie kuriérom-->
         <div class="row justify-content-around align-items-center">
             <div class="col">
-                <img src="../resources/kurier.jpg" 
+                <img src="../resources/kurier.webp" 
                             class="d-block w-75 mx-auto" 
                             style="max-width: 450px;"
                             alt="kurier">
@@ -64,7 +64,7 @@
             </p>
             </div>
             <div class="col">
-                <img src="../resources/posta.jpg" 
+                <img src="../resources/posta.webp" 
                             class="d-block w-75 mx-auto" 
                             style="max-width: 450px;"
                             alt="posta">
@@ -76,7 +76,7 @@
         <!--Doručenie na predajňu-->
         <div class="row justify-content-around align-items-center">
             <div class="col">
-                <img src="../resources/balikNaPredajni.jpg" 
+                <img src="../resources/balikNaPredajni.webp" 
                             class="d-block w-75 mx-auto" 
                             style="max-width: 450px;"
                             alt="balik na predajni">

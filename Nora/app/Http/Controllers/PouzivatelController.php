@@ -38,13 +38,6 @@ class PouzivatelController extends Controller
         return redirect('/profileOverview');
     }
 
-    // TODO: treba upravit - Otvori modalne okno
-    public function edit($id)
-    {
-        // $user = Pouzivatel::find($id);
-        // return view('admin/adminUserEdit', ['user' => $user]);
-    }
-
     // Update daneho usera, najprv najde, potom zmeni
     public function update(Request $request, $id)
     {

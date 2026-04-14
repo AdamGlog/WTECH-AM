@@ -37,7 +37,7 @@
                 </p>
             </div>
             <div class="col">
-                <img src="../resources/zaruka1.jpg" 
+                <img src="../resources/zaruka1.webp" 
                             class="d-block w-75 mx-auto" 
                             style="max-width: 450px;"
                             alt="zaruka1">
@@ -47,7 +47,7 @@
         <br>
         <div class="row justify-content-around align-items-center">
             <div class="col">
-                <img src="../resources/zaruka2.jpg" 
+                <img src="../resources/zaruka2.webp" 
                             class="d-block w-75 mx-auto" 
                             style="max-width: 450px;"
                             alt="zaruka2">
@@ -76,7 +76,7 @@
                 </p>
             </div>
             <div class="col">
-                <img src="../resources/zaruka3.jpg" 
+                <img src="../resources/zaruka3.webp" 
                             class="d-block w-75 mx-auto" 
                             style="max-width: 450px;"
                             alt="zaruka3">

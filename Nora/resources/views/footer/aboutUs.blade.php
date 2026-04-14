@@ -43,6 +43,7 @@
                 <p>
                     Sme e-shop pre všetkých herných nadšencov. Či už hľadáte novú mašinu na ktorej si zahráte najnovšie hry, nové ale aj staré konzole. 
                     Staráme sa aj o zdravie naších zákazníkov v podobe výživových doplnkov. Po novom nás nájdete aj v kamenných predajniach po celom Slovensku.
+                    <strong>Disclaimer: </strong>Všetky obrázky použité pre produkty, a väčšina ďalších obrázkov, boli generované pomocou Grok a Gemini, zvyšné sú z online zdrojov a nebudú sa používať na zisk.
                 </p>
             </div>
         </div>

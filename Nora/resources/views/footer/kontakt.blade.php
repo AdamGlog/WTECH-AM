@@ -37,7 +37,7 @@
             </p>
             </div>
             <div class="col">
-                <img src="../resources/zakaznickeCentrum.jpg" 
+                <img src="../resources/zakaznickeCentrum.webp" 
                             class="d-block w-75 mx-auto" 
                             style="max-width: 400px;"
                             alt="zákaznícke centrum">

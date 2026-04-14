@@ -6,14 +6,15 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MainController;
 
 // Main
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', [MainController::class, 'main']);
 Route::get('/category/{nazov}', [CategoryController::class, 'show']);
 Route::get('/search', [CategoryController::class, 'search']);
 Route::get('/product/{id}', [ProductController::class, 'show']);
+// Vsetky produkty - mega vypredaj banner
+Route::get('/vsetky', [CategoryController::class, 'vsetky']);
 
 
 // Cart
@@ -56,9 +57,10 @@ Route::post('/registration', [PouzivatelController::class, 'create']);
 
 // Admin
 Route::get('/adminUsers', [PouzivatelController::class, 'listUsers']);
-Route::get('/adminUsers/{id}/edit', [PouzivatelController::class, 'edit']);
-Route::post('/adminUsers/{id}/update', [PouzivatelController::class, 'update']);
-Route::post('/adminUsers/{id}/delete', [PouzivatelController::class, 'delete']);
+// Neskor pridat:
+// Route::get('/adminUsers/{id}/edit', [PouzivatelController::class, 'edit']);
+// Route::post('/adminUsers/{id}/update', [PouzivatelController::class, 'update']);
+// Route::post('/adminUsers/{id}/delete', [PouzivatelController::class, 'delete']);
 Route::get('/adminDashboard', function () {
     return view('admin/adminDashboard');
 });

@@ -15,12 +15,23 @@
                 <img src="{{ asset('resources/searchWhite.svg') }}" class="top-bar-icons bar-icon-white">
             </button>
         </form>
-        <div class="col-auto">
-            <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons" data-bs-toggle="modal" data-bs-target="#profil">
-                <img src="{{ asset('resources/profile.svg') }}" class="top-bar-icons bar-icon-black">
-                <img src="{{ asset('resources/profileWhite.svg') }}" class="top-bar-icons bar-icon-white">
-            </button>
-        </div>
+        @if(session()->has('user_id'))
+            <div class="col-auto">
+                <a href="/profileOverview">
+                        <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons">
+                            <img src="{{ asset('resources/profile.svg') }}" class="top-bar-icons bar-icon-black">
+                            <img src="{{ asset('resources/profileWhite.svg') }}" class="top-bar-icons bar-icon-white">
+                        </button>
+                </a>
+            </div>
+        @else
+            <div class="col-auto">
+                <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons" data-bs-toggle="modal" data-bs-target="#profil">
+                    <img src="{{ asset('resources/profile.svg') }}" class="top-bar-icons bar-icon-black">
+                    <img src="{{ asset('resources/profileWhite.svg') }}" class="top-bar-icons bar-icon-white">
+                </button>
+            </div>
+        @endif
         <div class="col-auto">
             <a href="/cart">
                 <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons">
