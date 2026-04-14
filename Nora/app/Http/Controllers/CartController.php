@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kosik;
 use App\Models\KosikPolozka;
+use App\Models\Produkt;
 
 class CartController extends Controller
 {
+    // Funkcia slúži na pridanie lubovoľného počtu kusov produktov do košíka 
     public function pridat(Request $request)
     {
         $request->validate([
@@ -15,7 +17,7 @@ class CartController extends Controller
             'qty' => 'required|integer|min:1'
         ]);
 
-        $produkty = \App\Models\Produkt::findOrFail($request->id);
+        $produkty = Produkt::findOrFail($request->id);
         $cart = session()->get('cart', []);
         $id = $request->id;
 
@@ -35,7 +37,7 @@ class CartController extends Controller
             $request->qty . ' × ' . $produkty->meno . ' bolo pridané do košíka.'
         );
     }
-
+    // Táto funkcia slúži v košíku na aktualizáciu počtu kusov produktu a prípadné vymazanie z košíka
     public function aktualizovat(Request $request)
     {
         $cart = session()->get('cart', []);
