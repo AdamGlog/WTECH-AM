@@ -43,10 +43,11 @@
                     Zoradenie
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{ $baseUrl }}">Pôvodné zoradenie</a></li>
-                    <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=najdrahsie">Najdrahšie</a></li>
-                    <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=najlacnejsie">Najlacnejšie</a></li>
-                    <li><a class="dropdown-item" href="{{ $baseUrl }}&sort=hodnotenie">Najlepšie hodnotené</a></li>
+                    <!-- Nativne Laravel pouzitie fullUrlWithQuery napad od GrokAI https://grok.com -->
+                    <li><a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['sort' => null]) }}">Pôvodné zoradenie</a></li>
+                    <li><a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['sort' => 'najlacnejsie']) }}">Najlacnejšie</a></li>
+                    <li><a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['sort' => 'najdrahsie']) }}">Najdrahšie</a></li>
+                    <li><a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['sort' => 'hodnotenie']) }}">Najlepšie hodnotené</a></li>
                 </ul>
             </div>
             <div class="col-auto">
@@ -124,7 +125,9 @@
                             
 
                             <div class="d-flex gap-2 mt-2">
-                                <a href="{{ $baseUrl }}" class="btn btn-outline-secondary w-50">Resetovať</a>
+                                <a 
+                                    href="{{ request()->fullUrlWithQuery(['cena_od' => null, 'cena_do' => null, 'hodnotenie' => null, 'typ' => null]) }}" 
+                                    class="btn btn-outline-secondary w-50">Resetovať</a>
                                 <button type="submit" class="btn btn-primary w-50">Filtrovať</button>
                             </div>
                         </div>

@@ -4,7 +4,6 @@ use Illuminate\Http\Request;
 use App\Models\Produkt;
 use App\Models\Kategoria;
 
-// Filter a baseURL logika vytvorená pomocou GrokAI https://grok.com/
 class CategoryController extends Controller
 {
     public function show(Request $request, $nazov){
@@ -62,8 +61,7 @@ class CategoryController extends Controller
     return view('categoryPage', [
         'produkty' => $produkty,
         'kategoria' => $kategoria,
-        'vsetkyTypy' => $vsetkyTypy,           
-        'baseUrl' => '/category/' . $kategoria->meno . '?'
+        'vsetkyTypy' => $vsetkyTypy           
     ]);
 }
 
@@ -120,7 +118,7 @@ class CategoryController extends Controller
         // withQueryString() zachová filter/sort parametre v strankovacích linkoch
         $produkty = $query->paginate(6)->withQueryString();
 
-        // Získanie všetkých unikátnych typov pre túto kategóriu (pre filter)
+        // Získanie všetkých typov (pre filter)
         $vsetkyTypy = Produkt::select('typ')
                      ->distinct()
                      ->orderBy('typ')
@@ -131,9 +129,7 @@ class CategoryController extends Controller
             'produkty' => $produkty,
             'kategoria' => null,
             'searchQuery' => $searchQuery,
-            'vsetkyTypy' => $vsetkyTypy,
-            // & na konci aby dalsie parametre fungovali spravne
-            'baseUrl' => '/search?search-querry=' . urlencode($searchQuery) . '&'
+            'vsetkyTypy' => $vsetkyTypy
         ]);
     }
 
@@ -180,7 +176,7 @@ class CategoryController extends Controller
 
         $produkty = $query->paginate(6)->withQueryString();
 
-        // Získanie všetkých unikátnych typov pre túto kategóriu (pre filter)
+        // Získanie všetkých typov (pre filter)
         $vsetkyTypy = Produkt::select('typ')
                      ->distinct()
                      ->orderBy('typ')
@@ -191,8 +187,7 @@ class CategoryController extends Controller
             'produkty' => $produkty,
             'kategoria' => null,
             'searchQuery' => 'Všetky produkty',
-            'vsetkyTypy' => $vsetkyTypy,
-            'baseUrl' => '/vsetky?'
+            'vsetkyTypy' => $vsetkyTypy
         ]);
     }
 }
