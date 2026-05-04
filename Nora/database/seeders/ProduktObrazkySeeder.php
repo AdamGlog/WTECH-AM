@@ -48,7 +48,28 @@ class ProduktObrazkySeeder extends Seeder
         ['produkt_id' => 27, 'cesta' => 'resources/wichterHrncek2.webp', 'hlavny' => true],
         ['produkt_id' => 28, 'cesta' => 'resources/FigurkaAllOfThemIII.webp', 'hlavny' => true],
         ['produkt_id' => 29, 'cesta' => 'resources/plysakMegaboing.webp', 'hlavny' => true],
-        ['produkt_id' => 30, 'cesta' => 'resources/figurkaFutbalista.webp', 'hlavny' => true]
+        ['produkt_id' => 30, 'cesta' => 'resources/figurkaFutbalista.webp', 'hlavny' => true],
+        ['produkt_id' => 31, 'cesta' => 'resources/MafiaHra.png', 'hlavny' => true],
+        ['produkt_id' => 32, 'cesta' => 'resources/Mafia2Hra.png', 'hlavny' => true],
+        ['produkt_id' => 33, 'cesta' => 'resources/TractorFarm26.png', 'hlavny' => true],
+        ['produkt_id' => 34, 'cesta' => 'resources/YourDestroy.png', 'hlavny' => true],
+        ['produkt_id' => 35, 'cesta' => 'resources/LifeShipping.png', 'hlavny' => true],
+        ['produkt_id' => 36, 'cesta' => 'resources/CyclingRush.png', 'hlavny' => true],
+        ['produkt_id' => 37, 'cesta' => 'resources/DrEuS.png', 'hlavny' => true],
+        ['produkt_id' => 38, 'cesta' => 'resources/Dunk26.png', 'hlavny' => true],
+        ['produkt_id' => 39, 'cesta' => 'resources/QueendomWentLostance.png', 'hlavny' => true],
+        ['produkt_id' => 40, 'cesta' => 'resources/ice26.png', 'hlavny' => true],
+        ['produkt_id' => 41, 'cesta' => 'resources/QWLhrncek.png', 'hlavny' => true],
+        ['produkt_id' => 41, 'cesta' => 'resources/QWLhrncek2.png', 'hlavny' => false],
+        ['produkt_id' => 41, 'cesta' => 'resources/QWLhrncek3.png', 'hlavny' => false],
+        ['produkt_id' => 42, 'cesta' => 'resources/QWLMerchBox.png', 'hlavny' => true],
+        ['produkt_id' => 42, 'cesta' => 'resources/QWLMerchBox2.png', 'hlavny' => false],
+        ['produkt_id' => 43, 'cesta' => 'resources/LifeShippingMerchBoxSmall.png', 'hlavny' => true],
+        ['produkt_id' => 44, 'cesta' => 'resources/LifeShippingMerchBoxBig.png', 'hlavny' => true],
+        ['produkt_id' => 45, 'cesta' => 'resources/QWLfigurka.png', 'hlavny' => true],
+        ['produkt_id' => 45, 'cesta' => 'resources/QWLfigurka2.png', 'hlavny' => false],
+        ['produkt_id' => 46, 'cesta' => 'resources/LifeShippingFigurka.png', 'hlavny' => true],
+        ['produkt_id' => 47, 'cesta' => 'resources/Football26RedFigurka.png', 'hlavny' => true]
     ]);
     }
 }
