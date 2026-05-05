@@ -47,7 +47,7 @@
         <!--Vyťaženosť linky-->
         <div class="row justify-content-around align-items-center">
             <div class="col">
-                <img src="../resources/vytazenost.png" 
+                <img src="../resources/vytazenost.webp" 
                             class="d-block w-75 mx-auto" 
                             style="max-width: 450px;"
                             alt="vytazenost nasej tel. linky">

@@ -46,12 +46,30 @@ class CartController extends Controller
 
         if(isset($cart[$id])){
             $cart[$id]['pocet'] += $zmena;
-
             //ak pocet klesne na 0, produkt vymazeme
             if($cart[$id]['pocet'] < 1){
                 unset($cart[$id]);
             }
             session()->put('cart', $cart);
+        }
+        
+        //pridavame ajax aby sme nerefreshovali stranku
+        if ($request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success'    => true,
+                'cart'       => $cart,
+                'total' => number_format(collect($cart)->sum(function($item){
+                    return $item['pocet'] * $item['cena'];
+                }), 2),
+                'items' => collect($cart)->map(function($item, $id){
+                    return [
+                        'id' => $id,
+                        'pocet' => $item['pocet'],
+                        'cena'  => $item['cena']
+                    ];
+                })->values(),
+                'cart_empty' => empty($cart),
+            ]);
         }
         return redirect()->back();
     }
