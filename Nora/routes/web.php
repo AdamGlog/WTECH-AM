@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\AdminCategoryController;
 
 // Main
 Route::get('/', [MainController::class, 'main']);
@@ -65,9 +66,11 @@ Route::get('/adminUsers', [PouzivatelController::class, 'listUsers']);
 Route::get('/adminDashboard', function () {
     return view('admin/adminDashboard');
 });
-Route::get('/adminCategories', function () {
-    return view('admin/adminCategories');
-});
+//Route::get('/adminCategories', function () {
+//    return view('admin/adminCategories');
+//});
+Route::get('/adminCategories', [AdminCategoryController::class, 'index'])
+     ->name('adminCategories');
 Route::get('/adminProducts', function () {
     return view('admin/adminProducts');
 });

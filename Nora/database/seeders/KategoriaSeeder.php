@@ -14,10 +14,10 @@ class KategoriaSeeder extends Seeder
     public function run(): void
     {
         DB::table('kategoria')->insert([
-        ['meno' => 'Hry', 'pocet_produktov' => 0],
-        ['meno' => 'Konzoly', 'pocet_produktov' => 0],
-        ['meno' => 'Merch', 'pocet_produktov' => 0],
-        ['meno' => 'Figúrky', 'pocet_produktov' => 0],
+        ['meno' => 'Hry', 'pocet_produktov' => 10],
+        ['meno' => 'Konzoly', 'pocet_produktov' => 20],
+        ['meno' => 'Merch', 'pocet_produktov' => 30],
+        ['meno' => 'Figúrky', 'pocet_produktov' => 40],
         ]);
     }
 }

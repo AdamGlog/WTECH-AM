@@ -37,11 +37,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Hry</td>
-                        <td>24</td>
-                        <td class="d-flex justify-content-center">
+                    @forelse($categories as $category)
+                        <tr>
+                            <td>{{ $category->id }}</td>
+                            <td>{{ $category->meno }}</td>
+                            <td>{{ $category->pocet_produktov ?? 0 }}</td>  <!--products_count vyskusat-->
+                            <td class="d-flex justify-content-center">
                             <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-category">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
                             </button>
@@ -49,33 +50,14 @@
                                 <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
                             </button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Konzoly</td>
-                        <td>8</td>
-                        <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-category">
-                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
-                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-category">
-                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Merch</td>
-                        <td>15</td>
-                        <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-category">
-                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
-                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-category">
-                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
-                        </td>
-                    </tr>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3" class="text-center py-4 fw-bold">
+                                Zatiaľ nie sú žiadne kategórie.
+                            </td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
