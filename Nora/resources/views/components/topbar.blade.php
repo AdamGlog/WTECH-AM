@@ -15,7 +15,7 @@
                 <img src="{{ asset('resources/searchWhite.svg') }}" class="top-bar-icons bar-icon-white">
             </button>
         </form>
-        @if(session()->has('user_id'))
+        @auth
             <div class="col-auto">
                 <a href="/profileOverview">
                         <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons">
@@ -24,14 +24,15 @@
                         </button>
                 </a>
             </div>
-        @else
+        @endauth
+        @guest
             <div class="col-auto">
                 <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons" data-bs-toggle="modal" data-bs-target="#profil">
                     <img src="{{ asset('resources/profile.svg') }}" class="top-bar-icons bar-icon-black">
                     <img src="{{ asset('resources/profileWhite.svg') }}" class="top-bar-icons bar-icon-white">
                 </button>
             </div>
-        @endif
+        @endguest
         <div class="col-auto">
             <a href="/cart">
                 <button type="button" class="btn btn-secondary our-buttons top-bar-sizes bar-buttons">
