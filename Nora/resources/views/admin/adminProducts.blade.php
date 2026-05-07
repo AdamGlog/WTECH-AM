@@ -41,13 +41,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse($products as $product)
                     <tr>
-                        <td><img src="../resources/TheWichter.jpg" class="order-img"></td>
-                        <td>1001</td>
-                        <td>The Wichter: The Legend of Regalt</td>
-                        <td>Hry</td>
-                        <td>49,99€</td>
-                        <td>12</td>
+                        <td><img src="{{ asset('resources/' . $product->obrazok . '.webp') }}" class="order-img"></td>
+                        <td>{{ $product->id }}</td>
+                        <td>{{ $product->meno }}</td>
+                        <td>{{ $product->category->meno ?? 'Bez kategórie' }}</td>
+                        <td>{{ number_format($product->cena, 2, ',', ' ') }}€</td>
+                        <td>{{ $product->pocet_na_sklade }}</td>
                         <td class="d-flex justify-content-center">
                             <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
@@ -57,38 +58,13 @@
                             </button>
                         </td>
                     </tr>
+                    @empty
                     <tr>
-                        <td><img src="../resources/PS7.jpg" class="order-img"></td>
-                        <td>1002</td>
-                        <td>Play State 7</td>
-                        <td>Konzoly</td>
-                        <td>499,99€</td>
-                        <td>3</td>
-                        <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product">
-                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
-                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product">
-                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
+                        <td colspan="7" class="text-center py-4 fw-bold">
+                            Zatiaľ nie sú žiadne produkty.
                         </td>
                     </tr>
-                    <tr>
-                        <td><img src="../resources/trickoWichter.png" class="order-img"></td>
-                        <td>1003</td>
-                        <td>Tričko The Wichter</td>
-                        <td>Merch</td>
-                        <td>19,99€</td>
-                        <td>30</td>
-                        <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product">
-                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
-                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product">
-                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
-                        </td>
-                    </tr>
+                @endforelse
                 </tbody>
             </table>
         </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\AdminProductController;
 
 // Main
 Route::get('/', [MainController::class, 'main']);
@@ -71,9 +72,10 @@ Route::get('/adminDashboard', function () {
 //});
 Route::get('/adminCategories', [AdminCategoryController::class, 'index'])
      ->name('adminCategories');
-Route::get('/adminProducts', function () {
-    return view('admin/adminProducts');
-});
+Route::get('/adminProducts', [AdminProductController::class, 'index']);
+//Route::get('/adminProducts', function () {
+//    return view('admin/adminProducts');
+//});
 Route::get('/adminOrders', function () {
     return view('admin/adminOrders');
 });
