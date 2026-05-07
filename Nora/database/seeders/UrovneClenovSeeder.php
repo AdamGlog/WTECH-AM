@@ -18,8 +18,7 @@ class UrovneClenovSeeder extends Seeder
         ['uroven' => 'iron'],
         ['uroven' => 'gold'],
         ['uroven' => 'diamant'],
-        ['uroven' => 'netherite'],
-        ['uroven' => 'admin']
+        ['uroven' => 'netherite']
         ]);
     }
 }
