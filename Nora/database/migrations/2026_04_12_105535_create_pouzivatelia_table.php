@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('ulica', 20)->nullable();
             $table->string('cislo_domu', 10)->nullable();
             $table->foreignId('mesto_psc')->nullable()->constrained('mesta_s_psc');
+            $table->unsignedTinyInteger('role')->default(1);
             $table->timestamps();
         });
     }

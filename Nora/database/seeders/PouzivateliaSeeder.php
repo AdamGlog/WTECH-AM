@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Enums\UserRole;
 
 class PouzivateliaSeeder extends Seeder
 {
@@ -27,6 +28,7 @@ class PouzivateliaSeeder extends Seeder
             'ulica' => 'Kukucinova',
             'cislo_domu' => '99',
             'mesto_psc' => 1,
+            'role' => UserRole::ZAKAZNIK,
         ],
         [
             'meno' => 'Adamm',
@@ -35,11 +37,12 @@ class PouzivateliaSeeder extends Seeder
             'email' => 'adamkooo@gmail.com',
             'telefonne_cislo' => '4564',
             'datum_registracie' => '2025-09-10',
-            'typ_clena' => 6,
+            'typ_clena' => 4,
             'nickname' => 'glogADMIN',
             'ulica' => 'Kukucinovaa',
             'cislo_domu' => '999',
             'mesto_psc' => 12,
+            'role' => UserRole::ADMIN,
         ],
         [
             'meno' => 'Martin',
@@ -53,6 +56,7 @@ class PouzivateliaSeeder extends Seeder
             'ulica' => 'Holubia',
             'cislo_domu' => '4',
             'mesto_psc' => 2,
+            'role' => UserRole::ZAKAZNIK,
         ],
         [
             'meno' => 'Matus',
@@ -66,6 +70,7 @@ class PouzivateliaSeeder extends Seeder
             'ulica' => 'Pivova',
             'cislo_domu' => '12',
             'mesto_psc' => 3,
+            'role' => UserRole::ZAKAZNIK,
         ],
         [
             'meno' => 'Miska',
@@ -79,6 +84,7 @@ class PouzivateliaSeeder extends Seeder
             'ulica' => 'Tatranska',
             'cislo_domu' => '21',
             'mesto_psc' => 4,
+            'role' => UserRole::ZAKAZNIK,
         ],
         [
             'meno' => 'Sabi',
@@ -92,6 +98,7 @@ class PouzivateliaSeeder extends Seeder
             'ulica' => 'Vysoka',
             'cislo_domu' => '3',
             'mesto_psc' => 5,
+            'role' => UserRole::ZAKAZNIK,
         ],
         [
             'meno' => 'Ado',
@@ -105,6 +112,7 @@ class PouzivateliaSeeder extends Seeder
             'ulica' => 'Katkina',
             'cislo_domu' => '67',
             'mesto_psc' => 6,
+            'role' => UserRole::ZAKAZNIK,
         ],
         [
             'meno' => 'Viktor',
@@ -118,6 +126,7 @@ class PouzivateliaSeeder extends Seeder
             'ulica' => 'Plzenska',
             'cislo_domu' => '11',
             'mesto_psc' => 7,
+            'role' => UserRole::ZAKAZNIK,
         ],
         ]);
     }

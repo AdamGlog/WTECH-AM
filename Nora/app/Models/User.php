@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Enums\UserRole;
 
 #[Fillable(['profilovka_url','meno','priezvisko','heslo','telefonne_cislo','email','datum_registracie',
-    'typ_clena', 'nickname','ulica','cislo_domu','mesto_psc',])]
+    'typ_clena', 'nickname','ulica','cislo_domu','mesto_psc', 'role'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -32,6 +33,7 @@ class User extends Authenticatable
             'created_at'        => 'datetime',
             'updated_at'        => 'datetime',
             'heslo' => 'hashed', 
+            'role' => UserRole::class
         ];
     }
 
@@ -48,7 +50,7 @@ class User extends Authenticatable
      */
     public function isAdmin(): bool
     {
-        return $this->typ_clena === 6;
+        return $this->role === UserRole::ADMIN;
     }
     /**
      * Laravel bude brať nickname z tohto stĺpca (namiesto 'username')
