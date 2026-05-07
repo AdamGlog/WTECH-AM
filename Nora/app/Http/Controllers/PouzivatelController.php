@@ -9,7 +9,7 @@ class PouzivatelController extends Controller
     // Nacita a vylistuje všetkých užívateľov z DB
     public function listUsers()
     {
-        $users = User::all(); 
+        $users = User::all();
         return view('admin/adminUsers', ['users' => $users]);
     }
 
