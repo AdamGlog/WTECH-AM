@@ -54,9 +54,9 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->ulica }}</td>
                             <td>{{ $user->cislo_domu }}</td>
-                            <td>{{ $user->mesto }}</td>
-                            <td>{{ $user->mesto_psc }}</td>
-                            <td>{{ $user->typ_clena }}</td>
+                            <td>{{ $user->mesto->mesto }}</td>
+                            <td>{{ $user->mesto->psc }}</td>
+                            <td>{{ $user->typClena->uroven }}</td>
                             <td class="d-flex justify-content-center">
                             <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-user">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>

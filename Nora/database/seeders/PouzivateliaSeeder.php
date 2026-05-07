@@ -21,7 +21,7 @@ class PouzivateliaSeeder extends Seeder
             'email' => 'adamko@gmail.com',
             'telefonne_cislo' => '987654321',
             'datum_registracie' => '2025-09-15',
-            'typ_clena' => 1,
+            'typ_clena' => 5,
             'nickname' => 'glog',
             'ulica' => 'Kukucinova',
             'cislo_domu' => '99',

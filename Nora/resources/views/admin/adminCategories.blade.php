@@ -41,7 +41,7 @@
                         <tr>
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->meno }}</td>
-                            <td>{{ $category->pocet_produktov ?? 0 }}</td>  <!--products_count vyskusat-->
+                            <td>{{ $category->products_count ?? 0 }}</td>
                             <td class="d-flex justify-content-center">
                             <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-category">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>

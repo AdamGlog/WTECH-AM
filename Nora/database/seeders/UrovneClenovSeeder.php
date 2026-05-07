@@ -14,8 +14,8 @@ class UrovneClenovSeeder extends Seeder
     public function run(): void
     {
         DB::table('urovne_clenov')->insert([
-        ['uroven' => 'bronze'],
-        ['uroven' => 'silver'],
+        ['uroven' => 'copper'],
+        ['uroven' => 'iron'],
         ['uroven' => 'gold'],
         ['uroven' => 'diamant'],
         ['uroven' => 'netherite'],
