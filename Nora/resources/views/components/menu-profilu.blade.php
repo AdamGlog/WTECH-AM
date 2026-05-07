@@ -26,6 +26,13 @@
                 <a href="/profilePrivacy" type="button" class="btn btn-secondary menu-buttons-last our-buttons profile-menu-buttons">Súkromie</a>
             </div>
         </div>
+        @can('admin')
+        <div class="col">
+            <div class="d-grid menu-button" role="group" aria-label="Basic example">
+                <a href="/adminDashboard" type="button" class="btn btn-secondary menu-buttons-last our-buttons profile-menu-buttons">Admin</a>
+            </div>
+        </div>
+        @endcan
         <div class="col">
             <div class="d-grid menu-button-right">
                 <form action="/logout" method="POST">

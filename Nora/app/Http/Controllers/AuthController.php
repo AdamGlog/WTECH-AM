@@ -2,43 +2,70 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Pouzivatel;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+
     public function login(Request $request)
     {
-        $nickname = $request->nickname;
-        $heslo = $request->heslo;
-        $user = Pouzivatel::where('nickname', $nickname)->first();
+        $credentials = $request->validate([
+            'nickname' => ['required', 'string'],
+            'heslo'    => ['required', 'string'],
+        ]);
 
-        if ($user && $user->heslo === $heslo) {
-            // ulozim id
-            session(['user_id' => $user->id]);
-            return redirect('/profileOverview');
+        // Laravel automaticky hashuje a porovnáva vďaka 'hashed' castu
+        if (Auth::attempt(['nickname' => $credentials['nickname'], 'password' => $credentials['heslo']])) {
+            $request->session()->regenerate();
+            return redirect()->intended('/profileOverview');
         }
 
-        return redirect()->back()->withErrors([
-            'nickname' => 'Zlé meno alebo heslo'
-        ]);
+        return back()->withErrors([
+            'nickname' => 'Zlé prihlasovacie údaje.',
+        ])->onlyInput('nickname');
     }
+
+//     public function login(Request $request)
+// {
+//     $credentials = $request->validate([
+//         'nickname' => ['required', 'string'],
+//         'heslo'    => ['required', 'string'],
+//     ]);
+
+//     $user = User::where('nickname', $credentials['nickname'])->first();
+
+//     dd([
+//         'nickname_zadany'     => $credentials['nickname'],
+//         'user_najdeny'        => $user !== null,
+//         'typ_clena'           => $user?->typ_clena,
+//         'heslo_v_db'          => $user?->heslo,
+//         'zadane_heslo'        => $credentials['heslo'],
+//         'attempt_vysledok'    => Auth::attempt([
+//             'nickname' => $credentials['nickname'], 
+//             'password' => $credentials['heslo']
+//         ])
+//     ]);
+// }
 
     public function profile()
     {
-        $userId = session('user_id');
-
-        if (!$userId) {
+        if (!Auth::check()) {
             return redirect('/');
         }
 
-        $user = Pouzivatel::find($userId);
+        $user = Auth::user();
         return view('profile/profileOverview', ['user' => $user]);
     }
 
     public function logout()
     {
-        session()->flush(); // vymaže celú session
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
         return redirect('/');
     }
 }

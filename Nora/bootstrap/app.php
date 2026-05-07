@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Middleware\IsUserAdmin;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use \Illuminate\Auth\Middleware\Authenticate;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -11,8 +13,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+            'auth'  => Authenticate::class,
+            'admin' => IsUserAdmin::class,  
+        ]);
+        $middleware->redirectGuestsTo('/');
     })
+    ->withProviders()
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
+
+    

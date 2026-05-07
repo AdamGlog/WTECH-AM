@@ -59,26 +59,20 @@ Route::get('/registration', [PouzivatelController::class, 'register']);
 Route::post('/registration', [PouzivatelController::class, 'create']);
 
 // Admin
-Route::get('/adminUsers', [PouzivatelController::class, 'listUsers']);
+Route::get('/adminUsers', [PouzivatelController::class, 'listUsers'])->middleware(['auth', 'admin']);
+Route::get('/adminDashboard', function () {
+    return view('admin/adminDashboard');
+})->middleware(['auth', 'admin']);
+Route::get('/adminCategories', [AdminCategoryController::class, 'index'])->middleware(['auth', 'admin'])->name('adminCategories');
+Route::get('/adminProducts', [AdminProductController::class, 'index'])->middleware(['auth', 'admin']);
+Route::get('/adminOrders', function () {
+    return view('admin/adminOrders');
+})->middleware(['auth', 'admin']);
+
 // Neskor pridat:
 // Route::get('/adminUsers/{id}/edit', [PouzivatelController::class, 'edit']);
 // Route::post('/adminUsers/{id}/update', [PouzivatelController::class, 'update']);
 // Route::post('/adminUsers/{id}/delete', [PouzivatelController::class, 'delete']);
-Route::get('/adminDashboard', function () {
-    return view('admin/adminDashboard');
-});
-//Route::get('/adminCategories', function () {
-//    return view('admin/adminCategories');
-//});
-Route::get('/adminCategories', [AdminCategoryController::class, 'index'])
-     ->name('adminCategories');
-Route::get('/adminProducts', [AdminProductController::class, 'index']);
-//Route::get('/adminProducts', function () {
-//    return view('admin/adminProducts');
-//});
-Route::get('/adminOrders', function () {
-    return view('admin/adminOrders');
-});
 
 // Footer
 Route::get('/aboutUs', function () {

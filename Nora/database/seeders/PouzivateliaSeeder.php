@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class PouzivateliaSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class PouzivateliaSeeder extends Seeder
         [
             'meno' => 'Adam',
             'priezvisko' => 'Glog',
-            'heslo' => '1234',
+            'heslo' => Hash::make('1234'),
             'email' => 'adamko@gmail.com',
             'telefonne_cislo' => '987654321',
             'datum_registracie' => '2025-09-15',
@@ -28,9 +29,22 @@ class PouzivateliaSeeder extends Seeder
             'mesto_psc' => 1,
         ],
         [
+            'meno' => 'Adamm',
+            'priezvisko' => 'Glogg',
+            'heslo' => Hash::make('1234'),
+            'email' => 'adamkooo@gmail.com',
+            'telefonne_cislo' => '4564',
+            'datum_registracie' => '2025-09-10',
+            'typ_clena' => 6,
+            'nickname' => 'glogADMIN',
+            'ulica' => 'Kukucinovaa',
+            'cislo_domu' => '999',
+            'mesto_psc' => 12,
+        ],
+        [
             'meno' => 'Martin',
             'priezvisko' => 'Span',
-            'heslo' => '1234',
+            'heslo' => Hash::make('1234'),
             'email' => 'martinko@gmail.com',
             'telefonne_cislo' => '876543210',
             'datum_registracie' => '2025-10-22',
@@ -43,7 +57,7 @@ class PouzivateliaSeeder extends Seeder
         [
             'meno' => 'Matus',
             'priezvisko' => 'Kris',
-            'heslo' => '1234',
+            'heslo' => Hash::make('1234'),
             'email' => 'unik@gmail.com',
             'telefonne_cislo' => '765432109',
             'datum_registracie' => '2025-12-15',
@@ -56,7 +70,7 @@ class PouzivateliaSeeder extends Seeder
         [
             'meno' => 'Miska',
             'priezvisko' => 'Tom',
-            'heslo' => '1234',
+            'heslo' => Hash::make('1234'),
             'email' => 'chimney@gmail.com',
             'telefonne_cislo' => '654321098',
             'datum_registracie' => '2024-01-15',
@@ -69,7 +83,7 @@ class PouzivateliaSeeder extends Seeder
         [
             'meno' => 'Sabi',
             'priezvisko' => 'Mat',
-            'heslo' => '1234',
+            'heslo' => Hash::make('1234'),
             'email' => 'sabinka@gmail.com',
             'telefonne_cislo' => '543210987',
             'datum_registracie' => '2026-02-03',
@@ -82,7 +96,7 @@ class PouzivateliaSeeder extends Seeder
         [
             'meno' => 'Ado',
             'priezvisko' => 'Hrom',
-            'heslo' => '1234',
+            'heslo' => Hash::make('1234'),
             'email' => 'svalnacik@gmail.com',
             'telefonne_cislo' => '432109876',
             'datum_registracie' => '2026-03-04',
@@ -95,7 +109,7 @@ class PouzivateliaSeeder extends Seeder
         [
             'meno' => 'Viktor',
             'priezvisko' => 'Vrb',
-            'heslo' => '1234',
+            'heslo' => Hash::make('1234'),
             'email' => 'uwr@gmail.com',
             'telefonne_cislo' => '321098765',
             'datum_registracie' => '2026-05-04',
