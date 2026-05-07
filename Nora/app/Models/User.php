@@ -57,4 +57,12 @@ class User extends Authenticatable
     {
         return $this->heslo;
     }
+
+    //vztahy na ciselnikovu tabulku s mestami s psc a typom clena
+    public function mesto(){
+        return $this->belongsTo(MestoSPSC::class, 'mesto_psc', 'id');
+    }
+    public function typClena(){
+        return $this->belongsTo(UrovneClenov::class, 'typ_clena', 'id');
+    }
 }

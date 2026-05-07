@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             ProduktSeeder::class,
             KosikSeeder::class,
             ProduktObrazkySeeder::class,
+            OrderSeeder::class,
+            WishlistSeeder::class
         ]);
     }
 }
