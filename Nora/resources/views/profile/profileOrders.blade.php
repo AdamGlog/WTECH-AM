@@ -30,49 +30,37 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>6.3.2026</td>
-                    <td>619574558</td>
-                    <td>259,99€</td>
-                    <td>pripravuje sa</td>
-                    <td class="text-end">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                    </td>
-                </tr>
-                <tr>
-                    <td>7.9.2025</td>
-                    <td>619574557</td>
-                    <td>959,99€</td>
-                    <td>vybavená</td>
-                    <td class="text-end">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                    </td>
-                </tr>
-                <tr>
-                    <td>18.04.2025</td>
-                    <td>619574556</td>
-                    <td>19,99€</td>
-                    <td>vybavená</td>
-                    <td class="text-end">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                    </td>
-                </tr>
-                <tr>
-                    <td>10.11.2024</td>
-                    <td>619574555</td>
-                    <td>629,99€</td>
-                    <td>zrušená</td>
-                    <td class="text-end">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                        <img src="../resources/CapPOF.webp" class="order-img">
-                    </td>
-                </tr>
+                @forelse($orders as $order)
+                    <tr>
+                        <!-- Dátum -->
+                        <td>{{ $order->datum_objednania->format('d.m.Y') }}</td>
+                        
+                        <!-- ID objednávky -->
+                        <td>{{ $order->id }}</td>
+                        
+                        <!-- Cena -->
+                        <td>{{ number_format($order->celkova_cena, 2, ',', ' ') }}€</td>
+                        
+                        <!-- Stav (ak má tvoj Enum metódu label() alebo hodnotu value) -->
+                        <td>{{ $order->stav->value ?? $order->stav }}</td>
+                        
+                        <!-- Produkty -->
+                        <td class="text-end">
+                            @foreach($order->items as $item)
+                                @if($item->product)
+                                    <img src="{{ asset('resources/' . $item->product->obrazok . '.webp') }}" 
+                                        class="order-img" 
+                                        title="{{ $item->product->nazov }}"
+                                        alt="{{ $item->product->nazov }}">
+                                @endif
+                            @endforeach
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5" class="p-4 text-center">Nemáte žiadne objednávky.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

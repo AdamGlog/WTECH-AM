@@ -68,4 +68,19 @@ class AuthController extends Controller
 
         return redirect('/');
     }
+
+    public function showOrders()
+    {
+        if(!Auth::check()){
+            return redirect('/');
+        }
+
+        $user = Auth::user();
+        $orders = $user->orders()
+                   ->with('items.product') 
+                   ->orderBy('datum_objednania', 'desc')
+                   ->get();
+
+        return view('profile/profileOrders', compact('orders'));
+    }
 }

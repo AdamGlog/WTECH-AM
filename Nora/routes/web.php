@@ -42,9 +42,7 @@ Route::get('/cartCompleted', function () {
 
 // Profile
 Route::get('/profileOverview', [AuthController::class, 'profile']);
-Route::get('/profileOrders', function () {
-    return view('profile/profileOrders');
-});
+Route::get('/profileOrders', [AuthController::class, 'showOrders'])->middleware('auth');
 Route::get('/profileFavourites', function () {
     return view('profile/profileFavourites');
 });

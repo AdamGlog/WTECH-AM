@@ -33,7 +33,7 @@
                     <b>Člen od:</b> {{ $user->datum_registracie }}
                 </p>
                 <p class="smaller-text">
-                    <b>Typ člena:</b> {{ $user->typ_clena }}
+                    <b>Typ člena:</b> {{ $user->typClena->uroven }}
                 </p>
             </div>
         </div>
