@@ -49,9 +49,8 @@ Route::get('/profileFavourites', function () {
 Route::get('/profileData', function () {
     return view('profile/profileData');
 });
-Route::get('/profilePrivacy', function () {
-    return view('profile/profilePrivacy');
-});
+Route::post('/profileData', [AuthController::class, 'updateDetails'])->middleware('auth');
+Route::get('/profilePrivacy', [AuthController::class, 'showProfilePrivateData'])->middleware('auth');
 Route::post('/profilePrivacy', [AuthController::class, 'updatePassword'])->middleware('auth');
 Route::post('/profilePrivacy/newsletter', [AuthController::class, 'updateNewsletterSession']);
 Route::post('/login', [AuthController::class, 'login']);

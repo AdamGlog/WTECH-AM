@@ -20,7 +20,6 @@ class User extends Authenticatable
 
     public $timestamps = true;
 
-
     /**
      * Typy atribútov (casting) meni zo stringov na ine datove typy
      */

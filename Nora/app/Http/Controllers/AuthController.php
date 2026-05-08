@@ -113,4 +113,49 @@ class AuthController extends Controller
         session(['newsletter_active' => $status]);
         return back();
     }
+
+    public function showProfilePrivateData()
+    {
+        $user = Auth::user(); 
+        return view('profile/profilePrivacy', compact('user'));
+    }
+
+    public function updateDetails(Request $request)
+    {
+        $user = Auth::user();
+        $request->validate([
+            'meno' => 'required|string|max:50',
+            'priezvisko' => 'required|string|max:50',
+            'email' => 'required|email|unique:pouzivatelia,email,' . $user->id,
+            'telefon' => 'nullable|string',
+            'ulica' => 'nullable|string',
+            'cislo_domu' => 'nullable|string',
+            'psc' => 'required|string',
+        ]);
+
+        $mestoZCiselnika = \DB::table('mesta_s_psc')->where('psc', $request->psc)->first();
+        if(!$mestoZCiselnika){
+            return back()->withErrors(['psc' => 'Zadané PSČ je neplatné.']);
+        }
+
+        $user->fill([
+            'meno' => $request->meno,
+            'priezvisko' => $request->priezvisko,
+            'email' => $request->email,
+            'telefonne_cislo' => $request->telefonne_cislo,
+            'ulica' => $request->ulica,
+            'cislo_domu' => $request->cislo_domu,
+            'mesto_psc' => $mestoZCiselnika->id, //mesto z ciselnikovej tabulky podla psc
+        ]);
+
+        $user->save();
+        return back()->with('success', 'Údaje boli úspešne aktualizované!');
+    }
+
+    public function showProfileData()
+    {
+    //nacitame si mesto aby sme mali pristup k jeho psc
+        $user = Auth::user()->load('mesto'); 
+       return view('profileData', compact('user'));
+   }
 }

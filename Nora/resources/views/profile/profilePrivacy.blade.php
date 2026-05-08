@@ -36,9 +36,8 @@
                     <div class="col-12 col-sm-6 mt-2">
                         <button type="submit" class="btn btn-secondary smaller-text">Aplikovať</button>
                     </div>
-                </form>
-
-            </div>
+                </div>
+            </form>
         </div>
 
         <form method="POST" action="/profilePrivacy">

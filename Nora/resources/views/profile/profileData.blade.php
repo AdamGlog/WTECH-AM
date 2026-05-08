@@ -18,8 +18,13 @@
 
 
     <!-- Zmena Udajov o uzivatelovi -->
+    <form action="/profileData" method="POST">
+    @csrf 
     <div class="container">
         <h2 class="heading p-3 ms-1 main-headings">Zmena osobných údajov profilu</h2>
+        @if (session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
         <div class="row align-items-center">
             <div class="col-4 text-center">
                 <img src="../resources/AccountImage.svg" class="w-75">
@@ -30,38 +35,38 @@
             </div>
             <div class="col-4 fs-4">
                 <div class="mb-3">
-                    <label for="exampleFormControlInputName" class="form-label smaller-text">Krstné Meno</label>
-                    <input type="text" class="form-control smaller-text" id="exampleFormControlInputName" placeholder="Jožko">
+                    <label class="form-label smaller-text">Krstné Meno</label>
+                    <input type="text" name="meno" class="form-control smaller-text" value="{{ auth()->user()->meno }}">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInputSurN" class="form-label smaller-text">Priezvisko</label>
-                    <input type="text" class="form-control smaller-text" id="exampleFormControlInputSurN" placeholder="Hráško">
+                    <label class="form-label smaller-text">Priezvisko</label>
+                    <input type="text" name="priezvisko" class="form-control smaller-text" value="{{ auth()->user()->priezvisko }}">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInputTel" class="form-label smaller-text">Telefónne číslo</label>
-                    <input type="tel" class="form-control smaller-text" id="exampleFormControlInputTel" placeholder="+421 555 555 555">
+                    <label class="form-label smaller-text">Telefónne číslo</label>
+                    <input type="tel" name="telefonne_cislo" class="form-control smaller-text" value="{{ auth()->user()->telefonne_cislo }}">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInputEmail" class="form-label smaller-text">Email</label>
-                    <input type="email" class="form-control smaller-text" id="exampleFormControlInputEmail" placeholder="janko.hrasko@gnail.com">
+                    <label class="form-label smaller-text">Email</label>
+                    <input type="email" name="email" class="form-control smaller-text" id="exampleFormControlInputEmail" value="{{ auth()->user()->email }}">
                 </div>
             </div>
             <div class="col-3 fs-4">
                 <div class="mb-3">
-                    <label for="exampleFormControlInputStreet" class="form-label smaller-text">Ulica</label>
-                    <input type="text" class="form-control smaller-text" id="exampleFormControlInputStreet" placeholder="Kukučínova">
+                    <label class="form-label smaller-text">Ulica</label>
+                    <input type="text" name="ulica" class="form-control smaller-text" value="{{ auth()->user()->ulica }}">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInputHouseN" class="form-label smaller-text">Číslo Domu</label>
-                    <input type="text" class="form-control smaller-text" id="exampleFormControlInputHouseN" placeholder="2025/11">
+                    <label class="form-label smaller-text">Číslo Domu</label>
+                    <input type="text" name="cislo_domu" class="form-control smaller-text" value="{{ auth()->user()->cislo_domu }}">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInputCity" class="form-label smaller-text">Mesto</label>
-                    <input type="text" class="form-control smaller-text" id="exampleFormControlInputCity" placeholder="Snina">
+                    <label class="form-label smaller-text">Mesto</label>
+                    <input type="text" name="mesto" class="form-control smaller-text" value="{{ auth()->user()->mesto->mesto }}" readonly>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInputZipCode" class="form-label smaller-text">PSČ</label>
-                    <input type="text" class="form-control smaller-text" id="exampleFormControlInputZipCode" placeholder="069 01">
+                    <label class="form-label smaller-text">PSČ</label>
+                    <input type="text" name="psc" class="form-control smaller-text" value="{{ auth()->user()->mesto->psc }}">
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-2">
@@ -69,7 +74,8 @@
             </div>
         </div>
     </div>
-    
+    </form>
+
     <!-- Paticka -->
     <x-paticka/>
 
