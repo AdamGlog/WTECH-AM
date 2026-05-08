@@ -9,6 +9,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\OrderController;
 
 // Main
 Route::get('/', [MainController::class, 'main']);
@@ -65,10 +66,7 @@ Route::get('/adminDashboard', function () {
 })->middleware(['auth', 'admin']);
 Route::get('/adminCategories', [AdminCategoryController::class, 'index'])->middleware(['auth', 'admin'])->name('adminCategories');
 Route::get('/adminProducts', [AdminProductController::class, 'index'])->middleware(['auth', 'admin']);
-Route::get('/adminOrders', function () {
-    return view('admin/adminOrders');
-})->middleware(['auth', 'admin']);
-
+Route::get('/adminOrders', [OrderController::class, 'index'])->middleware(['auth', 'admin'])->name('adminOrders');
 // Neskor pridat:
 // Route::get('/adminUsers/{id}/edit', [PouzivatelController::class, 'edit']);
 // Route::post('/adminUsers/{id}/update', [PouzivatelController::class, 'update']);

@@ -39,7 +39,7 @@
                 <tbody>
                     @forelse($categories as $category)
                         <tr>
-                            <td>{{ $category->id }}</td>
+                            <td>#{{ $category->id }}</td>
                             <td>{{ $category->meno }}</td>
                             <td>{{ $category->products_count ?? 0 }}</td>
                             <td class="d-flex justify-content-center">

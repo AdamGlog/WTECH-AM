@@ -44,7 +44,7 @@
                     @forelse($products as $product)
                     <tr>
                         <td><img src="{{ asset('resources/' . $product->obrazok . '.webp') }}" class="order-img"></td>
-                        <td>{{ $product->id }}</td>
+                        <td>#{{ $product->id }}</td>
                         <td>{{ $product->meno }}</td>
                         <td>{{ $product->category->meno ?? 'Bez kategórie' }}</td>
                         <td>{{ number_format($product->cena, 2, ',', ' ') }}€</td>

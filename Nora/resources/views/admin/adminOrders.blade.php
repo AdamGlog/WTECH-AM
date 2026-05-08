@@ -43,18 +43,37 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse($orders as $order)
                     <tr>
-                        <td>619574558</td>
-                        <td>Jožko Mrkvička</td>
-                        <td>6.3.2026</td>
-                        <td>259,99€</td>
-                        <td>pripravuje sa</td>
-                        <td>Kuriér</td>
-                        <td>Kartou</td>
-                        <td>
-                            <img src="../resources/CapPOF.jpg" class="order-img">
-                            <img src="../resources/CapPOF.jpg" class="order-img">
+                        <td>#{{ $order->id }}</td>
+                        <td>{{ $order->user->nickname ?? 'Neznámy' }}</td>
+                        <td>{{ $order->datum_objednania?->format('d.m.Y') }}</td>
+                        <td>{{ number_format($order->celkova_cena, 2) }} €</td>
+                        <td>{{ $order->stav->value }}
                         </td>
+                        <td>{{ ucfirst($order->typ_dorucenia->value) }}</td>
+                        <td>{{ ucfirst($order->typ_platby->value) }}</td>
+                        <!--produkty s obrazkami-->
+                            <td>
+                                @foreach($order->items as $item)
+                                <div class="produkt-riadok">
+                                    @if($item->product)
+                                        <img src="{{ asset('resources/' . $item->product->obrazok . '.webp') }}" class="produkt-img ">
+                                        <div>
+                                            {{ $item->product->meno }}<br>
+                                            {{ $item->pocet }} ks
+                                        </div>
+                                    @else
+                                        <span>Chýba produkt (ID: {{ $item->product_id }})</span>
+                                    @endif
+                                </div>
+                            @endforeach
+                            @if($order->items->count() > 4)
+                                <div class = "viac-admin-produktov-v-orders">
+                                    + {{ $order->items->count() - 4 }} ďalšie
+                                </div>
+                            @endif
+                            </td>
                         <td class="d-flex justify-content-center">
                             <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-order">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
@@ -64,26 +83,11 @@
                             </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>619574557</td>
-                        <td>Mária Nováková</td>
-                        <td>7.9.2025</td>
-                        <td>959,99€</td>
-                        <td>vybavená</td>
-                        <td>Osobný odber</td>
-                        <td>Dobierka</td>
-                        <td>
-                            <img src="../resources/CapPOF.jpg" class="order-img">
-                        </td>
-                        <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-order">
-                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
-                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-order">
-                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
-                        </td>
-                    </tr>
+                    @empty
+                        <tr>
+                            <td colspan="9" class="text-center py-4">Žiadne objednávky nenájdené.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

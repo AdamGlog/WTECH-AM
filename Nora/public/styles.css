@@ -515,3 +515,22 @@
 .centering {
     padding-left: 2.5%;
 }
+
+.produkt-riadok {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 5px;
+}
+
+.produkt-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.viac-admin-produktov-v-orders {
+    margin-left: 60px; 
+    color: gray;
+}
