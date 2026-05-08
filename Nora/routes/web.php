@@ -46,8 +46,7 @@ Route::get('/profileOrders', [AuthController::class, 'showOrders'])->middleware(
 Route::get('/profileFavourites', function () {
     return view('profile/profileFavourites');
 })->middleware('auth');
-Route::get('/profileData', function () {
-    return view('profile/profileData')})->middleware('auth');
+Route::get('/profileData', [AuthController::class, 'showProfileData'])->middleware('auth');
 Route::post('/profileData', [AuthController::class, 'updateDetails'])->middleware('auth');
 Route::get('/profilePrivacy', [AuthController::class, 'showProfilePrivateData'])->middleware('auth');
 Route::post('/profilePrivacy', [AuthController::class, 'updatePassword'])->middleware('auth');

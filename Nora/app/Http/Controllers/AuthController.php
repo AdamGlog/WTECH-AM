@@ -130,6 +130,6 @@ class AuthController extends Controller
     {
     //nacitame si mesto aby sme mali pristup k jeho psc
         $user = Auth::user()->load('mesto'); 
-       return view('profileData', compact('user'));
+       return view('profile/profileData', compact('user'));
    }
 }
