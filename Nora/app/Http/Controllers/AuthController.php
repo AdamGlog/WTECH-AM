@@ -28,34 +28,8 @@ class AuthController extends Controller
         ])->onlyInput('nickname');
     }
 
-//     public function login(Request $request)
-// {
-//     $credentials = $request->validate([
-//         'nickname' => ['required', 'string'],
-//         'heslo'    => ['required', 'string'],
-//     ]);
-
-//     $user = User::where('nickname', $credentials['nickname'])->first();
-
-//     dd([
-//         'nickname_zadany'     => $credentials['nickname'],
-//         'user_najdeny'        => $user !== null,
-//         'typ_clena'           => $user?->typ_clena,
-//         'heslo_v_db'          => $user?->heslo,
-//         'zadane_heslo'        => $credentials['heslo'],
-//         'attempt_vysledok'    => Auth::attempt([
-//             'nickname' => $credentials['nickname'], 
-//             'password' => $credentials['heslo']
-//         ])
-//     ]);
-// }
-
     public function profile()
     {
-        if (!Auth::check()) {
-            return redirect('/');
-        }
-
         $user = Auth::user();
         return view('profile/profileOverview', ['user' => $user]);
     }

@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreUser;
+use App\Services\UserService;
 
 class PouzivatelController extends Controller
 {
@@ -49,6 +51,14 @@ class PouzivatelController extends Controller
         Auth::login($user);   // automaticky prihlási po registrácii
 
         return redirect('/profileOverview');
+    }
+
+    public function store(StoreUser $request, UserService $userService)
+    {
+        // Validované dáta dostaneš cez $request->validated()
+        $userService->createUser($request->validated());
+
+        return back()->with('success', 'Užívateľ bol úspešne pridaný cez Service');
     }
 
     // Update daneho usera, najprv najde, potom zmeni

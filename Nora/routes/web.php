@@ -41,19 +41,18 @@ Route::get('/cartCompleted', function () {
 
 
 // Profile
-Route::get('/profileOverview', [AuthController::class, 'profile']);
+Route::get('/profileOverview', [AuthController::class, 'profile'])->middleware('auth');
 Route::get('/profileOrders', [AuthController::class, 'showOrders'])->middleware('auth');
 Route::get('/profileFavourites', function () {
     return view('profile/profileFavourites');
-});
+})->middleware('auth');
 Route::get('/profileData', function () {
     return view('profile/profileData');
-});
-Route::get('/profilePrivacy', function () {
-    return view('profile/profilePrivacy');
-});
+})->middleware('auth');
 Route::post('/profilePrivacy', [AuthController::class, 'updatePassword'])->middleware('auth');
-Route::post('/profilePrivacy/newsletter', [AuthController::class, 'updateNewsletterSession']);
+Route::post('/profilePrivacy/newsletter', [AuthController::class, 'updateNewsletterSession'])->middleware('auth');
+
+
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/registration', [PouzivatelController::class, 'register']);
@@ -61,6 +60,7 @@ Route::post('/registration', [PouzivatelController::class, 'create']);
 
 // Admin
 Route::get('/adminUsers', [PouzivatelController::class, 'listUsers'])->middleware(['auth', 'admin']);
+Route::post('/adminUsers', [PouzivatelController::class, 'store'])->middleware(['auth', 'admin']);
 Route::get('/adminDashboard', function () {
     return view('admin/adminDashboard');
 })->middleware(['auth', 'admin']);
