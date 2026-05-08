@@ -83,4 +83,34 @@ class AuthController extends Controller
 
         return view('profile/profileOrders', compact('orders'));
     }
+
+    public function updatePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'old_password' => 'required',
+            'password' => 'required|string|min:8|max:30|confirmed',
+        ], [
+            'password.confirmed' => 'Nové heslá sa nezhodujú.',
+            'password.min' => 'Nové heslo musí mať aspoň 8 znakov.',
+        ]);
+
+        if (!Hash::check($request->old_password, $user->heslo)) {
+            return back()->withErrors(['old_password' => 'Pôvodné heslo nie je správne.']);
+        }
+
+        $user->heslo = Hash::make($request->password);
+        $user->save();
+
+        return back()->with('success', 'Heslo bolo úspešne aktualizované.');
+    }
+
+    //ulozenie zakliknutia radiobuttona pre newsletter len pre session
+    public function updateNewsletterSession(Request $request)
+    {
+        $status = $request->has('newsletter');
+        session(['newsletter_active' => $status]);
+        return back();
+    }
 }

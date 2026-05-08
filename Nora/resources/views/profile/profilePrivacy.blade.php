@@ -22,44 +22,59 @@
         <h3 class="heading pt-2 ps-2 ms-1 main-headings">Údaje profilu</h3>
         <div class="pt-3">
         
-            <div class="row">
-                <div class="col-12 col-sm-6">
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
-                            <label class="form-check-label smaller-text" for="firstCheckbox">Odoberanie noviniek newsletteru na email</label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-12 col-sm-6 mt-2">
-                    <button class="btn btn-secondary smaller-text">Aplikovať</button>
-                </div>
-                
+            <form action="/profilePrivacy/newsletter" method="POST">
+            @csrf
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" name="newsletter" value="" id="newsletterCheckbox" {{ session('newsletter_active') ? 'checked' : '' }}>
+                                <label class="form-check-label smaller-text" for="newsletterCheckbox">Odoberanie noviniek newsletteru na email</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 mt-2">
+                        <button type="submit" class="btn btn-secondary smaller-text">Aplikovať</button>
+                    </div>
+                </form>
+
             </div>
         </div>
 
-        <div class="pt-5">
-            <h3 class="heading pt-2 ps-0 main-headings">Zmena Hesla</h3>
-            <label for="inputPassword5" class="form-label smaller-text">Zadaj staré heslo    </label>
-            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-            <div id="passwordHelpBlock" class="form-text smallest-text">
-                Tvoje heslo musí byť dlhé v rozmedzí 8 až 30 znakov dlhé, musí obsahovať písmená a čísla a nesmie obsahovať medzery, špeciálne znaky alebo emoji.
+        <form method="POST" action="/profilePrivacy">
+        @csrf
+            <div class="pt-5">
+                <h3 class="heading pt-2 ps-0 main-headings">Zmena Hesla</h3>
+                @if (session('success'))
+                    <div class="alert alert-success py-1 smallest-text">{{ session('success') }}</div>
+                @endif
+                <label for="old_password" class="form-label smaller-text">Zadaj staré heslo    </label>
+                <input type="password" name="old_password" id="old_password" class="form-control @error('old_password') is-invalid @enderror">
+                @error('old_password')
+                    <div class="text-danger smallest-text">{{ $message }}</div>
+                @enderror
+                <div id="passwordHelpBlock" class="form-text smallest-text">
+                    Tvoje heslo musí byť dlhé v rozmedzí 8 až 30 znakov dlhé, musí obsahovať písmená a čísla a nesmie obsahovať medzery, špeciálne znaky alebo emoji.
+                </div>
+                <label for="password" class="form-label smaller-text">Zadaj nové heslo</label>
+                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror">
+                <div id="passwordHelpBlock" class="form-text smallest-text">
+                    Tvoje heslo musí byť dlhé v rozmedzí 8 až 30 znakov dlhé, musí obsahovať písmená a čísla a nesmie obsahovať medzery, špeciálne znaky alebo emoji.
+                </div>
+                <label for="password_confirmation" class="form-label smaller-text">Znovu zadaj nové heslo</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+                <div id="passwordHelpBlock" class="form-text smallest-text">
+                    Tvoje heslo musí byť dlhé v rozmedzí 8 až 30 znakov dlhé, musí obsahovať písmená a čísla a nesmie obsahovať medzery, špeciálne znaky alebo emoji.
+                </div>  
+                @error('password')
+                    <div class="text-danger smallest-text mt-2">{{ $message }}</div>
+                @enderror
+                <!-- Pokračovať -->
+                <div class="d-flex justify-content-center mt-4">
+                    <button type="submit" class="btn btn-secondary smaller-text">Potvrdiť</button>
+                </div>
             </div>
-            <label for="inputPassword5" class="form-label smaller-text">Zadaj nové heslo</label>
-            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-            <div id="passwordHelpBlock" class="form-text smallest-text">
-                Tvoje heslo musí byť dlhé v rozmedzí 8 až 30 znakov dlhé, musí obsahovať písmená a čísla a nesmie obsahovať medzery, špeciálne znaky alebo emoji.
-            </div>
-            <label for="inputPassword5" class="form-label smaller-text">Znovu zadaj nové heslo</label>
-            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-            <div id="passwordHelpBlock" class="form-text smallest-text">
-                Tvoje heslo musí byť dlhé v rozmedzí 8 až 30 znakov dlhé, musí obsahovať písmená a čísla a nesmie obsahovať medzery, špeciálne znaky alebo emoji.
-            </div>  
-            <!-- Pokračovať -->
-            <div class="d-flex justify-content-center mt-4">
-                <button class="btn btn-secondary smaller-text">Potvrdiť</button>
-            </div>
-        </div>
+        </form>
     </div>
     
     <!-- Paticka -->

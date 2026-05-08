@@ -52,6 +52,8 @@ Route::get('/profileData', function () {
 Route::get('/profilePrivacy', function () {
     return view('profile/profilePrivacy');
 });
+Route::post('/profilePrivacy', [AuthController::class, 'updatePassword'])->middleware('auth');
+Route::post('/profilePrivacy/newsletter', [AuthController::class, 'updateNewsletterSession']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/registration', [PouzivatelController::class, 'register']);
