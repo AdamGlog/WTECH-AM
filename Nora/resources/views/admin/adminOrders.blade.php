@@ -58,7 +58,7 @@
                                 @foreach($order->items as $item)
                                 <div class="produkt-riadok">
                                     @if($item->product)
-                                        <img src="{{ asset('resources/' . $item->product->obrazok . '.webp') }}" class="produkt-img ">
+                                        <img src="{{ asset('storage/' . $item->product->obrazok) }}" class="produkt-img ">
                                         <div>
                                             {{ $item->product->meno }}<br>
                                             {{ $item->pocet }} ks

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PouzivatelController;
 use App\Http\Controllers\AuthController;
@@ -62,17 +63,25 @@ Route::get('/registration', [PouzivatelController::class, 'register']);
 Route::post('/registration', [PouzivatelController::class, 'create']);
 
 // Admin
-Route::get('/adminUsers', [PouzivatelController::class, 'listUsers'])->middleware(['auth', 'admin']);
-Route::post('/adminUsers', [PouzivatelController::class, 'store'])->middleware(['auth', 'admin']);
+
+
 Route::get('/adminDashboard', function () {
     return view('admin/adminDashboard');
 })->middleware(['auth', 'admin']);
 Route::get('/adminCategories', [AdminCategoryController::class, 'index'])->middleware(['auth', 'admin'])->name('adminCategories');
-Route::get('/adminProducts', [AdminProductController::class, 'index'])->middleware(['auth', 'admin']);
 Route::get('/adminOrders', [OrderController::class, 'index'])->middleware(['auth', 'admin'])->name('adminOrders');
 
-Route::put('/adminUsers/{user}', [PouzivatelController::class, 'update'])->middleware(['auth', 'admin']);
-Route::delete('/adminUsers/{user}', [PouzivatelController::class, 'delete'])->middleware(['auth', 'admin']);
+// Users CRUD
+Route::get('/adminUsers', [AdminUserController::class, 'index'])->middleware(['auth', 'admin']);
+Route::post('/adminUsers', [AdminUserController::class, 'store'])->middleware(['auth', 'admin']);
+Route::put('/adminUsers/{user}', [AdminUserController::class, 'update'])->middleware(['auth', 'admin']);
+Route::delete('/adminUsers/{user}', [AdminUserController::class, 'delete'])->middleware(['auth', 'admin']);
+
+// Product CRUD
+Route::get('/adminProducts', [AdminProductController::class, 'index'])->middleware(['auth', 'admin']);
+Route::post('/adminProducts', [AdminProductController::class, 'store'])->middleware(['auth', 'admin']);
+Route::put('/adminProducts/{product}', [AdminProductController::class, 'update'])->middleware(['auth', 'admin']);
+Route::delete('/adminProducts/{product}', [AdminProductController::class, 'delete'])->middleware(['auth', 'admin']);
 
 // Footer
 Route::get('/aboutUs', function () {

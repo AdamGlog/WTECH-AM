@@ -49,7 +49,7 @@
             @if(session('cart') && count(session('cart')) > 0)
                 @foreach(session('cart') as $id => $item)
                     <div class="d-flex align-items-center border rounded bg-white p-2 mb-2 flex-wrap kosik-item" data-id="{{ $id }}">
-                        <img src="{{ asset('resources/' . ($item['image'] ?? '') . '.webp') }}" height="50" class="me-3" alt="{{ $item['meno'] }}">
+                        <img src="{{ asset("storage/{$item['image']}") }}" height="50" class="me-3" alt="{{ $item['meno'] }}">
                         <span class="me-2 kosik-item-name highlight">{{ $item['meno'] }}</span>
                         <div class="kosik-item-controls ms-auto d-flex align-items-center gap-2">
                             <span>Počet ks.</span>

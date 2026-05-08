@@ -27,6 +27,27 @@
                 <button type="button" class="btn btn-success create-button" data-bs-toggle="modal" data-bs-target="#add-new-product">Vytvoriť nový produkt</button>
             </div>
         </div>
+        @if(session('success'))
+            <div class="alert alert-success shadow-sm mb-0">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger shadow-sm mb-0">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger shadow-sm mb-0">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="table-responsive">
             <table class="table table-bordered text-center align-middle smallest-text">
                 <thead class="table-info">
@@ -35,6 +56,7 @@
                         <th>ID produktu</th>
                         <th>Názov</th>
                         <th>Kategória</th>
+                        <th>Typ</th>
                         <th>Cena</th>
                         <th>Skladom</th>
                         <th>Funkcie</th>
@@ -42,18 +64,20 @@
                 </thead>
                 <tbody>
                     @forelse($products as $product)
+                    <!-- {{ var_dump($product) }} -->
                     <tr>
-                        <td><img src="{{ asset('resources/' . $product->obrazok . '.webp') }}" class="order-img"></td>
+                        <td><img src="{{ asset('storage/' . $product->obrazok) }}" class="order-img"></td>
                         <td>#{{ $product->id }}</td>
                         <td>{{ $product->meno }}</td>
                         <td>{{ $product->category->meno ?? 'Bez kategórie' }}</td>
+                        <td>{{ $product->typ }}</td>
                         <td>{{ number_format($product->cena, 2, ',', ' ') }}€</td>
                         <td>{{ $product->pocet_na_sklade }}</td>
                         <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product">
+                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product-{{ $product->id }}">
                                 <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
                             </button>
-                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product">
+                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product-{{ $product->id }}">
                                 <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
                             </button>
                         </td>
@@ -71,158 +95,196 @@
     </div>
 
     <!-- Modálne okno - Vytvorenie nového produktu -->
-    <div class="modal fade" id="add-new-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="add-new-product" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Vytvorenie nového produktu</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Názov produktu -->
-                <div class="mb-3">
-                    <label for="productName" class="form-label">Názov produktu</label>
-                    <input type="text" class="form-control" id="productName">
-                </div>
-                <!-- Kategória -->
-                <div class="mb-3">
-                    <label for="productCategory" class="form-label">Kategória</label>
-                    <select class="form-select" id="productCategory">
-                    <option selected>Vyber kategóriu</option>
-                    <option value="1">Hry</option>
-                    <option value="2">Konzoly</option>
-                    <option value="3">Merch</option>
-                    <option value="4">Figúrky</option>
-                    </select>
-                </div>
-                <!-- Popis produktu -->
-                <div class="mb-3">
-                    <label for="productDescription" class="form-label">Popis produktu</label>
-                    <textarea class="form-control" id="productDescription" rows="6"></textarea>
-                </div>
-                <!-- Doplnkové info -->
-                <div class="mb-3">
-                    <label for="productDescription" class="form-label">Doplnkové info produktu</label>
-                    <textarea class="form-control" id="productDescription" rows="6"></textarea>
-                </div>
-                <!-- Cena -->
-                <div class="mb-3">
-                    <label for="productPrice" class="form-label">Cena</label>
-                    <input type="text" class="form-control" id="productPrice">
-                    <div class="form-text">Zadaj cenu vo formáte 0.00</div>
-                </div>
-                <!-- Množstvo -->
-                <div class="mb-3">
-                    <label for="productQuantity" class="form-label">Množstvo</label>
-                    <input type="number" class="form-control" id="productQuantity" min="0" step="1">
-                </div>
-                <!-- Pridanie Fotky produktu -->
-                <div class="mb-3">
-                    <label for="formFile" class="form-label smaller-text">Vložiť fotky produktu</label>
-                    <input class="form-control smaller-text" type="file" id="formFile" multiple>
-                    <div class="form-text">Môžeš nahrať viac obrázkov naraz.</div>
-                </div>
-            </div>
-            <div class="modal-footer d-flex flex-column align-items-center">
-                <button type="button" class="btn btn-primary">Vytvoriť produkt</button>
-            </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modálne okno - Editovanie produktu -->
-    <div class="modal fade" id="edit-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+            <form action="/adminProducts" method="POST" enctype="multipart/form-data" class="modal-content">
+                @csrf
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Editovanie produktu</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5">Vytvorenie nového produktu</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body text-start">
                     <!-- Názov produktu -->
                     <div class="mb-3">
-                        <label for="productName" class="form-label">Názov produktu</label>
-                        <input type="text" class="form-control" id="productName" placeholder="Existujúci názov produktu tu">
+                        <label class="form-label">Názov produktu</label>
+                        <input type="text" name="meno" class="form-control" required>
                     </div>
-                    <!-- Kategória -->
-                    <div class="mb-3">
-                        <label for="productCategory" class="form-label">Kategória</label>
-                        <select class="form-select" id="productCategory">
-                        <option selected>Vyber kategóriu</option>
-                        <option value="1">Hry</option>
-                        <option value="2">Konzoly</option>
-                        <option value="3">Merch</option>
-                        <option value="4">Figúrky</option>
-                        </select>
+                    <div class="row">
+                        <!-- Kategória -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Kategória</label>
+                            <select class="form-select" name="kategoria_id" required>
+                                <option value="" selected disabled>Vyber kategóriu</option>
+                                <option value="1">Hry</option>
+                                <option value="2">Konzoly</option>
+                                <option value="3">Merch</option>
+                                <option value="4">Figúrky</option>
+                            </select>
+                        </div>
+                        <!-- Typ produktu -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Typ</label>
+                            <input type="text" name="typ" class="form-control" placeholder="Akčné">
+                        </div>
                     </div>
                     <!-- Popis produktu -->
                     <div class="mb-3">
-                        <label for="productDescription" class="form-label">Popis produktu</label>
-                        <textarea class="form-control" id="productDescription" rows="6" placeholder="Momentálny popis produktu"></textarea>
+                        <label class="form-label">Popis produktu</label>
+                        <textarea name="popis" class="form-control" rows="3"></textarea>
+                    </div>
+                    <!-- Info o produkte -->
+                    <div class="mb-3">
+                        <label class="form-label">Info o produkte</label>
+                        <textarea name="info" class="form-control" rows="5"></textarea>
                     </div>
                     <!-- Doplnkové info -->
                     <div class="mb-3">
-                        <label for="productDescription" class="form-label">Doplnkové info produktu</label>
-                        <textarea class="form-control" id="productDescription" rows="6" placeholder="Momentálne zadané parametre pre hru, výkonnosť konzoly alebo iné ďalšie info o produkte"></textarea>
+                        <label class="form-label">Doplnkové info</label>
+                        <textarea name="doplnkove_info" class="form-control" rows="1"></textarea>
                     </div>
-                    <!-- Cena -->
-                    <div class="mb-3">
-                        <label for="productPrice" class="form-label">Cena</label>
-                        <input type="text" class="form-control" id="productPrice" placeholder="19.99">
-                        <div class="form-text">Zadaj cenu vo formáte 0.00</div>
-                    </div>
-                    <!-- Množstvo -->
-                    <div class="mb-3">
-                        <label for="productQuantity" class="form-label">Množstvo</label>
-                        <input type="number" class="form-control" id="productQuantity" placeholder="Momentálne množstvo tu" min="0" step="1">
-                    </div>
-                    <!-- Pridanie Fotky produktu -->
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label smaller-text">Pridať fotky produktu</label>
-                        <input class="form-control smaller-text" type="file" id="formFile" multiple>
-                        <div class="form-text">Môžeš nahrať viac obrázkov naraz.</div>
-                    </div>
-                    <!-- Existujúce Fotky Produktu -->
-                    <div class="mb-3">
-                        <label class="form-label">Existujúce fotky</label>
-                        <div class="d-flex flex-wrap gap-2">
-                            <div class="position-relative">
-                                <img src="../resources/TheWichter.jpg" class="img-thumbnail" style="width:100px; height:100px;">
-                                <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Odstrániť"></button>
-                            </div>
-                            <div class="position-relative">
-                                <img src="../resources/TheWichter2.png" class="img-thumbnail" style="width:100px; height:100px;">
-                                <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Odstrániť"></button>
-                            </div>
+                    <div class="row">
+                        <!-- Cena -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Cena (€)</label>
+                            <input type="number" step="0.01" name="cena" class="form-control" required>
+                        </div>
+                        <!-- Množstvo -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Množstvo na sklade</label>
+                            <input type="number" name="pocet_na_sklade" class="form-control" value="0">
                         </div>
                     </div>
-                    <div class="modal-footer d-flex flex-column align-items-center">
-                        <button type="button" class="btn btn-primary">Uložiť editovaný produkt</button>
+                    <!-- Pridanie obrazkov pre produkt -->
+                    <div class="mb-3">
+                        <label class="form-label">Nahrať obrázky</label>
+                        <input class="form-control" type="file" name="obrazky[]" multiple>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modálne okno - Vymazanie produktu -->
-    <div class="modal fade" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Potvrdenie vymazania produktu</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Ste si istý, že chcete vymazať tento produkt?</p>
-                </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
-                    <button type="button" class="btn btn-danger">Áno, natrvalo vymazať</button>
+                    <button type="submit" class="btn btn-primary w-100">Vytvoriť produkt</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
+    <!-- Modalne okno pre edit produktu -->
+    @foreach($products as $product)
+        <div class="modal fade" id="edit-product-{{ $product->id }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <form action="/adminProducts/{{ $product->id }}" method="POST" enctype="multipart/form-data" class="modal-content">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Editácia produktu: {{ $product->meno }}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body text-start">
+                        <div class="mb-3">
+                            <label class="form-label">Názov produktu</label>
+                            <input type="text" name="meno" class="form-control" value="{{ $product->meno }}" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Kategória</label>
+                                <select class="form-select" name="kategoria_id" required>
+                                    <option value="1" {{ $product->kategoria_id == 1 ? 'selected' : '' }}>Hry</option>
+                                    <option value="2" {{ $product->kategoria_id == 2 ? 'selected' : '' }}>Konzoly</option>
+                                    <option value="3" {{ $product->kategoria_id == 3 ? 'selected' : '' }}>Merch</option>
+                                    <option value="4" {{ $product->kategoria_id == 4 ? 'selected' : '' }}>Figúrky</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Typ</label>
+                                <input type="text" name="typ" class="form-control" value="{{ $product->typ }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Popis produktu</label>
+                            <textarea name="popis" class="form-control" rows="3">{{ $product->popis }}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Info o produkte</label>
+                            <textarea name="info" class="form-control" rows="5">{{ $product->info }}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Doplnkové info</label>
+                            <textarea name="doplnkove_info" class="form-control" rows="1">{{ $product->doplnkove_info }}</textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Cena (€)</label>
+                                <input type="number" step="0.01" name="cena" class="form-control" value="{{ $product->cena }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Množstvo na sklade</label>
+                                <input type="number" name="pocet_na_sklade" class="form-control" value="{{ $product->pocet_na_sklade }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label d-block">Aktuálna galéria (označte pre vymazanie)</label>
+                            <div class="d-flex flex-wrap gap-2 p-2 border rounded bg-light">
+                                @forelse($product->obrazky as $img)
+                                    <div class="position-relative">
+                                        <img src="{{ asset($img->cesta) }}" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;">
+                                        
+                                        <div class="position-absolute bottom-0 end-0 bg-white border rounded-circle p-1" style="line-height: 0;">
+                                            <input type="checkbox" name="odstranit_obrazky[]" value="{{ $img->id }}" class="form-check-input m-0" title="Odstrániť obrázok">
+                                        </div>
+
+                                        @if($img->hlavny)
+                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style="font-size: 0.6rem;">
+                                                Main
+                                            </span>
+                                        @endif
+                                    </div>
+                                @empty
+                                    <span class="text-muted small">Tento produkt nemá žiadne obrázky v galérii.</span>
+                                @endforelse
+                            </div>
+                            <div class="form-text text-danger">Obrázky označené checkboxom budú po uložení odstránené.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Pridať ďalšie obrázky</label>
+                            <input class="form-control" type="file" name="obrazky[]" multiple>
+                            <div class="form-text">Nové obrázky sa pridajú k existujúcej galérii.</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary w-100">Uložiť zmeny</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Modalne okno pre delete produktu -->
+        <div class="modal fade" id="delete-product-{{ $product->id }}" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <form action="/adminProducts/{{ $product->id }}" method="POST" class="modal-content">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Zmazať produkt?</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        Naozaj chcete natrvalo zmazať <strong>{{ $product->meno }}</strong>?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
+                        <button type="submit" class="btn btn-danger">Áno, vymazať</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endforeach
     <!-- Paticka -->
     <x-paticka/>
 

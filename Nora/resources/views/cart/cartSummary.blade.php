@@ -61,7 +61,7 @@
                 @if(session('cart') && count(session('cart')) > 0)
                     @foreach(session('cart') as $id => $item)
                         <div class="d-flex align-items-center mb-3">
-                            <img src="{{ asset('resources/' . ($item['image'] ?? '') . '.webp') }}" alt="{{ $item['meno'] }}" height="50" class="me-3">
+                            <img src="{{ asset("storage/{$item['image']}") }}" alt="{{ $item['meno'] }}" height="50" class="me-3">
                             <span class="flex-grow-1">{{ $item['meno'] }}</span>
                             <span>Počet ks.:</span>
                             <input type="text" class="ms-2 form-control qty-input" value="{{ $item['pocet'] }}" style="width: 50px; text-align: center;" readonly>

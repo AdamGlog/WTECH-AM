@@ -11,7 +11,7 @@
     </head>
     <body class="body-bg">
     <!--Top bar Stranky-->
-    <x-profile-topbar/>
+    <x-topbar/>
     
     <!--Menu Profilu-->
     <x-menu-profilu/>
@@ -20,7 +20,7 @@
         <h2 class="heading p-3 ms-1 main-headings">Profil Hráča: {{ $user->nickname }}</h2>
         <div class="row align-items-center">
             <div class="col-3">
-                <img src="../resources/AccountImage.svg" class="w-100">
+                <img src="{{ asset("resources/AccountImage.svg")}}" class="w-100">
             </div>
             <div class="col-9 fs-4">
                 <p class="smaller-text">

@@ -11,7 +11,7 @@
     </head>
     <body class="body-bg">
     <!--Top bar Stranky-->
-    <x-profile-topbar/>
+    <x-topbar/>
     
     <!--Menu Profilu-->
     <x-menu-profilu/>

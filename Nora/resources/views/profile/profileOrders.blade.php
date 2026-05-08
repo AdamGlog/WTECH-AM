@@ -11,7 +11,7 @@
     </head>
     <body class="body-bg">
     <!--Top bar Stranky-->
-    <x-profile-topbar/>
+    <x-topbar/>
     
     <!--Menu Profilu-->
     <x-menu-profilu/>
@@ -48,7 +48,7 @@
                         <td class="text-end">
                             @foreach($order->items as $item)
                                 @if($item->product)
-                                    <img src="{{ asset('resources/' . $item->product->obrazok . '.webp') }}" 
+                                    <img src="{{ asset('storage/' . $item->product->obrazok) }}" 
                                         class="order-img" 
                                         title="{{ $item->product->nazov }}"
                                         alt="{{ $item->product->nazov }}">

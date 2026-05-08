@@ -28,7 +28,7 @@ class UpdateUser extends FormRequest
             'priezvisko' => 'required|string|max:20',
             'nickname' => 'required|string|max:30',
             'email' => ['required', 'email', 'max:30', Rule::unique('pouzivatelia', 'email')->ignore($this->route('user'))],
-            'heslo' => 'required|string|min:8',
+            'heslo' => 'nullable|string|min:8',
             'telefonne_cislo' => 'nullable|string|max:20',
 
             'ulica' => 'nullable|string|max:20',

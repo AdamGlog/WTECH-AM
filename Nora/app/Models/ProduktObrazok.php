@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class ProduktObrazok extends Model
 {
     protected $table = 'produkt_obrazky';
+
+    protected $fillable = [
+        'produkt_id', 
+        'cesta', 
+        'hlavny'
+    ];
 }

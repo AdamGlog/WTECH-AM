@@ -46,7 +46,7 @@
                                     <div class="d-inline-block text-center mx-2 lower-gap">
                                         <a href="/product/{{ $produkt->id }}">
                                             <button type="button" class="btn our-main-buttons">
-                                                <img src="{{ asset('resources/' . $produkt->obrazok . '.webp') }}" alt="{{ $produkt->meno }}" class="carousel-images">
+                                                <img src="{{ asset('storage/' . $produkt->obrazok) }}" alt="{{ $produkt->meno }}" class="carousel-images">
                                             </button>
                                         </a>
                                         <p class="carousel-text">{{ $produkt->meno }}</p>
@@ -62,7 +62,7 @@
                                     <div class="d-inline-block text-center mx-2 lower-gap">
                                         <a href="/product/{{ $produkt->id }}">
                                             <button type="button" class="btn our-main-buttons">
-                                                <img src="{{ asset('resources/' . $produkt->obrazok . '.webp') }}" alt="{{ $produkt->meno }}" class="carousel-images">
+                                                <img src="{{ asset('storage/' . $produkt->obrazok) }}" alt="{{ $produkt->meno }}" class="carousel-images">
                                             </button>
                                         </a>
                                         <p class="carousel-text">{{ $produkt->meno }}</p>
@@ -78,7 +78,7 @@
                                     <div class="d-inline-block text-center mx-2 lower-gap">
                                         <a href="/product/{{ $produkt->id }}">
                                             <button type="button" class="btn our-main-buttons">
-                                                <img src="{{ asset('resources/' . $produkt->obrazok . '.webp') }}" alt="{{ $produkt->meno }}" class="carousel-images">
+                                                <img src="{{ asset('storage/' . $produkt->obrazok) }}" alt="{{ $produkt->meno }}" class="carousel-images">
                                             </button>
                                         </a>
                                         <p class="carousel-text">{{ $produkt->meno }}</p>
@@ -117,7 +117,7 @@
                                     <div class="d-inline-block text-center mx-2 lower-gap">
                                         <a href="/product/{{ $produkt->id }}">
                                             <button type="button" class="btn our-main-buttons">
-                                                <img src="{{ asset('resources/' . $produkt->obrazok . '.webp') }}" alt="{{ $produkt->meno }}" class="carousel-images">
+                                                <img src="{{ asset('storage/' . $produkt->obrazok) }}" alt="{{ $produkt->meno }}" class="carousel-images">
                                             </button>
                                         </a>
                                         <p class="carousel-text">{{ $produkt->meno }}</p>
@@ -133,7 +133,7 @@
                                     <div class="d-inline-block text-center mx-2 lower-gap">
                                         <a href="/product/{{ $produkt->id }}">
                                             <button type="button" class="btn our-main-buttons">
-                                                <img src="{{ asset('resources/' . $produkt->obrazok . '.webp') }}" alt="{{ $produkt->meno }}" class="carousel-images">
+                                                <img src="{{ asset('storage/' . $produkt->obrazok) }}" alt="{{ $produkt->meno }}" class="carousel-images">
                                             </button>
                                         </a>
                                         <p class="carousel-text">{{ $produkt->meno }}</p>
@@ -149,7 +149,7 @@
                                     <div class="d-inline-block text-center mx-2 lower-gap">
                                         <a href="/product/{{ $produkt->id }}">
                                             <button type="button" class="btn our-main-buttons">
-                                                <img src="{{ asset('resources/' . $produkt->obrazok . '.webp') }}" alt="{{ $produkt->meno }}" class="carousel-images">
+                                                <img src="{{ asset('storage/' . $produkt->obrazok) }}" alt="{{ $produkt->meno }}" class="carousel-images">
                                             </button>
                                         </a>
                                         <p class="carousel-text">{{ $produkt->meno }}</p>
