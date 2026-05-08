@@ -21,4 +21,30 @@ class UserService
 
         return User::create($data);
     }
+
+    public function updateUser(User $user, array $data): bool
+    {
+        // Spracovanie hesla - len ak bolo zadané
+        if (empty($data['heslo'])) {
+            unset($data['heslo']);
+        }
+
+        // Spracovanie obrázka
+        // if (isset($data['profilovka_url'])) {
+        //     if ($user->profilovka_url) {
+        //         Storage::disk('public')->delete($user->profilovka_url);
+        //     }
+        //     $data['profilovka_url'] = $data['profilovka_url']->store('profiles', 'public');
+        // }
+
+        return $user->update($data);
+    }
+
+    public function deleteUser(User $user): bool
+    {
+        // if ($user->profilovka_url) {
+        //     Storage::disk('public')->delete($user->profilovka_url);
+        // }
+        return $user->delete();
+    }
 }

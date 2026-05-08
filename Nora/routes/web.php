@@ -49,6 +49,9 @@ Route::get('/profileFavourites', function () {
 Route::get('/profileData', function () {
     return view('profile/profileData');
 })->middleware('auth');
+Route::get('/profilePrivacy', function () {
+    return view('profile/profilePrivacy');
+});
 Route::post('/profilePrivacy', [AuthController::class, 'updatePassword'])->middleware('auth');
 Route::post('/profilePrivacy/newsletter', [AuthController::class, 'updateNewsletterSession'])->middleware('auth');
 
@@ -67,10 +70,9 @@ Route::get('/adminDashboard', function () {
 Route::get('/adminCategories', [AdminCategoryController::class, 'index'])->middleware(['auth', 'admin'])->name('adminCategories');
 Route::get('/adminProducts', [AdminProductController::class, 'index'])->middleware(['auth', 'admin']);
 Route::get('/adminOrders', [OrderController::class, 'index'])->middleware(['auth', 'admin'])->name('adminOrders');
-// Neskor pridat:
-// Route::get('/adminUsers/{id}/edit', [PouzivatelController::class, 'edit']);
-// Route::post('/adminUsers/{id}/update', [PouzivatelController::class, 'update']);
-// Route::post('/adminUsers/{id}/delete', [PouzivatelController::class, 'delete']);
+
+Route::put('/adminUsers/{user}', [PouzivatelController::class, 'update'])->middleware(['auth', 'admin']);
+Route::delete('/adminUsers/{user}', [PouzivatelController::class, 'delete'])->middleware(['auth', 'admin']);
 
 // Footer
 Route::get('/aboutUs', function () {
