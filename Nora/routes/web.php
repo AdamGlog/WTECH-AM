@@ -41,18 +41,19 @@ Route::get('/cartCompleted', function () {
 
 
 // Profile
-Route::get('/profileOverview', [AuthController::class, 'profile']);
+Route::get('/profileOverview', [AuthController::class, 'profile'])->middleware('auth');
 Route::get('/profileOrders', [AuthController::class, 'showOrders'])->middleware('auth');
 Route::get('/profileFavourites', function () {
     return view('profile/profileFavourites');
-});
+})->middleware('auth');
 Route::get('/profileData', function () {
-    return view('profile/profileData');
-});
+    return view('profile/profileData')})->middleware('auth');
 Route::post('/profileData', [AuthController::class, 'updateDetails'])->middleware('auth');
 Route::get('/profilePrivacy', [AuthController::class, 'showProfilePrivateData'])->middleware('auth');
 Route::post('/profilePrivacy', [AuthController::class, 'updatePassword'])->middleware('auth');
-Route::post('/profilePrivacy/newsletter', [AuthController::class, 'updateNewsletterSession']);
+Route::post('/profilePrivacy/newsletter', [AuthController::class, 'updateNewsletterSession'])->middleware('auth');
+
+
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/registration', [PouzivatelController::class, 'register']);
@@ -60,16 +61,16 @@ Route::post('/registration', [PouzivatelController::class, 'create']);
 
 // Admin
 Route::get('/adminUsers', [PouzivatelController::class, 'listUsers'])->middleware(['auth', 'admin']);
+Route::post('/adminUsers', [PouzivatelController::class, 'store'])->middleware(['auth', 'admin']);
 Route::get('/adminDashboard', function () {
     return view('admin/adminDashboard');
 })->middleware(['auth', 'admin']);
 Route::get('/adminCategories', [AdminCategoryController::class, 'index'])->middleware(['auth', 'admin'])->name('adminCategories');
 Route::get('/adminProducts', [AdminProductController::class, 'index'])->middleware(['auth', 'admin']);
 Route::get('/adminOrders', [OrderController::class, 'index'])->middleware(['auth', 'admin'])->name('adminOrders');
-// Neskor pridat:
-// Route::get('/adminUsers/{id}/edit', [PouzivatelController::class, 'edit']);
-// Route::post('/adminUsers/{id}/update', [PouzivatelController::class, 'update']);
-// Route::post('/adminUsers/{id}/delete', [PouzivatelController::class, 'delete']);
+
+Route::put('/adminUsers/{user}', [PouzivatelController::class, 'update'])->middleware(['auth', 'admin']);
+Route::delete('/adminUsers/{user}', [PouzivatelController::class, 'delete'])->middleware(['auth', 'admin']);
 
 // Footer
 Route::get('/aboutUs', function () {

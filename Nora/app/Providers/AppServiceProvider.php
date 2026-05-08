@@ -5,7 +5,6 @@ namespace App\Providers;
 use App\Models\User;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-use App\Enums\UserRole;
 
 class AppServiceProvider extends ServiceProvider
 {

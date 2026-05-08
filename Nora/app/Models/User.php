@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Http\Request;
 use App\Enums\UserRole;
 
 #[Fillable(['profilovka_url','meno','priezvisko','heslo','telefonne_cislo','email','datum_registracie',

@@ -3,6 +3,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreUser;
+use App\Http\Requests\UpdateUser;
+use App\Services\UserService;
 
 class PouzivatelController extends Controller
 {
@@ -51,26 +54,27 @@ class PouzivatelController extends Controller
         return redirect('/profileOverview');
     }
 
-    // Update daneho usera, najprv najde, potom zmeni
-    public function update(Request $request, $id)
+    public function store(StoreUser $request, UserService $userService)
     {
-        $user = User::find($id);
-        $user->meno = $request->meno;
-        $user->priezvisko = $request->priezvisko;
-        $user->telefonne_cislo = $request->telefonne_cislo;
-        $user->email = $request->email;
-        $user->ulica = $request->ulica;
-        $user->cislo_domu = $request->cislo_domu;
-        $user->mesto_psc = $request->mesto_psc;
-        $user->save();
-        return redirect('/adminUsers');
+        // Validované dáta dostaneš cez $request->validated()
+        $userService->createUser($request->validated());
+
+        return back()->with('success', 'Užívateľ bol úspešne pridaný cez Service');
     }
 
-    // Vymaze uzivatela podla id
-    public function delete($id)
+    public function update(UpdateUser $request, User $user, UserService $userService)
     {
-        $user = User::find($id);
-        $user->delete();
-        return redirect('/adminUsers');
+        $userService->updateUser($user, $request->validated());
+        return back()->with('success', 'Užívateľ bol upravený.');
+    }
+
+    public function delete(User $user, UserService $userService)
+    {
+        if (auth()->id() === $user->id) {
+            return back()->with('error', 'Nemôžete vymazať sami seba!');
+        }
+
+        $userService->deleteUser($user);
+        return back()->with('success', 'Užívateľ bol zmazaný.');
     }
 }
