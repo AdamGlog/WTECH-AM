@@ -71,11 +71,13 @@
             
             <!-- Tlačidlá -->
             <div class="row">
+                
                 <div class="col">
-                    <button class="btn buttonProduct2 w-100 no-wrap my-2">Sledovať cenu</button>
-                </div>
-                <div class="col">
-                    <button class="btn buttonProduct2 w-100 no-wrap my-2">Pridať do obľúbených</button>
+                    <form method="POST" action="/wishlist/add">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $produkt->id }}">
+                        <button type="submit" class="btn buttonProduct2 w-100 no-wrap my-2">Pridať do obľúbených</button>
+                    </form>    
                 </div>
                 <div class="col-auto d-flex align-items-center gap-1">
                     <button class="btn-qty btn-qty-prev" onclick="zmenPocet(-1)">

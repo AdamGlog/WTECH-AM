@@ -39,13 +39,13 @@ Route::get('/cartCompleted', function () {
     return view('cart/cartCompleted');
 });
 
+Route::post('/wishlist/add', [AuthController::class, 'addToWishlist'])->middleware('auth');
 
 // Profile
 Route::get('/profileOverview', [AuthController::class, 'profile'])->middleware('auth');
 Route::get('/profileOrders', [AuthController::class, 'showOrders'])->middleware('auth');
-Route::get('/profileFavourites', function () {
-    return view('profile/profileFavourites');
-})->middleware('auth');
+Route::get('/profileFavourites', [AuthController::class, 'showFavorites'])->middleware('auth');
+Route::post('/wishlist/remove/{id}', [AuthController::class, 'removeFromWishlist'])->middleware('auth');
 Route::get('/profileData', [AuthController::class, 'showProfileData'])->middleware('auth');
 Route::post('/profileData', [AuthController::class, 'updateDetails'])->middleware('auth');
 Route::get('/profilePrivacy', [AuthController::class, 'showProfilePrivateData'])->middleware('auth');
