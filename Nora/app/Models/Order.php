@@ -11,6 +11,11 @@ class Order extends Model
 {
     protected $table = 'objednavky';
 
+    protected $fillable = [
+        'user_id', 'typ_platby', 'stav', 'typ_dorucenia',
+        'celkova_cena', 'adresa_dorucenia', 'datum_objednania'
+    ];
+
     protected $casts = [
         'stav'              => StavObjednavky::class,
         'typ_platby'        => TypPlatby::class,

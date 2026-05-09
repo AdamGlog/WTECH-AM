@@ -6,9 +6,69 @@ use Illuminate\Http\Request;
 use App\Models\Kosik;
 use App\Models\KosikPolozka;
 use App\Models\Produkt;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+    //pomocna funkcia na kosik
+    public function vytvoritAleboGetKosik()
+    {
+        return Kosik::firstOrCreate(
+            ['pouzivatel_id' => Auth::id()],
+            ['posledny_update' => now()->toDateString()]
+        );
+    }
+
+    //pomocna funkcia na synchronizaciu session s databazou
+    public function syncSessionDoDB(int $kosikId)
+    {
+        $cart = session()->get('cart', []);
+
+        KosikPolozka::where('kosik_id', $kosikId)->delete();
+
+        foreach ($cart as $produktId => $item) {
+            KosikPolozka::create([
+                'kosik_id'   => $kosikId,
+                'produkt_id' => $produktId,
+                'pocet_ks'   => $item['pocet'],
+            ]);
+        }
+        Kosik::where('id', $kosikId)->update(['posledny_update' => now()->toDateString()]);
+    }
+
+    //nacitanie databazy po prihlaseni
+    public function nacitajDBdoSession()
+    {
+        if(!Auth::check()){
+            return;
+        }
+        $kosik = Kosik::where('pouzivatel_id', Auth::id())->first();
+        $cart  = session()->get('cart', []);
+
+        if($kosik){
+            foreach($kosik->polozky as $polozka){
+                $produkt = $polozka->produkt;
+                $id      = $polozka->produkt_id;
+
+                if(isset($cart[$id])){
+                    // Ak je v oboch, berieme vyššie množstvo
+                    $cart[$id]['pocet'] = max($cart[$id]['pocet'], $polozka->pocet_ks);
+                } 
+                else{
+                    $cart[$id] = [
+                        'meno'  => $produkt->meno,
+                        'pocet' => $polozka->pocet_ks,
+                        'cena'  => $produkt->cena,
+                        'image' => $produkt->obrazok ?? null,];
+                }
+            }
+        }
+        session()->put('cart', $cart);
+        // Sync zlúčeného košíka späť do DB
+        $kosik = $this->vytvoritAleboGetKosik();-
+        $this->syncSessionDoDB($kosik->id);
+    }
+
     // Funkcia slúži na pridanie lubovoľného počtu kusov produktov do košíka 
     public function pridat(Request $request)
     {
@@ -72,5 +132,24 @@ class CartController extends Controller
             ]);
         }
         return redirect()->back();
+    }
+
+    public function zobrazDoprava()
+    {
+        if(empty(session()->get('cart'))){
+            return redirect('/cart');
+        }
+        return view('cart/cartShipment');
+    }
+
+    public function ulozDoprava(Request $request)
+    {
+        $request->validate([
+            'typ_dorucenia' => 'required|in:kurier,posta,osobny_odber',
+            'typ_platby'    => 'required|in:karta,prevod,dobierka', ]);
+
+        session()->put('checkout.typ_dorucenia', $request->typ_dorucenia);
+        session()->put('checkout.typ_platby', $request->typ_platby);
+        return redirect('/cartData');
     }
 }

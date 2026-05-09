@@ -46,47 +46,55 @@
                     <span class="step-label">Sumár</span>
                 </div>
             </div>
-        <div class="row">
-            <div class="col">
-                <div class="row">
-                    <h4>Výber dopravy:</h4>
-                </div> 
-                <div class="btn-group-vertical w-75 p-3" role="group">
-                <input type="radio" class="btn-check" name="doprava" id="doprava1" autocomplete="off" checked>
-                <label class="btn btn-secondary smaller-text py-2" for="doprava1">Kuriér</label>
+        <form method="POST" action="/cartShipment">
+            @csrf
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <h4>Výber dopravy:</h4>
+                    </div> 
+                    <div class="btn-group-vertical w-75 p-3" role="group">
+                    <input type="radio" class="btn-check" name="typ_dorucenia" value="kurier" id="doprava1" autocomplete="off" {{ session('checkout.typ_dorucenia') == 'kurier' ? 'checked' : '' }}>
+                    <label class="btn btn-secondary smaller-text py-2" for="doprava1">Kuriér</label>
 
-                <input type="radio" class="btn-check" name="doprava" id="doprava2" autocomplete="off">
-                <label class="btn btn-secondary smaller-text py-2" for="doprava2">Pošta</label>
+                    <input type="radio" class="btn-check" name="typ_dorucenia" value="posta" id="doprava2" autocomplete="off" {{ session('checkout.typ_dorucenia') == 'posta' ? 'checked' : '' }}>
+                    <label class="btn btn-secondary smaller-text py-2" for="doprava2">Pošta</label>
 
-                <input type="radio" class="btn-check" name="doprava" id="doprava3" autocomplete="off">
-                <label class="btn btn-secondary smaller-text py-2" for="doprava3">Predajňa</label>
-            </div>
-            </div>
-            <div class="col">
-                <div class="row">
-                    <h4>Výber platby:</h4>
-                </div> 
-                <div class="btn-group-vertical w-75 p-3" role="group" aria-label="Vertical radio toggle button group">
-                <input type="radio" class="btn-check" name="platba" id="platba1" autocomplete="off" checked>
-                <label class="btn smaller-text py-2" for="platba1">Karta online</label>
-
-                <input type="radio" class="btn-check" name="platba" id="platba2" autocomplete="off">
-                <label class="btn smaller-text py-2" for="platba2">Bankový prevod</label>
-
-                <input type="radio" class="btn-check" name="platba" id="platba3" autocomplete="off">
-                <label class="btn smaller-text py-2" for="platba3">Na mieste</label>
+                    <input type="radio" class="btn-check" name="typ_dorucenia" value="osobny_odber" id="doprava3" autocomplete="off" {{ session('checkout.typ_dorucenia') == 'osobny_odber' ? 'checked' : '' }}>
+                    <label class="btn btn-secondary smaller-text py-2" for="doprava3">Osobný odber</label>
                 </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <h4>Výber platby:</h4>
+                    </div> 
+                    <div class="btn-group-vertical w-75 p-3" role="group" aria-label="Vertical radio toggle button group">
+                    <input type="radio" class="btn-check" name="typ_platby" value="karta" id="platba1" autocomplete="off" {{ session('checkout.typ_platby') == 'karta' ? 'checked' : '' }}>
+                    <label class="btn smaller-text py-2" for="platba1">Karta online</label>
 
+                    <input type="radio" class="btn-check" name="typ_platby" value="prevod" id="platba2" autocomplete="off" {{ session('checkout.typ_platby') == 'prevod' ? 'checked' : '' }}>
+                    <label class="btn smaller-text py-2" for="platba2">Bankový prevod</label>
+
+                    <input type="radio" class="btn-check" name="typ_platby" value="dobierka" id="platba3" autocomplete="off" {{ session('checkout.typ_platby') == 'dobierka' ? 'checked' : '' }}>
+                    <label class="btn smaller-text py-2" for="platba3">Osobná dobierka</label>
+                    </div>
+                </div>
+                @error('typ_dorucenia') 
+                    <div class="alert alert-danger">Vyberte spôsob dopravy.</div> 
+                @enderror
+                @error('typ_platby')    
+                    <div class="alert alert-danger">Vyberte spôsob platby.</div>    
+                @enderror
+                <div class="d-flex justify-content-between mt-2">
+                    <a href="/cart">
+                        <button type="button" class="btn cart-back">Vrátiť sa</button>
+                    </a>
+                    <a href="/cartData">
+                        <button button="submit" class="btn cart-pokracovat">Pokračovať</button>
+                    </a>
+                </div>
             </div>
-            <div class="d-flex justify-content-between mt-2">
-                <a href="/cart">
-                    <button class="btn cart-back">Vrátiť sa</button>
-                </a>
-                <a href="/cartData">
-                    <button class="btn cart-pokracovat">Pokračovať</button>
-                </a>
-            </div>
-        </div>
+        </form>
     </div>
 
     <!-- Paticka -->

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\CartController;
 
 class AuthController extends Controller
 {
@@ -20,6 +21,7 @@ class AuthController extends Controller
         // Laravel automaticky hashuje a porovnáva vďaka 'hashed' castu
         if (Auth::attempt(['nickname' => $credentials['nickname'], 'password' => $credentials['heslo']])) {
             $request->session()->regenerate();
+            app(CartController::class)->nacitajDBdoSession();
             return redirect()->intended('/profileOverview');
         }
 
@@ -36,6 +38,11 @@ class AuthController extends Controller
 
     public function logout()
     {
+        if(Auth::check()){
+            $kosik = app(CartController::class)->vytvoritAleboGetKosik();
+            app(CartController::class)->syncSessionDoDB($kosik->id);
+        }
+
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
