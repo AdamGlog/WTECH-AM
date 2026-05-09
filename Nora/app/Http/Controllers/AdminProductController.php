@@ -31,7 +31,13 @@ class AdminProductController extends Controller
 
     public function delete(Produkt $product, ProductService $productService)
     {
-        $productService->deleteProduct($product);
-        return redirect()->back()->with('success', 'Produkt bol odstránený.');
+        // Sposob ako pri delete dostat error na stranku
+        try {
+            $productService->deleteProduct($product);
+            return redirect()->back()->with('success', 'Produkt bol odstránený.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
+   
 }

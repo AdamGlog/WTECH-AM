@@ -33,8 +33,8 @@ class StoreProduct extends FormRequest
             'doplnkove_info' => 'nullable|string',
             'typ' => 'nullable|string|max:30',
             'obrazky.*' => 'image|mimes:jpg,jpeg,png,webp|max:2048', 
-            'odstranit_obrazky' => 'nullable|array', // Povolíme pole ID-čiek na zmazanie
-            'odstranit_obrazky.*' => 'exists:produkt_obrazky,id', // Každé ID musí existovať v DB
+            'odstranit_obrazky' => 'nullable|array', // Potrebne pre mazanie viacerych obrazkov naraz
+            'odstranit_obrazky.*' => 'exists:produkt_obrazky,id', // Overenie existencie mazanych obrazkov
         ];
     }
 }

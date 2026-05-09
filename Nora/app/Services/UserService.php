@@ -24,7 +24,7 @@ class UserService
 
     public function updateUser(User $user, array $data): bool
     {
-        // Spracovanie hesla - len ak bolo zadané
+        // Spracovanie hesla
         if (empty($data['heslo'])) {
             unset($data['heslo']);
         }

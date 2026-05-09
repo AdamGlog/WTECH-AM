@@ -9,36 +9,33 @@ use \Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
+// Logika vytvarania, aktualizovania a mazania obrazkov vytvorena pomocou Gemini AI: https://gemini.google.com
 class ProductService
 {
     public function createProduct(array $data)
     {
         return DB::transaction(function () use ($data) {
-            // 1. Predbežne spracujeme prvý obrázok, aby sme mali názov pre tabuľku 'produkty'
-            $mainFileName = 'default.jpg'; // Záloha, ak by niekto nenahral nič
-
+            $mainFileName = 'default.jpg';
+            // Laravel generuje nahodne nazvy, kedze ho chcem priradit aj pre produkt, musim ho najprv storenut
             if (isset($data['obrazky']) && count($data['obrazky']) > 0) {
-                // Uložíme prvý súbor hneď teraz, aby sme získali jeho náhodný názov
                 $mainFileName = $data['obrazky'][0]->store('', 'public');
             }
 
-            // 2. Pridáme názov obrázka do dát pre vytvorenie produktu
-            // Týmto vyriešime SQL error "null value in column obrazok"
-            $data['obrazok'] = substr($mainFileName, 0, 255); // Pozor na ten limit 30 znakov!
-
-            // 3. Vytvoríme produkt (teraz už obsahuje 'obrazok', takže DB je spokojná)
+            // Vytvoreny obrazok pridam do dat produktu
+            $data['obrazok'] = substr($mainFileName, 0, 255);
             $product = Produkt::create($data);
 
-            // 4. Uložíme všetky obrázky do galérie (tabuľka produkt_obrazky)
+            // Do tabulky produkt_obrazky pridame vsetky obrazky
             if (isset($data['obrazky'])) {
                 foreach ($data['obrazky'] as $index => $file) {
                     // Prvý obrázok sme už uložili na disk, ostatné musíme dohrať
                     if ($index === 0) {
                         $fileName = $mainFileName;
                     } else {
+                        // ukladam rovno do storage
                         $fileName = $file->store('', 'public');
                     }
-                    
+                    // do tejto tabulky ukladame aj s storage prefixom
                     $dbPath = 'storage/' . $fileName;
 
                     ProduktObrazok::create([
@@ -57,7 +54,7 @@ class ProductService
     {
         return DB::transaction(function () use ($product, $data) {
             
-            // 1. ZMAZANIE OZNAČENÝCH OBRÁZKOV
+            // Logika mazania 
             if (!empty($data['odstranit_obrazky'])) {
                 $imgsToDelete = ProduktObrazok::whereIn('id', $data['odstranit_obrazky'])->get();
                 foreach ($imgsToDelete as $img) {
@@ -69,16 +66,16 @@ class ProductService
                 }
             }
 
-            // 2. NAHRÁVANIE NOVÝCH OBRÁZKOV
+            // Nahravanie novych obrazkov
             if (isset($data['obrazky']) && count($data['obrazky']) > 0) {
-                // Zistíme, či po mazaní ostal nejaký hlavný obrázok
+                // Handlovanie ak odstranime hlavny obrazok
                 $hasMain = $product->obrazky()->where('hlavny', true)->exists();
 
                 foreach ($data['obrazky'] as $index => $file) {
                     $fileName = $file->store('', 'public');
                     $dbPath = 'storage/' . $fileName;
 
-                    // Ak produkt nemá hlavný obrázok, prvý z nahraných ním bude
+                    // Ak teda mame este nejake obrazky, zvysny obrazok nastavime ako hlavny
                     $isMain = (!$hasMain && $index === 0);
 
                     ProduktObrazok::create([
@@ -88,18 +85,14 @@ class ProductService
                     ]);
 
                     if ($isMain) {
-                        $hasMain = true; // Teraz už hlavný máme
+                        $hasMain = true;
                     }
                 }
             }
-
-            // 3. LOGIKA PRESTAVENIA HLAVNÉHO OBRÁZKA (Ak žiadny nie je určený)
-            // Toto rieši situáciu, keď si zmazal hlavný a nepridal si žiadne nové, 
-            // alebo si len zmazal hlavný a ostali tam staršie vedľajšie obrázky.
+            // Pokracovanie logiky nastavenie 
             $currentMain = $product->obrazky()->where('hlavny', true)->first();
 
             if (!$currentMain) {
-                // Ak nemáme hlavný, skúsime vziať prvý, ktorý v galérii ostal
                 $newMain = $product->refresh()->obrazky()->first(); 
                 
                 if ($newMain) {
@@ -108,17 +101,14 @@ class ProductService
                 }
             }
 
-            // 4. SYNCHRONIZÁCIA DO TABUĽKY 'PRODUKTY'
-            // Ak máme nejaký hlavný obrázok v galérii, jeho názov musí byť v $product->obrazok
+            // Uprava noveho hlavneho obrazku aj pre produkt (pre zvysok stranky)
             if ($currentMain) {
                 $fileNameOnly = str_replace('storage/', '', $currentMain->cesta);
                 $data['obrazok'] = substr($fileNameOnly, 0, 255);
             } else {
-                // Ak produkt nemá absolútne žiaden obrázok (všetko zmazané)
-                $data['obrazok'] = 'default.jpg'; // Alebo iná hodnota, ktorú tvoja DB akceptuje
+                $data['obrazok'] = 'default.jpg';
             }
 
-            // 5. FINÁLNY UPDATE PRODUKTU
             $product->update($data);
 
             return $product;
@@ -128,19 +118,18 @@ class ProductService
     public function deleteProduct(Produkt $product)
     {
         return DB::transaction(function () use ($product) {
-            // 1. Najprv si uložíme cesty k súborom do poľa, kým produkt ešte existuje
+            // Kedze najprv mazeme produkt, az potom jeho obrazky, potrebujeme si ulozit ake vsetky obrazky mal
             $cestyNaZmazanie = $product->obrazky->pluck('cesta')->toArray();
 
             try {
-                // 2. Skúsime vymazať produkt z DB
-                // Ak je v košíku a nemáš nastavené cascade delete v košiku, tu to hodí Exception
+                // Vymazanie produktu, ktore moze vyhodit error
                 $product->delete();
             } catch (QueryException $e) {
-                // Ak nastane chyba (napr. Foreign Key), transakcia sa zruší a k mazaniu súborov nedôjde
+                // Ak je produkt v kosiku alebo v objednavke vyhodim errror 
                 throw new \Exception("Produkt nie je možné vymazať, pretože sa nachádza v objednávke alebo košíku.");
             }
 
-            // 3. AŽ TERAZ, keď produkt v DB už nie je, zmažeme súbory z disku
+            // A teraz, ked produkt nie je v DB vymazeme jeho obrazky
             foreach ($cestyNaZmazanie as $cesta) {
                 $fullPath = public_path($cesta);
                 if (File::exists($fullPath)) {
