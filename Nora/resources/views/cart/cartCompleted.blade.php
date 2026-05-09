@@ -26,7 +26,7 @@
             <div class="col-12 col-md-4">
                 <div class="card text-center border-secondary">
                     <div class="card-body smaller-text">
-                        <h2 class="card-title fw-bold">619574558</h2>
+                        <h2 class="card-title fw-bold">{{ $order->id }}</h2>
                         <p class="card-text text-muted">č. Objednávky</p>
                     </div>
                 </div>

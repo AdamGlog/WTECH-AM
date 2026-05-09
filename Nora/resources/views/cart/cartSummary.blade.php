@@ -49,11 +49,15 @@
             <!--Údaje kupujúceho-->
             <div class="col-12 col-md-4 mb-3">
                 <h4>Dodacie údaje</h4>
-                <p><span class="highlight">Meno:   </span>Jožko</p>
-                <p><span class="highlight">Priezvisko:   </span>Mrkvička</p>
-                <p><span class="highlight">Ulica:   </span>Športová 1078/45</p>
-                <p><span class="highlight">Mesto:   </span>Snina 069 01</p>
-                <p><span class="highlight">Krajina:   </span>Slovensko</p>
+                <p><span class="highlight">Meno:   </span>{{ $checkout['adresa']['meno'] }}</p>
+                <p><span class="highlight">Priezvisko:   </span>{{ $checkout['adresa']['priezvisko'] }}</p>
+                <p><span class="highlight">Tel.: </span>{{ $checkout['adresa']['tel_cislo'] }}</p>
+                <p><span class="highlight">Ulica:   </span>{{ $checkout['adresa']['ulica'] }} {{ $checkout['adresa']['cislo_domu'] }}</p>
+                <p><span class="highlight">Mesto:   </span>{{ $checkout['adresa']['psc'] }} {{ $checkout['adresa']['mesto'] }}</p>
+                <p><span class="highlight">Krajina:   </span>{{ $checkout['adresa']['krajina'] }}</p>
+                <hr>
+                <p><span class="highlight">Doprava: </span>{{ $checkout['typ_dorucenia'] }}</p>
+                <p><span class="highlight">Platba: </span>{{ $checkout['typ_platby'] }}</p>
             </div>
             <!--Zoznam produktov-->
             <div class="col-12 col-md-8 gap-3 mb-2">
@@ -81,13 +85,13 @@
                 @endif
             </div>
             <!-- Pokračovať a Vrátiť sa-->
-            <div class="d-flex justify-content-between mt-2">
-                <a href="/cartData">
-                    <button class="btn cart-back">Vrátiť sa</button>
-                </a>
-                <a href="/cartCompleted">
+            <form method="POST" action="/cartSummary">
+                @csrf
+                <div class="d-flex justify-content-between mt-2">
+                    <a href="/cartData">
+                        <button class="btn cart-back">Vrátiť sa</button>
+                    </a>
                     <button class="btn cart-pokracovat ms-4">Záväzne objednať</button>
-                </a>
             </div>
         </div>
     </div>
