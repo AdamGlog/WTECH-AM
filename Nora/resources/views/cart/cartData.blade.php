@@ -46,61 +46,91 @@
                     <span class="step-label">Sumár</span>
                 </div>
             </div>
-            <div class="row">
-               <div class="col-12 col-md-5">
-                    <div class="mb-3">
-                        <label for="meno" class="form-label">Meno</label>
-                        <input type="text" class="form-control" id="meno">
+            <form method="POST" action="/cartData">
+                @csrf
+                <div class="row">
+                    <div class="col-12 col-md-5">
+                        <div class="mb-3">
+                            <label for="meno" class="form-label">Meno</label>
+                            <input type="text" name="meno" class="form-control" value="{{ old('meno', $prefill['meno']) }}">
+                            @error('meno') 
+                            <div class="text-danger small">
+                                {{ $message }}
+                            </div> 
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="priezvisko" class="form-label">Priezvisko</label>
+                            <input type="text" name="priezvisko" class="form-control" value="{{ old('priezvisko', $prefill['priezvisko']) }}">
+                            @error('priezvisko') 
+                            <div class="text-danger small">
+                                {{ $message }}
+                            </div> 
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="tel-cislo" class="form-label">Telefónne číslo</label>
+                            <input type="text" name="tel_cislo" class="form-control" value="{{ old('tel_cislo', $prefill['tel_cislo']) }}">
+                            @error('tel_cislo') 
+                            <div class="text-danger small">
+                                {{ $message }}
+                            </div> 
+                            @enderror
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="priezvisko" class="form-label">Priezvisko</label>
-                        <input type="text" class="form-control" id="priezvisko">
-                    </div>
-                    <div class="mb-3">
-                        <label for="tel-cislo" class="form-label">Telefónne číslo</label>
-                        <input type="text" class="form-control" id="tel-cislo">
-                    </div>
-                </div>
-                <div class="col-12 col-md-5">
-                    <div class="mb-3">
-                        <label for="ulica" class="form-label">Ulica</label>
-                        <input type="text" class="form-control" id="meno">
-                    </div>
-                    <div class="mb-3">
-                        <label for="mesto" class="form-label">Mesto</label>
-                        <input type="text" class="form-control" id="priezvisko">
-                    </div>
-                    <div class = "mb-3">
+                    <div class="col-12 col-md-5">
+                        <div class="mb-3">
+                            <label for="ulica" class="form-label">Ulica</label>
+                            <input type="text" name="ulica" class="form-control" value="{{ old('ulica', $prefill['ulica']) }}">
+                            @error('ulica')
+                            <div class="text-danger small">
+                                {{ $message }}
+                            </div> 
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="mesto" class="form-label">Mesto</label>
+                            <input type="text" name="mesto" class="form-control" value="{{ old('mesto', $prefill['mesto']) }}">
+                            @error('mesto') 
+                            <div class="text-danger small">
+                                {{ $message }}
+                            </div> 
+                            @enderror                        
+                        </div>
+                        <div class = "mb-3">
                             <label for="krajina" class="form-label">Krajina</label>
-                            <select class="form-select" aria-label="Default select example">
-                            <option selected>Výber krajiny</option>
-                            <option value="1">Slovensko</option>
-                            <option value="2">Česko</option>
-                            <option value="3">Poľsko</option>
+                            <select class="form-select" aria-label="Default select example" name="krajina">
+                                <option selected option value="">Výber krajiny</option>
+                                <option value="Slovensko" {{ old('krajina', $prefill['krajina']) == 'Slovensko' ? 'selected' : '' }}>Slovensko</option>
+                                <option value="Česko" {{ old('krajina', $prefill['krajina']) == 'Česko' ? 'selected' : '' }}>Česko</option>
+                                <option value="Poľsko" {{ old('krajina', $prefill['krajina']) == 'Poľsko' ? 'selected' : '' }}>Poľsko</option>
                             </select>
+                            @error('krajina') <div class="text-danger small">{{ $message }}</div> @enderror
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <div class="mb-3">
+                            <label for="cislo-domu" class="form-label">Číslo domu</label>
+                            <input type="text" name="cislo_domu" class="form-control" value="{{ old('cislo_domu', $prefill['cislo_domu']) }}">
+                            @error('cislo_domu') 
+                            <div class="text-danger small">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="psc" class="form-label">PSČ</label>
+                            <input type="text" name="psc" class="form-control" value="{{ old('psc', $prefill['psc']) }}">
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-2">
-                    <div class="mb-3">
-                        <label for="cislo-domu" class="form-label">Číslo domu</label>
-                        <input type="text" class="form-control" id="meno">
-                    </div>
-                    <div class="mb-3">
-                        <label for="psc" class="form-label">PSČ</label>
-                        <input type="text" class="form-control" id="priezvisko">
-                    </div>
-                    <div class="mb-3 mt-5"><button class="btn btn-secondary  w-100">Vyplniť info z profilu</button></div>
-                    
+                <div class="d-flex justify-content-between mt-2">
+                    <a href="/cartShipment">
+                        <button type="button" class="btn cart-back">Vrátiť sa</button>
+                    </a>
+                    <button type="submit" class="btn cart-pokracovat">Pokračovať</button>
                 </div>
-            </div>
-            <div class="d-flex justify-content-between mt-2">
-                <a href="/cartShipment">
-                    <button class="btn cart-back">Vrátiť sa</button>
-                </a>
-                <a href="/cartSummary">
-                    <button class="btn cart-pokracovat">Pokračovať</button>
-                </a>
-            </div>
+            </form>
         </div>
     </div>
 

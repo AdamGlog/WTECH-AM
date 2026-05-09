@@ -29,15 +29,11 @@ Route::post('/kosik/cart', [CartController::class, 'pridat']);
 Route::post('/kosik/update', [CartController::class, 'aktualizovat']);
 Route::get('/cartShipment', [CartController::class, 'zobrazDoprava']);
 Route::post('/cartShipment', [CartController::class, 'ulozDoprava']);
-Route::get('/cartData', function () {
-    return view('cart/cartData');
-});
-Route::get('/cartSummary', function () {
-    return view('cart/cartSummary');
-});
-Route::get('/cartCompleted', function () {
-    return view('cart/cartCompleted');
-});
+Route::get('/cartData', [CartController::class, 'zobrazData']);
+Route::post('/cartData', [CartController::class, 'ulozData']);
+Route::get('/cartSummary', [CartController::class, 'zobrazSumar']);
+Route::post('/cartSummary', [CartController::class, 'vytvorObjednavku']);
+Route::get('/cartCompleted/{id}', [CartController::class, 'zobrazDokoncenie']);
 
 Route::post('/wishlist/add', [AuthController::class, 'addToWishlist'])->middleware('auth');
 
