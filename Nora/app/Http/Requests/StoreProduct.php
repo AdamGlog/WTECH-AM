@@ -26,6 +26,7 @@ class StoreProduct extends FormRequest
             'meno' => 'required|string|max:255',
             'kategoria_id' => 'required|integer',
             'cena' => 'required|numeric',
+            'hodnotenie' => 'nullable|numeric|between:0,5',
             'pocet_na_sklade' => 'required|integer',
             'popis' => 'nullable|string',
             'info' => 'nullable|string',

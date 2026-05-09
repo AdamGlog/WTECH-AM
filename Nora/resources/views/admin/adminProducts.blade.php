@@ -58,6 +58,7 @@
                         <th>Kategória</th>
                         <th>Typ</th>
                         <th>Cena</th>
+                        <th>Hodnotenie</th>
                         <th>Skladom</th>
                         <th>Funkcie</th>
                     </tr>
@@ -72,14 +73,17 @@
                         <td>{{ $product->category->meno ?? 'Bez kategórie' }}</td>
                         <td>{{ $product->typ }}</td>
                         <td>{{ number_format($product->cena, 2, ',', ' ') }}€</td>
+                        <td>{{ $product->hodnotenie }}</td>
                         <td>{{ $product->pocet_na_sklade }}</td>
-                        <td class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product-{{ $product->id }}">
-                                <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
-                            <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product-{{ $product->id }}">
-                                <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
-                            </button>
+                        <td>
+                            <div class="d-flex justify-content-center gap-1">
+                                <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-product-{{ $product->id }}">
+                                    <img src="../resources/EditWhite.svg" class="table-function-buttons-icons"/>
+                                </button>
+                                <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-product-{{ $product->id }}">
+                                    <img src="../resources/DeleteWhite.svg" class="table-function-buttons-icons"/>
+                                </button>
+                            </div>
                         </td>
                     </tr>
                     @empty
@@ -154,6 +158,13 @@
                             <input type="number" name="pocet_na_sklade" class="form-control" value="0">
                         </div>
                     </div>
+                    <!-- Pridanie hodnotenia pre produkt -->
+                    <div class="mb-3">
+                        <label for="hodnotenie" class="form-label">Hodnotenie (0 - 5)</label>
+                        <input type="number" class="form-control" name="hodnotenie" id="hodnotenie" 
+                            step="0.1" min="0" max="5" placeholder="Napr. 4.5" value="{{ old('hodnotenie') }}">
+                        <div class="form-text">Zadajte hodnotenie produktu. Povolené je jedno desatinné miesto.</div>
+                    </div>
                     <!-- Pridanie obrazkov pre produkt -->
                     <div class="mb-3">
                         <label class="form-label">Nahrať obrázky</label>
@@ -224,6 +235,12 @@
                                 <label class="form-label">Množstvo na sklade</label>
                                 <input type="number" name="pocet_na_sklade" class="form-control" value="{{ $product->pocet_na_sklade }}">
                             </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="hodnotenie_{{ $product->id }}" class="form-label">Hodnotenie (0 - 5)</label>
+                            <input type="number" class="form-control" name="hodnotenie" id="hodnotenie_{{ $product->id }}" 
+                                step="0.1" min="0" max="5" value="{{ old('hodnotenie', $product->hodnotenie) }}">
                         </div>
 
                         <div class="mb-3">

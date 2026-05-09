@@ -8,7 +8,8 @@ class KosikPolozka extends Model
 {
     protected $table = 'kosik_polozka';
     protected $fillable = ['kosik_id', 'produkt_id', 'pocet_ks'];
-
+    public $timestamps = false; //nevyuzivame createdAt a updatedAt
+    
     public function produkt()
     {
         return $this->belongsTo(Produkt::class, 'produkt_id');

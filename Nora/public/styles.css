@@ -8,8 +8,8 @@
     background-image: url("./resources/Background.webp");
     background-size: cover;
     background-position: center;
-    /* background-repeat: no-repeat; */
-    /* background-attachment: fixed; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .our-buttons {
     background-color: #81CAFB;

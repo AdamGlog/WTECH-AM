@@ -27,9 +27,8 @@ Route::get('/cart', function () {
 });
 Route::post('/kosik/cart', [CartController::class, 'pridat']);
 Route::post('/kosik/update', [CartController::class, 'aktualizovat']);
-Route::get('/cartShipment', function () {
-    return view('cart/cartShipment');
-});
+Route::get('/cartShipment', [CartController::class, 'zobrazDoprava']);
+Route::post('/cartShipment', [CartController::class, 'ulozDoprava']);
 Route::get('/cartData', function () {
     return view('cart/cartData');
 });
@@ -40,19 +39,16 @@ Route::get('/cartCompleted', function () {
     return view('cart/cartCompleted');
 });
 
+Route::post('/wishlist/add', [AuthController::class, 'addToWishlist'])->middleware('auth');
 
 // Profile
 Route::get('/profileOverview', [AuthController::class, 'profile'])->middleware('auth');
 Route::get('/profileOrders', [AuthController::class, 'showOrders'])->middleware('auth');
-Route::get('/profileFavourites', function () {
-    return view('profile/profileFavourites');
-})->middleware('auth');
-Route::get('/profileData', function () {
-    return view('profile/profileData');
-})->middleware('auth');
-Route::get('/profilePrivacy', function () {
-    return view('profile/profilePrivacy');
-});
+Route::get('/profileFavourites', [AuthController::class, 'showFavorites'])->middleware('auth');
+Route::post('/wishlist/remove/{id}', [AuthController::class, 'removeFromWishlist'])->middleware('auth');
+Route::get('/profileData', [AuthController::class, 'showProfileData'])->middleware('auth');
+Route::post('/profileData', [AuthController::class, 'updateDetails'])->middleware('auth');
+Route::get('/profilePrivacy', [AuthController::class, 'showProfilePrivateData'])->middleware('auth');
 Route::post('/profilePrivacy', [AuthController::class, 'updatePassword'])->middleware('auth');
 Route::post('/profilePrivacy/newsletter', [AuthController::class, 'updateNewsletterSession'])->middleware('auth');
 

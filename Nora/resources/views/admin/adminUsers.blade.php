@@ -88,13 +88,15 @@
                                     <span class="badge bg-secondary">Zákazník</span>
                                 @endif
                             </td>
-                            <td class="d-flex justify-content-center gap-1">
-                                <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-user-{{ $user->id }}">
-                                    <img src="{{ asset('resources/EditWhite.svg') }}" class="table-function-buttons-icons"/>
-                                </button>
-                                <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-user-{{ $user->id }}">
-                                    <img src="{{ asset('resources/DeleteWhite.svg') }}" class="table-function-buttons-icons"/>
-                                </button>
+                            <td>
+                                <div class="d-flex justify-content-center gap-1">
+                                    <button type="button" class="btn btn-primary table-function-buttons" data-bs-toggle="modal" data-bs-target="#edit-user-{{ $user->id }}">
+                                        <img src="{{ asset('resources/EditWhite.svg') }}" class="table-function-buttons-icons"/>
+                                    </button>
+                                    <button type="button" class="btn btn-danger table-function-buttons" data-bs-toggle="modal" data-bs-target="#delete-user-{{ $user->id }}">
+                                        <img src="{{ asset('resources/DeleteWhite.svg') }}" class="table-function-buttons-icons"/>
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

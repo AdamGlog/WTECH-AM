@@ -21,7 +21,6 @@ class User extends Authenticatable
 
     public $timestamps = true;
 
-
     /**
      * Typy atribútov (casting) meni zo stringov na ine datove typy
      */
@@ -73,5 +72,11 @@ class User extends Authenticatable
     public function orders()
     {
         return $this->hasMany(Order::class, 'user_id');
+    }
+
+    public function wishlist()
+    {
+        //pouzivatelov wishlist
+        return $this->hasOne(Wishlist::class, 'user_id');
     }
 }
