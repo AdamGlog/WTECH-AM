@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('objednavka_polozka', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained('objednavky');
-            $table->foreignId('product_id')->constrained('produkty');
+            $table->foreignId('product_id')->constrained('produkty')->onDelete('cascade');
             $table->integer('pocet');
             $table->timestamps();
         });

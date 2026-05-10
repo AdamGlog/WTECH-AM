@@ -46,6 +46,14 @@ return [
             'throw' => false,
             'report' => false,
         ],
+        // pridane pre ukladanie obrazkov rovno do public/storage
+        'public_uploads' => [
+            'driver' => 'local',
+            'root' => public_path('storage'), 
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
 
         's3' => [
             'driver' => 's3',

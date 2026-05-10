@@ -21,6 +21,48 @@ class CartController extends Controller
             ['posledny_update' => now()->toDateString()]
         );
     }
+    // Zabezpecenie refreshu produktov v kosiku
+    public function list()
+    {
+        $cart = session()->get('cart', []);
+
+        if (!empty($cart)) {
+            $productIds = array_keys($cart);
+            
+            // Beriem z db len to co existuje
+            $existujuceProdukty = Produkt::whereIn('id', $productIds)->get()->keyBy('id');
+
+            $aktualizovanyCart = [];
+            $zmena = false;
+
+            foreach ($cart as $id => $item) {
+                if ($existujuceProdukty->has($id)) {
+                    // Volam aj refresh, aby sa zobrazovali zmeny ceny atd
+                    $produkt = $existujuceProdukty[$id];
+                    $aktualizovanyCart[$id] = $item;
+                    $aktualizovanyCart[$id]['cena'] = $produkt->cena;
+                    $aktualizovanyCart[$id]['meno'] = $produkt->meno;
+                    $aktualizovanyCart[$id]['image'] = $produkt->obrazok;
+                } else {
+                    // Produkt bol z DB vymazany, nema preco byt v session
+                    $zmena = true;
+                }
+            }
+
+            if ($zmena) {
+                session()->put('cart', $aktualizovanyCart);
+                $cart = $aktualizovanyCart;
+
+                // Update aj pre uzivatela 
+                if (Auth::check()) {
+                    $kosik = $this->vytvoritAleboGetKosik();
+                    $this->syncSessionDoDB($kosik->id);
+                }
+            }
+        }
+
+        return view('cart/cart', compact('cart'));
+    }
 
     //pomocna funkcia na synchronizaciu session s databazou
     public function syncSessionDoDB(int $kosikId)

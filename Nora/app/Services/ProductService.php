@@ -18,7 +18,7 @@ class ProductService
             $mainFileName = 'default.jpg';
             // Laravel generuje nahodne nazvy, kedze ho chcem priradit aj pre produkt, musim ho najprv storenut
             if (isset($data['obrazky']) && count($data['obrazky']) > 0) {
-                $mainFileName = $data['obrazky'][0]->store('', 'public');
+                $mainFileName = $data['obrazky'][0]->store('', 'public_uploads');
             }
 
             // Vytvoreny obrazok pridam do dat produktu
@@ -33,7 +33,7 @@ class ProductService
                         $fileName = $mainFileName;
                     } else {
                         // ukladam rovno do storage
-                        $fileName = $file->store('', 'public');
+                        $fileName = $file->store('', 'public_uploads');
                     }
                     // do tejto tabulky ukladame aj s storage prefixom
                     $dbPath = 'storage/' . $fileName;
@@ -72,7 +72,7 @@ class ProductService
                 $hasMain = $product->obrazky()->where('hlavny', true)->exists();
 
                 foreach ($data['obrazky'] as $index => $file) {
-                    $fileName = $file->store('', 'public');
+                    $fileName = $file->store('', 'public_uploads');
                     $dbPath = 'storage/' . $fileName;
 
                     // Ak teda mame este nejake obrazky, zvysny obrazok nastavime ako hlavny

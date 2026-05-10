@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kosik_polozka', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kosik_id')->constrained('kosik')->onDelete('cascade');
-            $table->foreignId('produkt_id')->constrained('produkty');
+            $table->foreignId('produkt_id')->constrained('produkty')->onDelete('cascade');
             $table->integer('pocet_ks');
         });
     }

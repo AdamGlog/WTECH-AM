@@ -22,9 +22,7 @@ Route::get('/vsetky', [CategoryController::class, 'vsetky']);
 
 
 // Cart
-Route::get('/cart', function () {
-    return view('cart/cart');
-});
+Route::get('/cart', [CartController::class, 'list']);
 Route::post('/kosik/cart', [CartController::class, 'pridat']);
 Route::post('/kosik/update', [CartController::class, 'aktualizovat']);
 Route::get('/cartShipment', [CartController::class, 'zobrazDoprava']);
