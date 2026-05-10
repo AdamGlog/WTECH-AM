@@ -19,17 +19,6 @@
     <!-- Oblubene polozky -->
     <div class="container text-center mt-3">
         <h3 class="heading pt-2 ps-2 ms-1 main-headings">Obľúbené položky</h3>
-<<<<<<< HEAD
-        <div class="row justify-content-md-center pt-3 text-center">
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="card">
-                    <img src="{{ asset("storage/TheWichter.webp") }}" class="card-img-top card-image" alt="..." >
-                    <div class="card-body">
-                        <h5 class="card-title">The Wichter: The Legend of Regalt</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                        <a href="../productPage.html" class="btn btn-secondary our-buttons">Stránka Produktu</a>
-                        <a href="" class="btn btn-danger">X</a>
-=======
         @if($produkty->isEmpty())
             <p class="smaller-text">Wishlist je prázdny.</p>
         @else
@@ -53,35 +42,9 @@
                                 </div>
                             </div>
                         </div>
->>>>>>> ce4accb0ccac039ba064e4efbd07c378ee69ffa0
                     </div>
                 @endforeach
             </div>
-<<<<<<< HEAD
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="card">
-                    <img src="{{ asset("storage/PathOfFiitkar.webp") }}" class="card-img-top card-image" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Path of Fiitkar</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                        <a href="" class="btn btn-secondary our-buttons">Stránka Produktu</a>
-                        <a href="" class="btn btn-danger">X</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4">
-                <div class="card">
-                    <img src="{{ asset("storage/CyberBug.webp") }}" class="card-img-top card-image" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">CyberBug 2067</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                        <a href="" class="btn btn-secondary our-buttons">Stránka Produktu</a>
-                        <a href="" class="btn btn-danger">X</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-=======
         @endforeach
     @endif
     </div>
@@ -103,7 +66,6 @@
                 </li>
             </ul>
         </nav>
->>>>>>> ce4accb0ccac039ba064e4efbd07c378ee69ffa0
     </div>
 
     <!-- Paticka -->
