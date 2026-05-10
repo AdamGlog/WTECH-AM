@@ -85,13 +85,14 @@
                 @endif
             </div>
             <!-- Pokračovať a Vrátiť sa-->
-            <form method="POST" action="/cartSummary">
-                @csrf
-                <div class="d-flex justify-content-between mt-2">
-                    <a href="/cartData">
-                        <button class="btn cart-back">Vrátiť sa</button>
-                    </a>
+            <div class="d-flex justify-content-between mt-2">
+                <a href="/cartData">
+                    <button class="btn cart-back">Vrátiť sa</button>
+                </a>
+                <form method="POST" action="/cartSummary">
+                    @csrf
                     <button class="btn cart-pokracovat ms-4">Záväzne objednať</button>
+                </form>
             </div>
         </div>
     </div>
