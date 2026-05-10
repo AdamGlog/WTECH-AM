@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('objednavky', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('pouzivatelia');
+            $table->foreignId('user_id')->nullable()->constrained('pouzivatelia');
             $table->enum('typ_platby', array_column(TypPlatby::cases(), 'value'));
             $table->enum('stav', array_column(StavObjednavky::cases(), 'value'))->default(StavObjednavky::NOVA->value);
             $table->enum('typ_dorucenia', array_column(TypDorucenia::cases(), 'value'));
