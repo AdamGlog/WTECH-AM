@@ -158,11 +158,11 @@
                             <div class="col-md-6 mb-3">
                                 <label for="typ_clena" class="form-label">Typ členstva (Zľava)</label>
                                 <select class="form-select" name="typ_clena" id="typ_clena">
-                                    <option value="1" {{ $user->typ_clena == 1 ? 'selected' : '' }}>klasický</option>
-                                    <option value="2" {{ $user->typ_clena == 2 ? 'selected' : '' }}>lepší</option>
-                                    <option value="3" {{ $user->typ_clena == 3 ? 'selected' : '' }}>pravidelný</option>
-                                    <option value="4" {{ $user->typ_clena == 4 ? 'selected' : '' }}>profesionálny</option>
-                                    <option value="5" {{ $user->typ_clena == 5 ? 'selected' : '' }}>legendárny</option>
+                                    <option value="1" {{ $user->typ_clena == 1 ? 'selected' : '' }}>Copper</option>
+                                    <option value="2" {{ $user->typ_clena == 2 ? 'selected' : '' }}>Iron</option>
+                                    <option value="3" {{ $user->typ_clena == 3 ? 'selected' : '' }}>Gold</option>
+                                    <option value="4" {{ $user->typ_clena == 4 ? 'selected' : '' }}>Diamant</option>
+                                    <option value="5" {{ $user->typ_clena == 5 ? 'selected' : '' }}>Netherite</option>
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
